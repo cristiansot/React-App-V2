@@ -35,6 +35,19 @@ const greenPaprika = [60, 16, 0.5, 0.1, 3.9]
 const cabbage = [50, 12, 0.6, 0.1, 2.7];
 
 /* Fruts */
+const olives = [55, 64, 0.8, 7, 0.7];
+const cherries = [90, 65, 1.1, 0.9, 14.9];
+const custardApple = [90, 50, 2.6, 0.5, 10.5];
+const plums = [110, 61, 0.9, 0.7, 14.3];
+const peach = [130, 56, 0.9, 0.1, 14.4];
+const strawberries = [100, 30, 0.6, 0.3, 7];
+const apple = [100, 59, 0.2, 0.4, 15];
+const melon = [180, 63, 1.6, 0.5, 15];
+const orange = [120, 56, 1.1, 0.1, 14];
+const pear = [100, 59, 0.4, 0.4, 15];
+const pineapple = [120, 59, 0.5, 0.5, 15];
+const waterMelon = [100, 32, 0.6, 0.4, 7];
+const grapes = [90, 57, 0.6, 0.3, 15];
 
 /* Dairy */
 
@@ -114,8 +127,38 @@ function AddFoodForm({ addFood }) {
       vegetablePromise = Promise.resolve([]);
     }
 
-    Promise.all([cerealPromise, vegetablePromise])
-      .then(([cerealResult, vegetableResult]) => {
+    if (data.fuit === 'olives') {
+      fruitPromise = fetchFoodData(olives);
+    } else if (data.fruit === 'cherries') {
+      fruitPromise = fetchFoodData(cherries);
+    } else if (data.fruit === 'custardApple') {
+      fruitPromise = fetchFoodData(custardApple);
+    } else if (data.fruit === 'plums') {
+      fruitPromise = fetchFoodData(plums);
+    } else if (data.fruit === 'peach') {
+      fruitPromise = fetchFoodData(peach);
+    } else if (data.fruit === 'strawberries') {
+      fruitPromise = fetchFoodData(strawberries);
+    } else if (data.fruit === 'apple') {
+      fruitPromise = fetchFoodData(apple);
+    } else if (data.fruit === 'melon') {
+      fruitPromise = fetchFoodData(melon);
+    } else if (data.fruit === 'orange') {
+      fruitPromise = fetchFoodData(orange);
+    } else if (data.fruit === 'pear') {
+      fruitPromise = fetchFoodData(pear);
+    } else if (data.fruit === 'pineapple') {
+      fruitPromise = fetchFoodData(pineapple);
+    } else if (data.fruit === 'waterMelon') {
+      fruitPromise = fetchFoodData(waterMelon);
+    } else if (data.fruit === 'grapes') {
+      fruitPromise = fetchFoodData(grapes);
+    } else {
+      fruitPromise = Promise.resolve([]);
+    }
+
+    Promise.all([cerealPromise, vegetablePromise, fruitPromise])
+      .then(([cerealResult, vegetableResult, fruitResult]) => {
         const portion1 = parseInt(data.portion1) || 1;
         const portion2 = parseInt(data.portion2) || 1;
         const portion3 = parseInt(data.portion3) || 1;
@@ -131,6 +174,8 @@ function AddFoodForm({ addFood }) {
           cerealArray: cerealResult.map(value => value * portion1),
           vegetableName: data.vegetable,
           vegetableArray: vegetableResult.map(value => value * portion2),
+          fruitName: data.fruit,
+          fruitArray: fruitResult.map(value => value * portion3),
         };
 
         console.log(newFood);
@@ -179,7 +224,7 @@ function AddFoodForm({ addFood }) {
 
       <label>Select a cereal</label>
       <select {...register('cereal')}>
-        <option value="empty">Select a cereal</option>
+        <option value="empty">Select a Cereal</option>
         <option value="oatmeal">Oatmeal</option>
         <option value="integralRice">Integral Rice</option>
         <option value="rice">Rice</option>
@@ -194,7 +239,7 @@ function AddFoodForm({ addFood }) {
 
       <label>Select a vegetable</label>
       <select {...register('vegetable')}>
-        <option value="empty">Select a vegetable</option>
+        <option value="empty">Select a Vegetable</option>
         <option value="beet">Beet</option>
         <option value="broccoli">Broccoli</option>
         <option value="mushrooms">Mushrooms</option>
@@ -211,9 +256,27 @@ function AddFoodForm({ addFood }) {
         <option value="redPaprika">Red Paprika</option>
         <option value="greenPaprika">Green Paprika</option>
         <option value="cabbage">Cabbage</option>
-
       </select>
       <input type="number" {...register('portion2')} defaultValue="1" className="portion" />
+
+      <label>Select a fruit</label>
+      <select {...register('fruit')}>
+        <option value="empty">Select a Fruit</option>
+        <option value="olives">Olives</option>
+        <option value="cherries">Cherries</option>
+        <option value="custardApple">Custard Apple</option>
+        <option value="plums">Plums</option>
+        <option value="peach">Peach</option>
+        <option value="strawberries">Strawberries</option>
+        <option value="apple">Apple</option>
+        <option value="melon">Melon</option>
+        <option value="orange">Orange</option>
+        <option value="pear">Pear</option>
+        <option value="pineapple">Pinapple</option>
+        <option value="waterMelon">Watermelon</option>
+        <option value="grapes">Grapes</option>
+      </select>
+      <input type="number" {...register('portion3')} defaultValue="1" className="portion" />
 
       <button className="submit" type="submit">
         Submit
