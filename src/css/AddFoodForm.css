@@ -1,0 +1,21 @@
+.contentForm {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+}
+
+.contentForm input {
+    width: 300px;
+    height: 30px;
+}
+
+.contentForm select {
+    width: 308px;
+    height: 30px;
+}
+
+.contentForm button {
+    width: 308px;
+    height: 30px;
+}

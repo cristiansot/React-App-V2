@@ -1,9 +1,10 @@
+import AddFoodForm from './components/AddFoodForm';
 import './css/App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <AddFoodForm />
     </div>
   );
 }
