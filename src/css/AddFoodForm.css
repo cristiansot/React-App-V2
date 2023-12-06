@@ -1,21 +1,60 @@
+form {
+    margin: 0;
+    padding: 0;;
+}
+
 .contentForm {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
+    ;
+}
+#dateContent {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+}
+
+#date {
+    width: 200px;
+}
+
+#cereal {
+    display: flex;
+    column-gap: 10px;
+}
+
+#vegetable {
+    display: flex;
+    column-gap: 10px;
+}
+
+#fruit {
+    display: flex;
+    column-gap: 10px;
+}
+
+#quantity {
+    width: 30px;
 }
 
 .contentForm input {
-    width: 300px;
+    width: 280px;
     height: 30px;
 }
 
 .contentForm select {
-    width: 308px;
-    height: 30px;
+    width: 260px;
+    height: 36px;
 }
 
 .contentForm button {
     width: 308px;
     height: 30px;
+}
+
+.portion {
+    width: 28px;
 }

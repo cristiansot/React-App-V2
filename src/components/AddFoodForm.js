@@ -219,64 +219,69 @@ function AddFoodForm({ addFood }) {
   return (
     <form className="contentForm" onSubmit={onSubmit}>
       <h1>Nutrition log</h1>
-      <label>Select a date</label>
-      <input type="date" {...register('date')} />
-
-      <label>Select a cereal</label>
-      <select {...register('cereal')}>
-        <option value="empty">Select a Cereal</option>
-        <option value="oatmeal">Oatmeal</option>
-        <option value="integralRice">Integral Rice</option>
-        <option value="rice">Rice</option>
-        <option value="noodles">Noodles</option>
-        <option value="bread">Bread</option>
-        <option value="wholemealBread">Wholemeal Bread</option>
-        <option value="cookedCorn">Cooked Corn</option>
-        <option value="cookedPotato">Cooked Potato</option>
-        <option value="cornFlakes">Corn Flakes</option>
-      </select>
-      <input type="number" {...register('portion1')} defaultValue="1" className="portion" />
-
-      <label>Select a vegetable</label>
-      <select {...register('vegetable')}>
-        <option value="empty">Select a Vegetable</option>
-        <option value="beet">Beet</option>
-        <option value="broccoli">Broccoli</option>
-        <option value="mushrooms">Mushrooms</option>
-        <option value="cauliflower">Cauliflower</option>
-        <option value="asparagus">Asparagus</option>
-        <option value="spinach">Spinach</option>
-        <option value="pickles">Pickles</option>
-        <option value="greenBeans">Green Beans</option>
-        <option value="tomatoSauce">Tomato Sauce</option>
-        <option value="carrot">Carrot</option>
-        <option value="pumpkin">Pumpkin</option>
-        <option value="celery">Celery</option>
-        <option value="lettuce">Lettuce</option>
-        <option value="redPaprika">Red Paprika</option>
-        <option value="greenPaprika">Green Paprika</option>
-        <option value="cabbage">Cabbage</option>
-      </select>
-      <input type="number" {...register('portion2')} defaultValue="1" className="portion" />
-
-      <label>Select a fruit</label>
-      <select {...register('fruit')}>
-        <option value="empty">Select a Fruit</option>
-        <option value="olives">Olives</option>
-        <option value="cherries">Cherries</option>
-        <option value="custardApple">Custard Apple</option>
-        <option value="plums">Plums</option>
-        <option value="peach">Peach</option>
-        <option value="strawberries">Strawberries</option>
-        <option value="apple">Apple</option>
-        <option value="melon">Melon</option>
-        <option value="orange">Orange</option>
-        <option value="pear">Pear</option>
-        <option value="pineapple">Pinapple</option>
-        <option value="waterMelon">Watermelon</option>
-        <option value="grapes">Grapes</option>
-      </select>
-      <input type="number" {...register('portion3')} defaultValue="1" className="portion" />
+      <div id='dateContent'>
+        <label>Select a date</label>
+        <input type="date" id='date' {...register('date')} />
+      </div>
+      
+      <div id='cereal'>
+        <select {...register('cereal')}>
+          <option value="empty">Select a Cereal</option>
+          <option value="oatmeal">Oatmeal</option>
+          <option value="integralRice">Integral Rice</option>
+          <option value="rice">Rice</option>
+          <option value="noodles">Noodles</option>
+          <option value="bread">Bread</option>
+          <option value="wholemealBread">Wholemeal Bread</option>
+          <option value="cookedCorn">Cooked Corn</option>
+          <option value="cookedPotato">Cooked Potato</option>
+          <option value="cornFlakes">Corn Flakes</option>
+        </select>
+        <input type="number" {...register('portion1')} defaultValue="1" className="portion" id='quantity' />
+      </div>
+     
+      <div id='vegetable'>
+        <select {...register('vegetable')}>
+          <option value="empty">Select a Vegetable</option>
+          <option value="beet">Beet</option>
+          <option value="broccoli">Broccoli</option>
+          <option value="mushrooms">Mushrooms</option>
+          <option value="cauliflower">Cauliflower</option>
+          <option value="asparagus">Asparagus</option>
+          <option value="spinach">Spinach</option>
+          <option value="pickles">Pickles</option>
+          <option value="greenBeans">Green Beans</option>
+          <option value="tomatoSauce">Tomato Sauce</option>
+          <option value="carrot">Carrot</option>
+          <option value="pumpkin">Pumpkin</option>
+          <option value="celery">Celery</option>
+          <option value="lettuce">Lettuce</option>
+          <option value="redPaprika">Red Paprika</option>
+          <option value="greenPaprika">Green Paprika</option>
+          <option value="cabbage">Cabbage</option>
+        </select>
+        <input type="number" {...register('portion2')} defaultValue="1" className="portion" id='quantity' />
+      </div>
+      
+      <div id='fruit'>
+        <select {...register('fruit')}>
+          <option value="empty">Select a Fruit</option>
+          <option value="olives">Olives</option>
+          <option value="cherries">Cherries</option>
+          <option value="custardApple">Custard Apple</option>
+          <option value="plums">Plums</option>
+          <option value="peach">Peach</option>
+          <option value="strawberries">Strawberries</option>
+          <option value="apple">Apple</option>
+          <option value="melon">Melon</option>
+          <option value="orange">Orange</option>
+          <option value="pear">Pear</option>
+          <option value="pineapple">Pinapple</option>
+          <option value="waterMelon">Watermelon</option>
+          <option value="grapes">Grapes</option>
+        </select>
+        <input type="number" {...register('portion3')} defaultValue="1" className="portion" id='quantity' />
+      </div>
 
       <button className="submit" type="submit">
         Submit
