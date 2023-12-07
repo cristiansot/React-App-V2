@@ -63,19 +63,27 @@ const yogurtFruit = [175, 200, 7.2, 4.9, 31.9];
 const custard = [130, 146, 3.8, 2.5, 27.2];
 
 /* Meats */
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
+const beef = [50, 68, 10.9, 2.7, 0.45];
+const mutton = [50, 129, 12.7, 8.2, 0];
+const pork = [50, 146, 12.5, 10.3, 0];
+const lambLiver = [60, 132, 18.3, 5.2, 1.5];
+const ham = [40, 93.2, 6.4, 7.5, 0.1];
+const sausage = [45, 194, 6, 17.4, 3.1];
+const salami = [20, 86, 4.2, 7.5, 0.4];
+const turkeySausage = [40, 89, 5.7, 7, 0.5];
+const trout = [80, 104, 15, 4.8, 0.4];
+const tuna = [50, 144, 10, 11, 0.3];
+const mackerel = [50, 139, 11, 10.5, 0.3];
+const sardine = [50, 154, 10.6, 12.3, 0.3];
+const salmon = [80, 146, 15.9, 8, 0];
+const chikenLeg = [50, 99, 11, 5.7, 0.7];
+const chickenBreast = [50, 65.1, 11, 1.9, 0.8];
+const turkeyLeg = [50, 61, 11, 1.6, 0.6];
+const eggs = [50, 80, 6.7, 5, 2];
+const shrimp = [60, 66, 14.2, 1, 0]
+const oysters = [70, 56, 6.6, 1.6, 3.4];
+const clams = [60, 44.4, 7.6, 0.5, 1.5];
+const lentils = [50, 169, 14, 0.4, 28.4];
 
 /* Oils */
 // const
@@ -233,8 +241,54 @@ function AddFoodForm({ addFood }) {
       dairyPromise = Promise.resolve([]);
     }
 
-    Promise.all([cerealPromise, vegetablePromise, fruitPromise, dairyPromise])
-      .then(([cerealResult, vegetableResult, fruitResult, dairyResult]) => {
+    if (data.meat === 'beef') {
+      meatPromise = fetchFoodData(beef);
+    } else if (data.meat === 'mutton') {
+      meatPromise = fetchFoodData(mutton);
+    } else if (data.meat === 'pork') {
+      meatPromise = fetchFoodData(pork);
+    } else if (data.meat === 'lambLiver') {
+      meatPromise = fetchFoodData(lambLiver);
+    } else if (data.meat === 'ham') {
+      meatPromise = fetchFoodData(ham);
+    } else if (data.meat === 'sausage') {
+      meatPromise = fetchFoodData(sausage);
+    } else if (data.meat === 'salami') {
+      meatPromise = fetchFoodData(salami);
+    } else if (data.meat === 'turkeySausage') {
+      meatPromise = fetchFoodData(turkeySausage);
+    } else if (data.meat === 'trout') {
+      meatPromise = fetchFoodData(trout);
+    } else if (data.meat === 'tuna') {
+      meatPromise = fetchFoodData(tuna);
+    } else if (data.meat === 'mackerel') {
+      meatPromise = fetchFoodData(mackerel);
+    } else if (data.meat === 'sardine') {
+      meatPromise = fetchFoodData(sardine);
+    } else if (data.meat === 'salmon') {
+      meatPromise = fetchFoodData(salmon);
+    } else if (data.meat === 'chickenLeg') {
+      meatPromise = fetchFoodData(chikenLeg);
+    } else if (data.meat === 'chickenBreast') {
+      meatPromise = fetchFoodData(chickenBreast);
+    } else if (data.meat === 'turkeyLeg') {
+      meatPromise = fetchFoodData(turkeyLeg);
+    } else if (data.meat === 'eggs') {
+      meatPromise = fetchFoodData(eggs);
+    } else if (data.meat === 'shrimp') {
+      meatPromise = fetchFoodData(shrimp);
+    } else if (data.meat === 'oysters') {
+      meatPromise = fetchFoodData(oysters);
+    } else if (data.meat === 'clams') {
+      meatPromise = fetchFoodData(clams);
+    } else if (data.meat === 'lentils') {
+      meatPromise = fetchFoodData(lentils);
+    } else {
+      meatPromise = Promise.resolve([]);
+    }
+
+    Promise.all([cerealPromise, vegetablePromise, fruitPromise, dairyPromise, meatPromise])
+      .then(([cerealResult, vegetableResult, fruitResult, dairyResult, meatResult]) => {
         const portion1 = parseInt(data.portion1) || 1;
         const portion2 = parseInt(data.portion2) || 1;
         const portion3 = parseInt(data.portion3) || 1;
@@ -254,6 +308,8 @@ function AddFoodForm({ addFood }) {
           fruitArray: fruitResult.map(value => value * portion3),
           dairyName: data.dairy,
           dairyArray: dairyResult.map(value => value * portion4),
+          meatName: data.meat,
+          meatArray: meatResult.map(value => value * portion5),
         };
 
         console.log(newFood);
@@ -377,6 +433,34 @@ function AddFoodForm({ addFood }) {
           <option value="custard">Custard</option>
         </select>
         <input type="number" {...register('portion4')} defaultValue="1" className="portion" id='quantity' />
+      </div>
+
+      <div id='meat'>
+        <select {...register('meat')}>
+          <option value="empty">Select a Meat</option>
+          <option value="beef">Beef</option>
+          <option value="mutton">Mutton</option>
+          <option value="pork">Pork</option>
+          <option value="lambLiver">Lamb Liver</option>
+          <option value="ham">Ham</option>
+          <option value="sausage">Sausage</option>
+          <option value="salami">Salami</option>
+          <option value="turkeySausage">Turkey Sausage</option>
+          <option value="trout">Trout</option>
+          <option value="tuna">Tuna</option>
+          <option value="mackerel">Mackerel</option>
+          <option value="sardine">Sardine</option>
+          <option value="salmon">Salmon</option>
+          <option value="chickenLeg">Chicken Leg</option>
+          <option value="chickenBreast">Chicken Breast</option>
+          <option value="turkeyLeg">Turkey Leg</option>
+          <option value="eggs">Eggs</option>
+          <option value="shrimp">Shrimp</option>
+          <option value="oysters">Oysters</option>
+          <option value="clams">Clams</option>
+          <option value="lentils">Lentils</option>
+        </select>
+        <input type="number" {...register('portion5')} defaultValue="1" className="portion" id='quantity' />
       </div>
 
       <button className="submit" type="submit">
