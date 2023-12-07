@@ -11,6 +11,7 @@ form {
     gap: 10px;
     ;
 }
+
 #dateContent {
     display: flex;
     column-gap: 10px;
@@ -21,17 +22,7 @@ form {
     width: 200px;
 }
 
-#cereal {
-    display: flex;
-    column-gap: 10px;
-}
-
-#vegetable {
-    display: flex;
-    column-gap: 10px;
-}
-
-#fruit {
+#cereal, #vegetable, #fruit, #dairy, #meat, #oil, #sugar {
     display: flex;
     column-gap: 10px;
 }

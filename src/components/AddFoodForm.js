@@ -50,12 +50,62 @@ const waterMelon = [100, 32, 0.6, 0.4, 7];
 const grapes = [90, 57, 0.6, 0.3, 15];
 
 /* Dairy */
+const wholeMilk = [200, 122, 6.6, 6.7, 9.3];
+const yogurt = [175, 107, 6.1, 5.7, 8.2];
+const butteryCheese = [31, 110, 7.7, 8.5, 0.7];
+const cheddarCheese = [28, 110, 7.3, 7.8, 0.7];
+const goatCheese = [30, 100, 7.4, 7.8, 0.1];
+const parmesanCheese = [24, 110, 7.5, 8.1, 1.8];
+const swissCheese = [25, 96, 7.1, 7.2, 0.8];
+const creamCheese = [14, 48, 1.1, 4.9, 0.4];
+const curdCheese = [60, 61, 7.5, 2.7, 1.6];
+const yogurtFruit = [175, 200, 7.2, 4.9, 31.9];
+const custard = [130, 146, 3.8, 2.5, 27.2];
 
 /* Meats */
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
 
 /* Oils */
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
 
 /* Sugar */
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
+// const
 
 function AddFoodForm({ addFood }) {
   const { handleSubmit, register, reset } = useForm();
@@ -157,8 +207,34 @@ function AddFoodForm({ addFood }) {
       fruitPromise = Promise.resolve([]);
     }
 
-    Promise.all([cerealPromise, vegetablePromise, fruitPromise])
-      .then(([cerealResult, vegetableResult, fruitResult]) => {
+    if (data.dairy === 'wholeMilk') {
+      dairyPromise = fetchFoodData(wholeMilk);
+    } else if (data.dairy === 'yogurt') {
+      dairyPromise = fetchFoodData(yogurt);
+    } else if (data.dairy === 'butteryCheese') {
+      dairyPromise = fetchFoodData(butteryCheese);
+    } else if (data.dairy === 'cheddarCheese') {
+      dairyPromise = fetchFoodData(cheddarCheese);
+    } else if (data.dairy === 'goatCheese') {
+      dairyPromise = fetchFoodData(goatCheese);
+    } else if (data.dairy === 'parmesanCheese') {
+      dairyPromise = fetchFoodData(parmesanCheese);
+    } else if (data.dairy === 'swissCheese') {
+      dairyPromise = fetchFoodData(swissCheese);
+    } else if (data.dairy === 'creamCheese') {
+      dairyPromise = fetchFoodData(creamCheese);
+    } else if (data.dairy === 'curdCheese') {
+      dairyPromise = fetchFoodData(curdCheese);
+    } else if (data.dairy === 'yogurtFruit') {
+      dairyPromise = fetchFoodData(yogurtFruit);
+    } else if (data.dairy === 'custard') {
+      dairyPromise = fetchFoodData(custard);
+    } else {
+      dairyPromise = Promise.resolve([]);
+    }
+
+    Promise.all([cerealPromise, vegetablePromise, fruitPromise, dairyPromise])
+      .then(([cerealResult, vegetableResult, fruitResult, dairyResult]) => {
         const portion1 = parseInt(data.portion1) || 1;
         const portion2 = parseInt(data.portion2) || 1;
         const portion3 = parseInt(data.portion3) || 1;
@@ -176,6 +252,8 @@ function AddFoodForm({ addFood }) {
           vegetableArray: vegetableResult.map(value => value * portion2),
           fruitName: data.fruit,
           fruitArray: fruitResult.map(value => value * portion3),
+          dairyName: data.dairy,
+          dairyArray: dairyResult.map(value => value * portion4),
         };
 
         console.log(newFood);
@@ -281,6 +359,24 @@ function AddFoodForm({ addFood }) {
           <option value="grapes">Grapes</option>
         </select>
         <input type="number" {...register('portion3')} defaultValue="1" className="portion" id='quantity' />
+      </div>
+
+      <div id='dairy'>
+        <select {...register('dairy')}>
+          <option value="empty">Select a Dairy</option>
+          <option value="wholeMilk">Whole Milk</option>
+          <option value="yogurt">Yogurt</option>
+          <option value="butteryCheese">Buttery Cheese</option>
+          <option value="cheddarCheese">Cheddar Cheese</option>
+          <option value="goatCheese">Goat Cheese</option>
+          <option value="parmesanCheese">Parmesan Cheese</option>
+          <option value="swissCheese">Swiss Cheese</option>
+          <option value="creamCheese">Cream Cheese</option>
+          <option value="curdCheese">Curd Cheese</option>
+          <option value="yogurtFruit">Yogurt Fruit</option>
+          <option value="custard">Custard</option>
+        </select>
+        <input type="number" {...register('portion4')} defaultValue="1" className="portion" id='quantity' />
       </div>
 
       <button className="submit" type="submit">
