@@ -86,19 +86,24 @@ const clams = [60, 44.4, 7.6, 0.5, 1.5];
 const lentils = [50, 169, 14, 0.4, 28.4];
 
 /* Oils */
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
+const wonderOil = [20, 179, 0, 19, 0];
+const soyOil = [20, 179, 0, 19, 0];
+const oliveOil = [20, 179, 0, 6, 0];
+const canolaOil = [20, 177, 0, 20, 0];
+const lard = [20, 180, 0, 19, 0];
+const vegetableShortening = [20, 179, 0, 19, 0];
+const butter = [24, 180, 0.2, 19, 0];
+const margarine = [24, 172, 0.19, 19, 0.1];
+const mayonnaise = [28, 201, 0.3, 22, 0.7];
+const bacon = [30, 172, 9.1, 14.7, 0.17];
+const poultryPate = [40, 164, 3.2, 16.8, 0];
+const almonds = [25, 142, 4.5, 10.8, 6.7];
+const saltyAlmonds = [25, 142, 4.5, 10.8, 6.7];
+const peanut = [30, 176, 7.1, 14.9, 6.4];
+const saltyPeanut = [30, 171, 7.8, 14.8, 4.7];
+const nut = [25, 152, 6, 14.1, 3];
+const pistachio = [30, 173, 6.1, 14.5, 7.4];
+const avocado = [90, 145, 1.7, 13, 6.6];
 
 /* Sugar */
 // const
@@ -119,14 +124,9 @@ function AddFoodForm({ addFood }) {
   const { handleSubmit, register, reset } = useForm();
 
   const onSubmit = handleSubmit((data) => {
-    let cerealPromise;
-    let vegetablePromise;
-    let fruitPromise;
-    let dairyPromise;
-    let meatPromise;
-    let oilPromise;
-    let sugarPromise;
+    let cerealPromise, vegetablePromise, fruitPromise,  dairyPromise, meatPromise, oilPromise, sugarPromise;
 
+    /* Cereal condition */
     if (data.cereal === 'oatmeal') {
       cerealPromise = fetchFoodData(oatmeal);
     } else if (data.cereal === 'rice') {
@@ -149,6 +149,7 @@ function AddFoodForm({ addFood }) {
       cerealPromise = Promise.resolve([]);
     }
 
+    /* Vegetable condition */
     if (data.vegetable === 'beet') {
       vegetablePromise = fetchFoodData(beet);
     } else if (data.vegetable === 'broccoli') {
@@ -185,6 +186,7 @@ function AddFoodForm({ addFood }) {
       vegetablePromise = Promise.resolve([]);
     }
 
+    /* Fruits condition */
     if (data.fuit === 'olives') {
       fruitPromise = fetchFoodData(olives);
     } else if (data.fruit === 'cherries') {
@@ -215,6 +217,7 @@ function AddFoodForm({ addFood }) {
       fruitPromise = Promise.resolve([]);
     }
 
+    /* Dairy condition */
     if (data.dairy === 'wholeMilk') {
       dairyPromise = fetchFoodData(wholeMilk);
     } else if (data.dairy === 'yogurt') {
@@ -241,6 +244,7 @@ function AddFoodForm({ addFood }) {
       dairyPromise = Promise.resolve([]);
     }
 
+    /* Meats condition */
     if (data.meat === 'beef') {
       meatPromise = fetchFoodData(beef);
     } else if (data.meat === 'mutton') {
@@ -287,8 +291,49 @@ function AddFoodForm({ addFood }) {
       meatPromise = Promise.resolve([]);
     }
 
-    Promise.all([cerealPromise, vegetablePromise, fruitPromise, dairyPromise, meatPromise])
-      .then(([cerealResult, vegetableResult, fruitResult, dairyResult, meatResult]) => {
+    /* Oils condition */
+    if (data.oil === 'wonderOil') {
+      oilPromise = fetchFoodData(wonderOil);
+    } else if (data.oil === 'soyOil') {
+      oilPromise = fetchFoodData(soyOil);
+    } else if (data.oil === 'oliveOil') {
+      oilPromise = fetchFoodData(oliveOil);
+    } else if (data.oil === 'canolaOil') {
+      oilPromise = fetchFoodData(canolaOil);
+    } else if (data.oil === 'lard') {
+      oilPromise = fetchFoodData(lard);
+    } else if (data.oil === 'vegetableShortening') {
+      oilPromise = fetchFoodData(vegetableShortening);
+    } else if (data.oil === 'butter') {
+      oilPromise = fetchFoodData(butter);
+    } else if (data.oil === 'margarine') {
+      oilPromise = fetchFoodData(margarine);
+    } else if (data.oil === 'mayonnaise') {
+      oilPromise = fetchFoodData(mayonnaise);
+    } else if (data.oil === 'bacon') {
+      oilPromise = fetchFoodData(bacon);
+    } else if (data.oil === 'poultryPate') {
+      oilPromise = fetchFoodData(poultryPate);
+    } else if (data.oil === 'almonds') {
+      oilPromise = fetchFoodData(almonds);
+    } else if (data.oil === 'saltyAlmonds') {
+      oilPromise = fetchFoodData(saltyAlmonds);
+    } else if (data.oil === 'peanut') {
+      oilPromise = fetchFoodData(peanut);
+    } else if (data.oil === 'saltyPeanut') {
+      oilPromise = fetchFoodData(saltyPeanut);
+    } else if (data.oil === 'nut') {
+      oilPromise = fetchFoodData(nut);
+    } else if (data.oil === 'pistachio') {
+      oilPromise = fetchFoodData(pistachio);
+    } else if (data.oil === 'avocado') {
+      oilPromise = fetchFoodData(avocado);
+    } else {
+      oilPromise = Promise.resolve([]);
+    }
+
+    Promise.all([cerealPromise, vegetablePromise, fruitPromise, dairyPromise, meatPromise, oilPromise])
+      .then(([cerealResult, vegetableResult, fruitResult, dairyResult, meatResult, oilResult]) => {
         const portion1 = parseInt(data.portion1) || 1;
         const portion2 = parseInt(data.portion2) || 1;
         const portion3 = parseInt(data.portion3) || 1;
@@ -310,6 +355,8 @@ function AddFoodForm({ addFood }) {
           dairyArray: dairyResult.map(value => value * portion4),
           meatName: data.meat,
           meatArray: meatResult.map(value => value * portion5),
+          oilName: data.oil,
+          oilArray: oilResult.map(value => value * portion6),
         };
 
         console.log(newFood);
@@ -459,6 +506,30 @@ function AddFoodForm({ addFood }) {
           <option value="oysters">Oysters</option>
           <option value="clams">Clams</option>
           <option value="lentils">Lentils</option>
+        </select>
+        <input type="number" {...register('portion5')} defaultValue="1" className="portion" id='quantity' />
+      </div>
+
+      <div id='oil'>
+        <select {...register('oil')}>
+          <option value="empty">Select an Oil</option>
+          <option value="wonderOil">Wonder Oil</option>
+          <option value="soyOil">Soy Oil</option>
+          <option value="oliverOil">Oliver Oil</option>
+          <option value="lard">Lard</option>
+          <option value="vegetableShortening">Vegetable Shortening</option>
+          <option value="butter">Butter</option>
+          <option value="margarine">Margarine</option>
+          <option value="mayonnaise">Mayonnaise</option>
+          <option value="bacon">Bacon</option>
+          <option value="poultryPate">Poultry Pate</option>
+          <option value="almonds">Almonds</option>
+          <option value="saltyAlmonds">Salty Almonds</option>
+          <option value="peanut">Peanut</option>
+          <option value="saltyPeanut">Salty Peanut</option>
+          <option value="nut">Nuts</option>
+          <option value="pistachio">Pistachio</option>
+          <option value="avocado">Avocado</option>
         </select>
         <input type="number" {...register('portion5')} defaultValue="1" className="portion" id='quantity' />
       </div>
