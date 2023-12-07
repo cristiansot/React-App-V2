@@ -106,19 +106,19 @@ const pistachio = [30, 173, 6.1, 14.5, 7.4];
 const avocado = [90, 145, 1.7, 13, 6.6];
 
 /* Sugar */
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
-// const
+const sugar = [5, 19, 0, 0, 4.9];
+const honeyBee = [6, 1.2, 19, 0, 0];
+const jam = [10, 4.5, 21, 0.07, 0];
+const jelly = [5, 1.4, 13, 0.005, 3.5];
+const lemonPie = [50, 0, 142, 6.5, 19.6];
+const coke = [50, 44.15, 20.8, 0, 0];
+const fanta = [50, 43.5, 21.6, 0, 0];
+const gingerAle = [50, 45, 17.8, 0, 0];
+const sprite = [50, 44.6, 20.2, 0, 0];
+const beer = [300, 272, 120, 0, 11.3];
+const whiteWine = [180, 158, 122, 0, 1.4];
+const blackWine = [180, 158, 129, 0, 0.4];
+const whisky = [50, 0, 135, 0, 3.4];
 
 function AddFoodForm({ addFood }) {
   const { handleSubmit, register, reset } = useForm();
@@ -139,7 +139,7 @@ function AddFoodForm({ addFood }) {
       cerealPromise = fetchFoodData(bread);
     } else if (data.cereal === 'wholemealBread') {
       cerealPromise = fetchFoodData(wholemealBread);
-    } else if (data.cereal === 'icookedCorn') {
+    } else if (data.cereal === 'cookedCorn') {
       cerealPromise = fetchFoodData(cookedCorn);
     } else if (data.cereal === 'cookedPotato') {
       cerealPromise = fetchFoodData(cookedPotato);
@@ -331,9 +331,41 @@ function AddFoodForm({ addFood }) {
     } else {
       oilPromise = Promise.resolve([]);
     }
+    
+    /* Sugar condition */
+    if (data.sugar === 'sugar') {
+      sugarPromise = fetchFoodData(sugar);
+    } else if (data.sugar === 'honeyBee') {
+      sugarPromise = fetchFoodData(honeyBee);
+    } else if (data.sugar === 'jam') {
+      sugarPromise = fetchFoodData(jam);
+    } else if (data.sugar === 'jelly') {
+      sugarPromise = fetchFoodData(jelly);
+    } else if (data.sugar === 'lemonPie') {
+      sugarPromise = fetchFoodData(lemonPie);
+    } else if (data.sugar === 'coke') {
+      sugarPromise = fetchFoodData(coke);
+    } else if (data.sugar === 'fanta') {
+      sugarPromise = fetchFoodData(fanta);
+    } else if (data.sugar === 'gingerAle') {
+      sugarPromise = fetchFoodData(gingerAle);
+    } else if (data.sugar === 'sprite') {
+      sugarPromise = fetchFoodData(sprite);
+    } else if (data.sugar === 'beer') {
+      sugarPromise = fetchFoodData(beer);
+    } else if (data.sugar === 'whiteWine') {
+      sugarPromise = fetchFoodData(whiteWine);
+    } else if (data.sugar === 'blackWine') {
+      sugarPromise = fetchFoodData(blackWine);
+    } else if (data.sugar === 'whisky') {
+      sugarPromise = fetchFoodData(whisky);
+    } else {
+      sugarPromise = Promise.resolve([]);
+    }
 
-    Promise.all([cerealPromise, vegetablePromise, fruitPromise, dairyPromise, meatPromise, oilPromise])
-      .then(([cerealResult, vegetableResult, fruitResult, dairyResult, meatResult, oilResult]) => {
+
+    Promise.all([cerealPromise, vegetablePromise, fruitPromise, dairyPromise, meatPromise, oilPromise, sugarPromise])
+      .then(([cerealResult, vegetableResult, fruitResult, dairyResult, meatResult, oilResult, sugarResult]) => {
         const portion1 = parseInt(data.portion1) || 1;
         const portion2 = parseInt(data.portion2) || 1;
         const portion3 = parseInt(data.portion3) || 1;
@@ -357,6 +389,8 @@ function AddFoodForm({ addFood }) {
           meatArray: meatResult.map(value => value * portion5),
           oilName: data.oil,
           oilArray: oilResult.map(value => value * portion6),
+          sugarName: data.sugar,
+          sugarlArray: sugarResult.map(value => value * portion7),
         };
 
         console.log(newFood);
@@ -528,10 +562,30 @@ function AddFoodForm({ addFood }) {
           <option value="peanut">Peanut</option>
           <option value="saltyPeanut">Salty Peanut</option>
           <option value="nut">Nuts</option>
-          <option value="pistachio">Pistachio</option>
+          <option value="sugar">Pistachio</option>
           <option value="avocado">Avocado</option>
         </select>
-        <input type="number" {...register('portion5')} defaultValue="1" className="portion" id='quantity' />
+        <input type="number" {...register('portion6')} defaultValue="1" className="portion" id='quantity' />
+      </div>
+
+      <div id='sugar'>
+        <select {...register('sugar')}>
+          <option value="empty">Select a Sugar</option>
+          <option value="sugar">Sugar</option>
+          <option value="honeyBee">Honey Bee</option>
+          <option value="jam">Jam</option>
+          <option value="jelly">Jelly</option>
+          <option value="lemonPie">Lemon Pie</option>
+          <option value="coke">Coke</option>
+          <option value="fanta">Fanta</option>
+          <option value="gingerAle">Ginger Ale</option>
+          <option value="sprite">sprite</option>
+          <option value="beer">Beer</option>
+          <option value="whiteWine">White Wine</option>
+          <option value="blackWine">Black Wine</option>
+          <option value="whisky">Whisky</option>
+        </select>
+        <input type="number" {...register('portion7')} defaultValue="1" className="portion" id='quantity' />
       </div>
 
       <button className="submit" type="submit">
