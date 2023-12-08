@@ -159,25 +159,54 @@ function AddFoodForm({ addFood }) {
         const portion6 = parseInt(data.portion6) || 1;
         const portion7 = parseInt(data.portion7) || 1;
 
+        const sumArrays = (...arrays) => {
+          const maxLength = Math.max(...arrays.map((arr) => arr.length));
+          const result = new Array(maxLength).fill(0);
+          for (let i = 0; i < maxLength; i++) {
+            for (let j = 0; j < arrays.length; j++) {
+              result[i] += arrays[j][i] || 0;
+            }
+          }
+        
+          return {
+            totalPortion: result[0],
+            totalCalories: result[1],
+            totalProtein: result[2],
+            totalFat: result[3],
+            totalCarbohydrates: result[4],
+          };
+        };
+        
+        const totalResults = sumArrays(
+          cerealResult.map((value) => value * portion1),
+          vegetableResult.map((value) => value * portion2),
+          fruitResult.map((value) => value * portion3),
+          dairyResult.map((value) => value * portion4),
+          meatResult.map((value) => value * portion5),
+          oilResult.map((value) => value * portion6),
+          sugarResult.map((value) => value * portion7)
+        );
+        
         const newFood = {
           id: uuidv4(),
           date: data.date,
           cerealName: data.cereal,
-          cerealArray: cerealResult.map(value => value * portion1),
+          cerealArray: cerealResult.map((value) => value * portion1),
           vegetableName: data.vegetable,
-          vegetableArray: vegetableResult.map(value => value * portion2),
+          vegetableArray: vegetableResult.map((value) => value * portion2),
           fruitName: data.fruit,
-          fruitArray: fruitResult.map(value => value * portion3),
+          fruitArray: fruitResult.map((value) => value * portion3),
           dairyName: data.dairy,
-          dairyArray: dairyResult.map(value => value * portion4),
+          dairyArray: dairyResult.map((value) => value * portion4),
           meatName: data.meat,
-          meatArray: meatResult.map(value => value * portion5),
+          meatArray: meatResult.map((value) => value * portion5),
           oilName: data.oil,
-          oilArray: oilResult.map(value => value * portion6),
+          oilArray: oilResult.map((value) => value * portion6),
           sugarName: data.sugar,
-          sugarlArray: sugarResult.map(value => value * portion7),
+          sugarArray: sugarResult.map((value) => value * portion7),
+          total: totalResults,
         };
-
+        
         console.log(newFood);
 
         addFood(newFood);
