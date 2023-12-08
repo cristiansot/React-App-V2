@@ -1,7 +1,9 @@
 import ActivityItem from './ActivityItem';
 
-function ActivityLog() {
-  return <div>Activity Log</div>;
+function ActivityLog({ activities }) {
+  return activities.map((activity) => {
+    return <ActivityItem activity={activity} />;
+  });
 }
 
 export default ActivityLog;

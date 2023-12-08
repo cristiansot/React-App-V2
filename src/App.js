@@ -31,7 +31,32 @@ function App() {
   const handleUserInfoChange = (name, value) => {
     setUserInput((prevValue) => ({ ...prevValue, [name]: value }));
   };
-  console.log(userInput);
+
+  //-------Activity State and Functions-------//
+
+  // State to track User Info
+  const [activities, setActivities] = useState([]);
+
+  // State to track User Info Form Input
+  const [activityInput, setActivityInput] = useState({
+    date: '',
+    type: '',
+    duration: '',
+    calories: '',
+  });
+
+  const handleActivityChange = (name, value) => {
+    setActivityInput((prevValue) => ({ ...prevValue, [name]: value }));
+  };
+
+  const handleActivitySubmit = (e) => {
+    e.preventDefault();
+    console.log(activityInput);
+    const newActivity = [...activities, activityInput];
+    setActivities(newActivity);
+    console.log(newActivity);
+    setActivityInput({ date: '', type: '', duration: '', calories: '' });
+  };
 
   return (
     <div className="App">
@@ -45,8 +70,13 @@ function App() {
         />
       )}
 
-      <ActivityLog />
-      <ActivityForm />
+      <ActivityForm
+        activityInput={activityInput}
+        onFormChange={handleActivityChange}
+        onFormSubmit={handleActivitySubmit}
+      />
+
+      <ActivityLog activities={activities} />
     </div>
   );
 }

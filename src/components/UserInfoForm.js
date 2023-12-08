@@ -7,7 +7,7 @@ function UserInfoForm({ userInput, onFormChange, onFormSubmit }) {
   };
 
   return (
-    <form onSubmit={onFormSubmit}>
+    <form className="user-info-form" onSubmit={onFormSubmit}>
       <fieldset>
         <legend>Personal Info</legend>
         <label>
