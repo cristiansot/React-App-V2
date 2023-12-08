@@ -71,7 +71,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # Project #2: React-App-V2
 
-Members Team: Marwa Abdullahi, Novita Hamilton & Cristian Soto
+Members Team: Marwa Abdullahi, Novita Hamilton, Fatima Farhat & Cristian Soto
 
 
 ## Overview: 
@@ -115,35 +115,14 @@ Project Option #1: Travel Package Booking Platform
 Develop a travel-themed application for creating, browsing, rating and booking travel packages.
 
 ### Key Features:
-Travel Package Creation: Users can create travel packages, including destination, itinerary, price, accommodations, and tickets available.
-Package Browsing: The user can browse existing travel packages that still have seats available, and filter by destinations, durations, ratings or price range.
-Package Booking: When a package is selected, the detailed itinerary is shown, along with a list of ratings and reviews of that package. There is an option to book their preferred package (with # of travelers), which will reduce the number of tickets available.
-Review System: Users can rate and review the travel packages, using a scale from 1 to 5 stars and a commenting system to add their reviews. Reviews will be added anonymously (due to lack of a user management system)
-Project Option #2: Tech Marketplace App
-Create a marketplace for buying and selling tech gadgets, such as smartphones, laptops, cameras, and other electronic devices. 
-
-### Key Features:
-Product Listings: Users can list their tech gadgets for sale with details like device type, brand, colors, specifications, condition, price, and time on the market.
-Product Browsing: Display a list of tech products that are available on the marketplace with details like type, brand, condition, and price. Users should be able to filter based on their preferences.
-Product Detail Page: Clicking on a product shows more detailed information, with the option to add an item to cart. Items that are in the user's cart should not exist in the marketplace anymore (due to lack of a secure purchase system)
-Device Auction: Users can place a bid for the device and can compete with other users on the price. A device will be sold at it's highest bidding price, unless it is added to a cart at the listed price.   
-Project Option #3: Health and Fitness Tracker
-Create an application focused on personal health and fitness tracking. This app should allow users to log their daily activities, track nutritional intake, set fitness goals, and monitor progress over time.
-
-### Key Features:
 Activity Log: Users can record various physical activities, including the date, duration, intensity, and calories burned. They can also see their past logged activities.
+
 Progress Visualizer: The user can set activity goals for the week (eg total calories burned or total time spent working out). Their progress towards their goal is displayed in a simple chart or visual and should update automatically when new activities are added.  
+
 Nutrition Log: Users can record their dietary intake for each day, along with nutrition and calories. They can also see their past logged meals.
-Nutrition Visualizer: The user's daily nutrition info is displayed in a simple chart or visual. The visuals should update automatically when new data is logged for the day 
-Project Option #4: Hobbyist Network App
-Develop a platform for hobby enthusiasts to share and view content about their hobbies, whether it's in crafts, outdoor activities, technology, cooking, or any other.
 
-### Key Features:
-Content Sharing: Users can create posts about their experience or progress with a specific hobby. The post will be added to a feed displaying all posts, which users can filter by hobby categories.
+Nutrition Visualizer: The user's daily nutrition info is displayed in a simple chart or visual. The visuals should update automatically when new data is logged for the day.
 
-Resource Library: Users can create resources for other users. There are two sections, the resource drafts and the resource library. Users can review drafts and rate them; resources with 5 rating and an average rating of 4.5 stars get added to the resource library. 
-
-Hobby Meetups: Users can create an event page to organize a meetup, with details about the hobby type, date, time, location, planned activity, and spaces available. The events should be viewable for all users.
 
 Meetups Sign-up: Users can filter through available events, and select an event they are interested in to view more details about the planned activities. If they want to attend, they can reserve a spot. 
 Scoring Rubric:
