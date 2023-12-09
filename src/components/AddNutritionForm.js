@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
-import '../css/AddFoodForm.css';
+import '../css/addNutritionForm.css';
 import { foodDataMap } from '../food.js';
 
-function AddFoodForm({ addFood }) {
-  const { handleSubmit, register, reset } = useForm();
+function AddNutritionForm({ addNutrition }) {
+  const { handleSubmit, register, reset, formState: {errors} } = useForm('');
 
   const onSubmit = handleSubmit((data) => {
     let cerealPromise, vegetablePromise, fruitPromise, dairyPromise, meatPromise, oilPromise, sugarPromise;
@@ -187,7 +187,7 @@ function AddFoodForm({ addFood }) {
           sugarResult.map((value) => value * portion7)
         );
         
-        const newFood = {
+        const newNutrition = {
           id: uuidv4(),
           date: data.date,
           cerealName: data.cereal,
@@ -207,9 +207,9 @@ function AddFoodForm({ addFood }) {
           total: totalResults,
         };
         
-        console.log(newFood);
+        console.log(newNutrition);
 
-        addFood(newFood);
+        addNutrition(newNutrition);
         reset(); // Reset all form fields
       })
       .catch((error) => {
@@ -250,7 +250,10 @@ function AddFoodForm({ addFood }) {
       <h1>Nutrition log</h1>
       <div id='dateContent'>
         <label>Select a date</label>
-        <input type="date" id='date' {...register('date')} />
+        <input type="date" id='date' {...register('date', {required: true})} />
+        { 
+          errors.date && <span>Date required</span>
+        }
       </div>
       
       <div id='cereal'>
@@ -409,4 +412,4 @@ function AddFoodForm({ addFood }) {
   );
 }
 
-export default AddFoodForm;
+export default AddNutritionForm;
