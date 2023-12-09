@@ -1,4 +1,11 @@
-function ActivityForm({ activityInput, onFormChange, onFormSubmit }) {
+function ActivityForm({
+  activityInput,
+  onFormChange,
+  onFormSubmit,
+  activityOptions,
+  selectedActivity,
+  onActivityTypeChange,
+}) {
   const handleInputChange = (e) => {
     e.preventDefault();
 
@@ -23,16 +30,29 @@ function ActivityForm({ activityInput, onFormChange, onFormSubmit }) {
 
         <label>
           Type:
-          <input
-            type="string"
+          <select
             name="type"
-            value={activityInput.type}
-            onChange={handleInputChange}
-          />
+            value={selectedActivity.activity}
+            onChange={(e) => {
+              const selected = activityOptions.find(
+                (option) => option.activity === e.target.value
+              );
+              onActivityTypeChange(selected);
+            }}
+          >
+            <option value="">Select an activity</option>
+            {activityOptions.map((option) => (
+              <option key={option.activity} value={option.activity}>
+                {option.activity}
+              </option>
+            ))}
+          </select>
         </label>
 
+        <label>Intensity: {selectedActivity.intensity}</label>
+
         <label>
-          Duration:
+          Duration (hour):
           <input
             type="number"
             name="duration"

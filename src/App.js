@@ -42,15 +42,43 @@ function App() {
     date: '',
     type: '',
     duration: '',
+    intensity: '',
     calories: '',
   });
 
-  const handleActivityChange = (name, value) => {
+  const activityOptions = [
+    { activity: 'Climbing', intensity: 'High' },
+    { activity: 'Running', intensity: 'Moderate' },
+    { activity: 'Walking', intensity: 'Low' },
+    { activity: 'Gentle Yoga', intensity: 'Low' },
+    { activity: 'Biking', intensity: 'Moderate' },
+    { activity: 'Power Yoga', intensity: 'Moderate' },
+    { activity: 'Swimming', intensity: 'High' },
+    { activity: 'Hiking', intensity: 'High' },
+  ];
+
+  // State to track selected activity and intensity
+  const [selectedActivity, setSelectedActivity] = useState({
+    activity: '',
+    intensity: '',
+  });
+
+  // Handle change in activity type dropdown selection
+  const handleActivityTypeChange = (selectedActivity) => {
+    setSelectedActivity(selectedActivity);
+  };
+
+  const handleActivityFormChange = (name, value) => {
     setActivityInput((prevValue) => ({ ...prevValue, [name]: value }));
   };
 
   const handleActivitySubmit = (e) => {
     e.preventDefault();
+    const activityWithIntensity = {
+      ...activities,
+      intensity: selectedActivity.intensity,
+    };
+
     console.log(activityInput);
     const newActivity = [...activities, activityInput];
     setActivities(newActivity);
@@ -72,8 +100,11 @@ function App() {
 
       <ActivityForm
         activityInput={activityInput}
-        onFormChange={handleActivityChange}
+        onFormChange={handleActivityFormChange}
         onFormSubmit={handleActivitySubmit}
+        activityOptions={activityOptions}
+        selectedActivity={selectedActivity}
+        onActivityTypeChange={handleActivityTypeChange}
       />
 
       <ActivityLog activities={activities} />
