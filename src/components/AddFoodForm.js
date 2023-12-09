@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import '../css/AddFoodForm.css';
-import { foodDataMap } from './food.js';
+import { foodDataMap } from '../food.js';
 
 function AddFoodForm({ addFood }) {
   const { handleSubmit, register, reset } = useForm();
