@@ -39,7 +39,9 @@ function UserInfoForm({ userInput, onFormChange, onFormSubmit }) {
             onChange={handleInputChange}
           />
         </label>
-        <button type="submit">Submit</button>
+        <button className="submit-button" type="submit">
+          Submit
+        </button>
       </fieldset>
     </form>
   );

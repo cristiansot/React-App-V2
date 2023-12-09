@@ -66,6 +66,7 @@ function App() {
   // Handle change in activity type dropdown selection
   const handleActivityTypeChange = (selectedActivity) => {
     setSelectedActivity(selectedActivity);
+    console.log(selectedActivity);
   };
 
   const handleActivityFormChange = (name, value) => {
@@ -74,16 +75,30 @@ function App() {
 
   const handleActivitySubmit = (e) => {
     e.preventDefault();
+    console.log(activityInput);
     const activityWithIntensity = {
-      ...activities,
+      ...activityInput,
       intensity: selectedActivity.intensity,
+      type: selectedActivity.activity,
     };
 
-    console.log(activityInput);
-    const newActivity = [...activities, activityInput];
+    console.log(activityWithIntensity);
+    const newActivity = [...activities, activityWithIntensity];
     setActivities(newActivity);
     console.log(newActivity);
-    setActivityInput({ date: '', type: '', duration: '', calories: '' });
+
+    // Clear activityInput and selectedActivities
+    setActivityInput({
+      date: '',
+      type: '',
+      intensity: '',
+      duration: '',
+      calories: '',
+    });
+    setSelectedActivity({
+      activity: '',
+      intensity: '',
+    });
   };
 
   return (
