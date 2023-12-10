@@ -1,76 +1,81 @@
 import './css/App.css';
-import ProgressVisualizer from './marwas-components/ProgressVisualizer';
+import React, { useState, useEffect } from 'react';
+import WeeklyProgressChart from './marwas-components/WeeklyProgressChart';
 import WeeklyGoals from './marwas-components/WeeklyGoals';
 import GoalList from './marwas-components/GoalList';
-import React, { useState, useEffect } from 'react';
 
 const MockApiUrl = 'https://655d2efa9f1e1093c5991797.mockapi.io/Marwa/ProgressVisualizer'
 
 
 function App() {
-
   //GET
-  const [goal, setNewGoal] = useState([ ]);
+  const [goal, setNewGoal] = useState([]);
   useEffect(() => {
-      async function fetchData() {
-          try {
-              const response = await fetch(MockApiUrl);
-              const data = await response.json();
-              setNewGoal(data);
-              console.log(data, "goal");
-          } catch (error) {
-              console.error('Error fetching data:', error);
-          }
+    async function fetchData() {
+      try {
+        const response = await fetch(MockApiUrl);
+        const data = await response.json();
+        setNewGoal(data);
+        console.log(data, "goal");
+      } catch (error) {
+        console.error('Error fetching data:', error);
       }
-      fetchData()
+    }
+    fetchData()
   }, []);
 
-//POST
+  //POST
   const handleWeeklyGoals = async (newGoalWeek) => {
-      try {
-          const response = await fetch(MockApiUrl, {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-              body: JSON.stringify( newGoalWeek ),
-          });
+    try {
+      const response = await fetch(MockApiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newGoalWeek),
+      });
 
-          if (!response.ok) {
-              throw new Error('Failed to add goal');
-          }
-
-          const data = await response.json();
-          setNewGoal([...goal, data]);
-      } catch (error) {
-          console.error('Error adding goal:', error);
+      if (!response.ok) {
+        throw new Error('Failed to add goal');
       }
+
+      const data = await response.json();
+      setNewGoal([...goal, data]);
+    } catch (error) {
+      console.error('Error adding goal:', error);
+    }
   };
 
-//DELETE
+  //DELETE
   const handleDeleteGoal = async (goalId) => {
-      try {
-          const response = await fetch(`${MockApiUrl}/${goalId}`, {
-              method: 'DELETE',
-          });
-          if (!response.ok) {
-              throw new Error('Failed to delete book');
-          }
-          setNewGoal(goal.filter((goal) => goal.id !== goalId));
-      } catch (error) {
-          console.error('Error deleting goal:', error);
+    try {
+      const response = await fetch(`${MockApiUrl}/${goalId}`, {
+        method: 'DELETE',
+      });
+      if (!response.ok) {
+        throw new Error('Failed to delete book');
       }
+      setNewGoal(goal.filter((goal) => goal.id !== goalId));
+    } catch (error) {
+      console.error('Error deleting goal:', error);
+    }
   };
+
 
 
   return (
     <div className="App">
       <h1>Progress Dash</h1>
-      <ProgressVisualizer/>
-      <WeeklyGoals className="WeeklyGoals"  onGoal={handleWeeklyGoals} />
-      <GoalList className="GoalList" goal={goal} onDeleteGoal={handleDeleteGoal}/>
+      <WeeklyProgressChart />
+      <h1>Weekly Fitness Goal</h1>
+      <WeeklyGoals className="WeeklyGoals" onGoal={handleWeeklyGoals} />
+      <GoalList className="GoalList" goal={goal} onDeleteGoal={handleDeleteGoal} />
     </div>
   );
 }
+
+
+
+
 
 export default App;
