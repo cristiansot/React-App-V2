@@ -57,6 +57,7 @@ select {
   border: 0.1rem solid;
   width: 20%;
   padding: 1rem;
+  position: relative;
 }
 
 .user-info {
@@ -66,4 +67,12 @@ select {
   justify-content: center;
   align-items: flex-start;
   gap: 0.5rem;
+}
+
+.delete-button {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.5rem;
+  border: none;
 }
