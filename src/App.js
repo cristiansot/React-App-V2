@@ -1,12 +1,14 @@
 import './css/App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ActivityLog from './components/ActivityLog';
 import ActivityForm from './components/ActivityForm';
 import UserInfo from './components/UserInfo';
 import UserInfoForm from './components/UserInfoForm';
+import activityService from './services/activityService';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
-  //-------User Info State and Functions-------//
+  //----------------User Info States and Functions------------------//
 
   // State to track User Info
   const [userInfo, setUserInfo] = useState();
@@ -32,7 +34,12 @@ function App() {
     setUserInput((prevValue) => ({ ...prevValue, [name]: value }));
   };
 
-  //-------Activity State and Functions-------//
+  //------------------Activity States and Functions------------//
+
+  // To initialize Activity Log
+  useEffect(() => {
+    activityService.getActivities().then((data) => setActivities(data || []));
+  }, []);
 
   // State to track User Info
   const [activities, setActivities] = useState([]);
@@ -45,6 +52,11 @@ function App() {
     intensity: '',
     calories: '',
   });
+
+  // Handle user input (excluding activity and intensity)
+  const handleActivityFormChange = (name, value) => {
+    setActivityInput((prevValue) => ({ ...prevValue, [name]: value }));
+  };
 
   const activityOptions = [
     { activity: 'Climbing', intensity: 'High' },
@@ -69,35 +81,33 @@ function App() {
     console.log(selectedActivity);
   };
 
-  const handleActivityFormChange = (name, value) => {
-    setActivityInput((prevValue) => ({ ...prevValue, [name]: value }));
-  };
-
+  // Handle activity submission
   const handleActivitySubmit = (e) => {
     e.preventDefault();
     console.log(activityInput);
-    const activityWithIntensity = {
+    // Adding type & intensity to object based on selectedActivity
+    const newActivity = {
       ...activityInput,
+      id: uuidv4(),
       intensity: selectedActivity.intensity,
       type: selectedActivity.activity,
     };
-
-    console.log(activityWithIntensity);
-    const newActivity = [...activities, activityWithIntensity];
-    setActivities(newActivity);
     console.log(newActivity);
-
-    // Clear activityInput and selectedActivities
-    setActivityInput({
-      date: '',
-      type: '',
-      intensity: '',
-      duration: '',
-      calories: '',
-    });
-    setSelectedActivity({
-      activity: '',
-      intensity: '',
+    activityService.postActivity(newActivity).then(() => {
+      activityService.getActivities().then((data) => setActivities(data));
+      console.log(newActivity);
+      // Clear activityInput and selectedActivities
+      setActivityInput({
+        date: '',
+        type: '',
+        intensity: '',
+        duration: '',
+        calories: '',
+      });
+      setSelectedActivity({
+        activity: '',
+        intensity: '',
+      });
     });
   };
 
