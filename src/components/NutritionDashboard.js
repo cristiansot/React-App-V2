@@ -2,12 +2,14 @@ import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import AddNutritionForm from './AddNutritionForm';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
+import MyCalendar from './Calendar';
 import '../css/nutritionDashboard.css';
 
 const url = 'https://654d199b77200d6ba859fcf7.mockapi.io/nutrition';
 
 function NutritionDashboard() {
   const [nutrition, setNutrition] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(new Date()); // Add this line
 
   useEffect(() => {
     getNutrition();
@@ -72,6 +74,7 @@ function NutritionDashboard() {
       <div>
         <AddNutritionForm addNutrition={addNutrition} />
       </div>
+      <MyCalendar onDateChange={setSelectedDate} />
     </div>
   );
 }
