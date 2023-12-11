@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import '../css/addNutritionForm.css';
 import { foodDataMap } from '../food.js';
 
+
 function AddNutritionForm({ addNutrition }) {
   const { handleSubmit, register, reset, formState: {errors} } = useForm('');
 
@@ -169,11 +170,11 @@ function AddNutritionForm({ addNutrition }) {
           }
         
           return {
-            totalPortion: result[0],
-            totalCalories: result[1],
-            totalProtein: result[2],
-            totalFat: result[3],
-            totalCarbohydrates: result[4],
+            totalPortion: result[0].toFixed(1),
+            totalCalories: result[1].toFixed(1),
+            totalProtein: result[2].toFixed(1),
+            totalFat: result[3].toFixed(1),
+            totalCarbohydrates: result[4].toFixed(1),
           };
         };
         
@@ -247,13 +248,13 @@ function AddNutritionForm({ addNutrition }) {
 
   return (
     <form className="contentForm" onSubmit={onSubmit}>
-      <h1>Nutrition log</h1>
+      <h2>Enter your daily intake</h2>
       <div id='dateContent'>
         <label>Select a date</label>
         <input type="date" id='date' {...register('date', {required: true})} />
-        { 
+        {/* { 
           errors.date && <span>Date required</span>
-        }
+        } */}
       </div>
       
       <div id='cereal'>

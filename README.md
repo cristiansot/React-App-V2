@@ -1,3 +1,6 @@
+Gradient background
+npm i three @types/three @react-three/fiber shadergradient framer-motion
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

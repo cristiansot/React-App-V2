@@ -1,51 +1,72 @@
 form {
-    margin: 0;
-    padding: 0;;
+  margin: 0;
+  padding: 0;
+  background: rgba(52, 51, 68, 0.299);
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  border: 1px solid #cccccc3b;
+}
+
+h2 {
+  color: #bcf6a3;
+  margin-top: -1px;
+}
+
+label {
+  color: #FFF;
+}
+
+input {
+  border: 0;
 }
 
 .contentForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 #dateContent {
-    display: flex;
-    column-gap: 10px;
-    align-items: center;
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  margin-top: -10px;
 }
 
 #date {
-    width: 200px;
+  width: 200px;
 }
 
 #cereal, #vegetable, #fruit, #dairy, #meat, #oil, #sugar {
-    display: flex;
-    column-gap: 10px;
+  display: flex;
+  column-gap: 10px;
 }
 
 #quantity {
-    width: 30px;
+  width: 30px;
 }
 
 .contentForm input {
-    width: 280px;
-    height: 30px;
+  width: 280px;
+  height: 30px;
 }
 
 .contentForm select {
-    width: 260px;
-    height: 36px;
+  width: 260px;
+  height: 36px;
+  border: 0;
+    
 }
 
 .contentForm button {
-    width: 308px;
-    height: 30px;
+  width: 308px;
+  height: 30px;
 }
 
 .portion {
-    width: 28px;
+  width: 28px;
 }

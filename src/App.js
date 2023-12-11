@@ -1,4 +1,3 @@
-import AddNutritionForm from './components/AddNutritionForm';
 import NutritionDashboard from './components/NutritionDashboard';
 import './css/App.css';
 

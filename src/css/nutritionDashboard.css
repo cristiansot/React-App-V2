@@ -1,7 +1,8 @@
 .mainContent {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 30px;
     margin-top: 30px;
 }
@@ -9,4 +10,17 @@
 .dataContent {
     display: flex;
     flex-direction: column;
+}
+
+h1 {
+  
+  color: #CCC;
+  font-size: 50px;
+  margin-bottom: -10px;
+}
+
+.recharts-legend-wrapper {
+  padding: 10px;
+  background-color: rgba(52, 51, 68, 0.299) !important;
+  border-radius: 20px;
 }
