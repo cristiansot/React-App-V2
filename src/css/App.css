@@ -30,8 +30,12 @@ legend {
 
 input,
 select {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   margin-left: 1rem;
+}
+
+select {
+  padding: 0.2rem;
 }
 
 .user-info-form {
@@ -48,6 +52,7 @@ select {
 
 .submit-button {
   align-self: flex-end;
+  padding: 0.5rem;
 }
 
 .activity-item {

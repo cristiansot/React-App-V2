@@ -8,10 +8,16 @@ function ActivityForm({
 }) {
   const handleInputChange = (e) => {
     e.preventDefault();
+    const { name, value, type } = e.target;
 
-    const { name, value } = e.target;
-    console.log(name, value);
-    onFormChange(name, value);
+    let processedValue = value;
+
+    if (type === 'number') {
+      // Round the duration to the nearest integer, so user can't input decimal number
+      processedValue = value !== '' ? Math.round(value) : null;
+    }
+
+    onFormChange(name, processedValue);
   };
 
   return (
@@ -29,7 +35,7 @@ function ActivityForm({
         </label>
 
         <label>
-          Type:
+          Activity:
           <select
             name="type"
             value={selectedActivity.activity}
@@ -52,7 +58,7 @@ function ActivityForm({
         <label>Intensity: {selectedActivity.intensity}</label>
 
         <label>
-          Duration (hour):
+          Duration (minutes):
           <input
             type="number"
             name="duration"
@@ -65,8 +71,8 @@ function ActivityForm({
           Calories burned:
           <input
             type="number"
-            name="calories"
-            value={activityInput.calories}
+            name="caloriesBurned"
+            value={activityInput.caloriesBurned}
             onChange={handleInputChange}
           />
         </label>

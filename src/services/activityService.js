@@ -17,6 +17,7 @@ const getActivities = async () => {
 };
 
 const postActivity = async (newActivity) => {
+  console.log(newActivity);
   try {
     const request = axios.post(APIurl, newActivity);
     const response = await request;

@@ -47,10 +47,10 @@ function App() {
   // State to track User Info Form Input
   const [activityInput, setActivityInput] = useState({
     date: '',
-    type: '',
+    activity: '',
     duration: '',
     intensity: '',
-    calories: '',
+    caloriesBurned: '',
   });
 
   // Handle user input (excluding activity and intensity)
@@ -75,7 +75,7 @@ function App() {
     intensity: '',
   });
 
-  // Handle change in activity type dropdown selection
+  // Handle change in activiactivity dropdown selection
   const handleActivityTypeChange = (selectedActivity) => {
     setSelectedActivity(selectedActivity);
     console.log(selectedActivity);
@@ -85,12 +85,12 @@ function App() {
   const handleActivitySubmit = (e) => {
     e.preventDefault();
     console.log(activityInput);
-    // Adding type & intensity to object based on selectedActivity
+    // Addiactivity & intensity to object based on selectedActivity
     const newActivity = {
       ...activityInput,
       id: uuidv4(),
       intensity: selectedActivity.intensity,
-      type: selectedActivity.activity,
+      activity: selectedActivity.activity,
     };
     console.log(newActivity);
     activityService.postActivity(newActivity).then(() => {
@@ -99,10 +99,10 @@ function App() {
       // Clear activityInput and selectedActivities
       setActivityInput({
         date: '',
-        type: '',
+        activity: '',
         intensity: '',
         duration: '',
-        calories: '',
+        caloriesBurned: '',
       });
       setSelectedActivity({
         activity: '',

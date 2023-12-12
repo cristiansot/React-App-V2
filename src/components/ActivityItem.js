@@ -10,10 +10,10 @@ function ActivityItem({ activity, onDeleteActivity }) {
       >
         <FontAwesomeIcon icon={faTrash} />
       </button>
-      <p>Activity: {activity && activity.type}</p>
+      <p>Activity: {activity && activity.activity}</p>
       <p>Duration : {activity && activity.duration} </p>
       <p>Intensity: {activity && activity.intensity}</p>
-      <p>Calories Burned: {activity && activity.calories}</p>
+      <p>Calories Burned: {activity && activity.caloriesBurned}</p>
     </div>
   );
 }
