@@ -7,3 +7,9 @@ html {
   font-size: 62.5%; /* 1 rem = 10px;*/
   padding: 2rem;
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}

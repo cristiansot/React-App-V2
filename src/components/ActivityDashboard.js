@@ -4,6 +4,7 @@ import ActivityLog from './ActivityLog';
 import ActivityForm from './ActivityForm';
 import activityService from '../services/activityService';
 import { v4 as uuidv4 } from 'uuid';
+import ResubaleModalButton from './ReusableModalButton';
 
 function ActivityDashboard() {
   // To initialize Activity Log
@@ -22,6 +23,17 @@ function ActivityDashboard() {
     intensity: '',
     caloriesBurned: '',
   });
+
+  // State to track modal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   // Handle user input (excluding activity and intensity)
   const handleActivityFormChange = (name, value) => {
@@ -78,8 +90,14 @@ function ActivityDashboard() {
         activity: '',
         intensity: '',
       });
+      closeModal(); // Close modal after submission
     });
   };
+
+  const today = new Date().toISOString().split('T')[0];
+  const todayActivities = activities.filter(
+    (activitiy) => activitiy.date === today
+  );
 
   // Handle delete activity
   const handleDeleteActivity = (e, id) => {
@@ -93,19 +111,30 @@ function ActivityDashboard() {
 
   return (
     <div className="activity-dashboard">
-      <ActivityForm
-        activityInput={activityInput}
-        onFormChange={handleActivityFormChange}
-        onFormSubmit={handleActivitySubmit}
-        activityOptions={activityOptions}
-        selectedActivity={selectedActivity}
-        onActivityTypeChange={handleActivityTypeChange}
+      <h2>Today's Activity</h2>
+      <ActivityLog
+        activities={todayActivities}
+        onDeleteActivity={handleDeleteActivity}
+        showDateFilter={false}
       />
 
-      <ActivityLog
-        activities={activities}
-        onDeleteActivity={handleDeleteActivity}
+      <ResubaleModalButton
+        buttonText="Add Activity"
+        onModalButtonClick={openModal}
       />
+
+      {isModalOpen && (
+        <div className="activity-form-modal">
+          <ActivityForm
+            activityInput={activityInput}
+            onFormChange={handleActivityFormChange}
+            onFormSubmit={handleActivitySubmit}
+            activityOptions={activityOptions}
+            selectedActivity={selectedActivity}
+            onActivityTypeChange={handleActivityTypeChange}
+          />
+        </div>
+      )}
     </div>
   );
 }

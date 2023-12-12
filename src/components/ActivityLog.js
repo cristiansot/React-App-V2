@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import ActivityItem from './ActivityItem';
 
-function ActivityLog({ activities, onDeleteActivity }) {
+function ActivityLog({ activities, onDeleteActivity, showDateFilter }) {
   const [filterStartDate, setFilterStartDate] = useState();
   const [filterEndDate, setFilterEndDate] = useState();
   const [filteredActivities, setFilteredActivities] = useState([]);
@@ -36,23 +36,28 @@ function ActivityLog({ activities, onDeleteActivity }) {
   };
 
   return (
-    <div>
-      <label>
-        Start Date:
-        <input
-          type="date"
-          value={filterStartDate || ''}
-          onChange={(e) => setFilterStartDate(e.target.value)}
-        />
-      </label>
-      <label>
-        End Date:
-        <input
-          type="date"
-          value={filterEndDate || ''}
-          onChange={(e) => setFilterEndDate(e.target.value)}
-        />
-      </label>
+    <div className="activity-log">
+      {showDateFilter && (
+        <div className="date-filter">
+          <label>
+            Start Date:
+            <input
+              type="date"
+              value={filterStartDate || ''}
+              onChange={(e) => setFilterStartDate(e.target.value)}
+            />
+          </label>
+          <label>
+            End Date:
+            <input
+              type="date"
+              value={filterEndDate || ''}
+              onChange={(e) => setFilterEndDate(e.target.value)}
+            />
+          </label>
+        </div>
+      )}
+
       {filteredActivities.map((activity) => (
         <ActivityItem
           key={activity.id}
@@ -60,7 +65,6 @@ function ActivityLog({ activities, onDeleteActivity }) {
           onDeleteActivity={onDeleteActivity}
         />
       ))}
-      ;
     </div>
   );
 }
