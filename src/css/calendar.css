@@ -1,0 +1,33 @@
+
+
+.rdp {
+  color: #ccc;
+  --rdp-cell-size: 40px;
+  --rdp-caption-font-size: 18px;
+  --rdp-accent-color: #ff3c6e;
+  --rdp-background-color: rgba(0, 0, 0, 0.217) !important;
+  --rdp-accent-color-dark: #3003e1;
+  --rdp-background-color-dark: #180270;
+  --rdp-outline: 2px solid var(--rdp-accent-color);
+  --rdp-outline-selected: 3px solid var(--rdp-accent-color);
+  --rdp-selected-color: #fff;
+}
+
+.rdp-months {
+  background: rgba(52, 51, 68, 0.299);
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #cccccc3b;
+}
+
+.rdp-day_selected {
+  color: aqua;
+}
+
+.rdp-day_selected {
+  color: aqua;
+}
+
+/* .rdp-months {
+    color: aliceblue;
+} */

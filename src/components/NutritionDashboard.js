@@ -71,10 +71,11 @@ function NutritionDashboard() {
           <p>Total Carbohydrates: {item.total.totalCarbohydrates}</p>
         </div>
       ))} */}
-      <div>
+      <div className='modules'>
         <AddNutritionForm addNutrition={addNutrition} />
+        <MyCalendar onDateChange={setSelectedDate} />
       </div>
-      <MyCalendar onDateChange={setSelectedDate} />
+      
     </div>
   );
 }

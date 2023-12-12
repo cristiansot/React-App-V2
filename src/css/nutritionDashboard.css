@@ -27,3 +27,10 @@ h1 {
   background-color: rgba(52, 51, 68, 0.299) !important;
   border-radius: 20px;
 }
+
+.modules {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: center;
+}
