@@ -5,6 +5,9 @@ import '../css/addNutritionForm.css';
 import { foodDataMap } from '../food.js';
 
 
+/* The above code is defining a functional component called `AddNutritionForm` that takes a prop called
+`addNutrition`. Inside the component, it is using the `useForm` hook from a library (possibly
+`react-hook-form`) to handle form submission and validation. */
 function AddNutritionForm({ addNutrition }) {
   const { handleSubmit, register, reset, formState: {errors} } = useForm('');
 
@@ -218,6 +221,9 @@ function AddNutritionForm({ addNutrition }) {
       });
   });
 
+/* The above code is using the `useEffect` hook in React to add event listeners to all elements with
+the class "portion". It is specifically listening for the "change" event and calling the
+`handlePortionChange` function when the event occurs. */
   useEffect(() => {
     const portionInputs = document.querySelectorAll(".portion");
     portionInputs.forEach((input) => {
@@ -231,6 +237,13 @@ function AddNutritionForm({ addNutrition }) {
     };
   }, []);
 
+  /**
+   * The function `handlePortionChange` ensures that the input value is a valid number greater than
+   * zero.
+   * @param event - The event parameter is an object that represents the event that triggered the
+   * function. It contains information about the event, such as the target element that triggered the
+   * event. In this case, the event is triggered by a change in the input element's value.
+   */
   const handlePortionChange = (event) => {
     const input = event.target;
     if (isNaN(input.value) || input.value <= 0) {
@@ -238,6 +251,11 @@ function AddNutritionForm({ addNutrition }) {
     }
   };
 
+/* The fetchFoodData function returns a promise that resolves with the provided food parameter after a
+delay of 300 milliseconds.
+@param food - The `food` parameter is a variable that represents the type of food you want to fetch
+data for. It can be any valid value that represents a type of food, such as "pizza", "burger",
+"sushi", etc. @returns The fetchFoodData function is returning a Promise object. */
   const fetchFoodData = (food) => {
     return new Promise((resolve) => {
       setTimeout(() => {

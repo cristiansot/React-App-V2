@@ -1,20 +1,27 @@
+//NutritionDashboard.js
 import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import AddNutritionForm from './AddNutritionForm';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 import MyCalendar from './Calendar';
 import '../css/nutritionDashboard.css';
 
 const url = 'https://654d199b77200d6ba859fcf7.mockapi.io/nutrition';
 
+/* The code is defining a functional component called `NutritionDashboard`. */
 function NutritionDashboard() {
   const [nutrition, setNutrition] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(new Date()); // Add this line
+  const [selectedDate, setSelectedDate] = useState(new Date()); 
 
+ /* The `useEffect` hook is used to perform side effects in functional components. In this case, it is
+ used to fetch the nutrition data from the API when the component mounts. */
   useEffect(() => {
     getNutrition();
   }, []);
 
+ 
+ /* The function uses Axios to make an HTTP GET request to a specified URL and then sets the response
+  data to a variable called "nutrition". */
   function getNutrition() {
     Axios.get(url)
       .then((response) => {
@@ -25,6 +32,12 @@ function NutritionDashboard() {
       });
   }
 
+
+/* The function `addNutrition` sends a POST request to a specified URL with a new nutrition object,
+  and then updates the nutrition state with the response data.
+  @param newNutrition - The parameter `newNutrition` is the data that you want to add to the
+  nutrition list. It could be an object containing information about a nutrition item, such as its
+  name, calories, protein, etc. */
   function addNutrition(newNutrition) {
     Axios.post(url, newNutrition)
       .then((response) => {
@@ -35,6 +48,10 @@ function NutritionDashboard() {
       });
   }
 
+ /* The code is creating a new array called `data` by mapping over the `nutrition` array. For each item
+ in the `nutrition` array, it creates a new object with properties `name`, `totalGramsIngested`,
+ `totalCalories`, `totalProtein`, `totalFat`, and `totalCarbohydrates`. The values for these
+ properties are extracted from the corresponding properties in each item of the `nutrition` array. */
   const data = nutrition.map((item) => ({
     name: item.date,
     totalGramsIngested: item.total.totalPortion,
@@ -44,38 +61,25 @@ function NutritionDashboard() {
     totalCarbohydrates: item.total.totalCarbohydrates,
   }));
 
+  /* The `return` statement in the `NutritionDashboard` component is returning JSX code that will be
+  rendered as HTML by React. */
   return (
     <div className='mainContent'>
       <h1>Nutrition Log</h1>
-      <BarChart width={1250} height={300} data={data}>
-        <XAxis dataKey="name" stroke="#CCC" />
-        <YAxis stroke="#CCC"/>
-        <Tooltip contentStyle={{ backgroundColor: 'rgba(52, 51, 68, 0.9)', border: '0' }} />
+      <LineChart width={1250} height={350} data={data}
+        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
         <Legend />
-        
-        <CartesianGrid stroke="#7b7b7b" strokeDasharray="4 7" />
-        <Bar dataKey="totalGramsIngested" fill="#af3b9f" barSize={15} />
-        <Bar dataKey="totalCalories" fill="#ff3c6e" barSize={15} />
-        <Bar dataKey="totalProtein" fill="#ffd016" barSize={15} />
-        <Bar dataKey="totalFat" fill="#019fdf" barSize={15} />
-        <Bar dataKey="totalCarbohydrates" fill="#bcf6a3" barSize={15} />
-      </BarChart>
-
-      {/* {nutrition.map((item, index) => (
-        <div key={index} className='dataContent'>
-          <p>Date: {item.date}</p>
-          <p>Total Grams Ingested: {item.total.totalPortion}</p>
-          <p>Total Calories: {item.total.totalCalories}</p>
-          <p>Total Protein: {item.total.totalProtein}</p>
-          <p>Total Fat: {item.total.totalFat}</p>
-          <p>Total Carbohydrates: {item.total.totalCarbohydrates}</p>
-        </div>
-      ))} */}
+        <Line type="monotone" dataKey="totalGramsIngested" stroke="#8884d8" />
+        <Line type="monotone" dataKey="totalCalories" stroke="#ff3c6e" />
+      </LineChart>
       <div className='modules'>
         <AddNutritionForm addNutrition={addNutrition} />
-        <MyCalendar onDateChange={setSelectedDate} />
+        <MyCalendar getNutrition={getNutrition} nutrition={nutrition} />
       </div>
-      
     </div>
   );
 }
