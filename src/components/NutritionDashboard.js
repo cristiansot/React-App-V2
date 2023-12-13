@@ -1,4 +1,3 @@
-//NutritionDashboard.js
 import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import AddNutritionForm from './AddNutritionForm';
@@ -13,7 +12,7 @@ function NutritionDashboard() {
   const [nutrition, setNutrition] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date()); 
 
- /* The `useEffect` hook is used to perform side effects in functional components. In this case, it is
+/* The `useEffect` hook is used to perform side effects in functional components. In this case, it is
  used to fetch the nutrition data from the API when the component mounts. */
   useEffect(() => {
     getNutrition();
@@ -21,7 +20,7 @@ function NutritionDashboard() {
 
  
  /* The function uses Axios to make an HTTP GET request to a specified URL and then sets the response
-  data to a variable called "nutrition". */
+data to a variable called "nutrition". */
   function getNutrition() {
     Axios.get(url)
       .then((response) => {
@@ -32,20 +31,28 @@ function NutritionDashboard() {
       });
   }
 
-/* The function `addNutrition` sends a POST request to a specified URL with a new nutrition object,
-  and then updates the nutrition state with the response data.
-  @param newNutrition - The parameter `newNutrition` is the data that you want to add to the
-  nutrition list. It could be an object containing information about a nutrition item, such as its
-  name, calories, protein, etc. */
-  function addNutrition(newNutrition) {
-    Axios.post(url, newNutrition)
-      .then((response) => {
+/* The function `addNutrition` sends a POST request to a specified URL with new nutrition data, and
+updates the state with the response data if successful, or displays an error message if there is an
+error. @param newNutrition - The parameter `newNutrition` is the data that you want to add to the nutrition
+list. It could be an object containing information about a nutrition item, such as its name, calories, protein, etc .*/
+function addNutrition(newNutrition) {
+  Axios.post(url, newNutrition)
+    .then((response) => {
+      const isNewDate = !nutrition.some(item => item.date === response.data.date);
+
+      if (isNewDate) {
         setNutrition([...nutrition, response.data]);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+        // alert('Your meals have been entered successfully');
+      } else {
+        alert('The date already exists, try another');
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      alert('Error occurred while adding nutrition data');
+    });
+}
+
 
  /* The code is creating a new array called `data` by mapping over the `nutrition` array. For each item
  in the `nutrition` array, it creates a new object with properties `name`, `totalGramsIngested`,

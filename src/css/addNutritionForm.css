@@ -24,6 +24,9 @@ label {
 
 input {
   border: 0;
+  background-color: transparent;
+  color: #ccc;
+  border: solid #aaaaaa92 1px;
 }
 
 .contentForm {
@@ -32,7 +35,7 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 9px;
 }
 
 #dateContent {
@@ -57,13 +60,16 @@ input {
 
 .contentForm input {
   width: 280px;
-  height: 34px;
+  height: 28px;
 }
 
 .contentForm select {
   width: 260px;
-  height: 36px;
+  height: 32px;
   border: 0;
+  background-color: transparent;
+  color: #ccc;
+  border: solid #aaaaaa92 1px;
 }
 
 .contentForm button {

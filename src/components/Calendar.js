@@ -44,7 +44,8 @@ function MyCalendar({ getNutrition, nutrition }) {
   if (selected.length > 0) {
     footer = <p className='picked'>You picked {format(selected[0], 'PP')}.</p>;
   }
-
+  
+/* I used this component for the calendar --> https://www.npmjs.com/package/react-day-picker */
   return (
     <div>
       <DayPicker
