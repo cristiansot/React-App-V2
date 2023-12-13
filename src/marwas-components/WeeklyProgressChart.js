@@ -6,39 +6,35 @@ const MockApiUrl = 'https://654d199b77200d6ba859fcf7.mockapi.io/mockdata';
 //*****************************************************************************************************/
 
 
-function WeeklyProgressChart() {
+function WeeklyProgressChart({ currentWeek, originalApiData }) {
+
   const [originalChartDataInfo, setNewChartDataInfo] = useState([]);
-  const [currentWeek, setCurrentWeek] = useState(startOfWeek(new Date()));  // state to hold the current displayed week
-  const [originalApiData, setOriginalApiData] = useState([]);// needed a new state to hold all the apidata inorder to pass it into the buttons
 
   useEffect(() => {
-    const getChartData = async () => {
-      console.log('getting activity log info for week:', currentWeek);
-      try {
-        const response = await fetch(MockApiUrl);
-        const data = await response.json();
-        setOriginalApiData(data) // put api data into new state
-        console.log("setOriginalApiData:", data)
-        const updatedChartInfo = calculateOriginalChartDataInfo(data, currentWeek);
-        setNewChartDataInfo(updatedChartInfo);// setting the new chart based on the recieved data and current week
-        //************** debugging purposes ******************/
-        console.log("updatedChartInfo:", updatedChartInfo)
-        //************** debugging purposes ******************/
+    const updatedChartInfo = calculateOriginalChartDataInfo(originalApiData, currentWeek);
+    setNewChartDataInfo(updatedChartInfo);// setting the new chart based on the recieved data and current week
+  }, [originalApiData]);
 
-      } catch (error) {
-        console.error('error getting activity log info:', error);
-      }
-    };
-    getChartData();
-  }, [currentWeek]);
+  // useEffect(() => {
+  //   const getChartData = async () => {
+  //     console.log('getting activity log info for week:', currentWeek);
+  //     try {
+  //       const response = await fetch(MockApiUrl);
+  //       const data = await response.json();
+  //       setOriginalApiData(data) // put api data into new state
+  //       console.log("setOriginalApiData:", data)
 
+  //       //************** debugging purposes ******************/
+  //       console.log("updatedChartInfo:", updatedChartInfo)
+  //       //************** debugging purposes ******************/
 
-  //************** debugging purposes ******************/
-  const currentWeekStart = startOfWeek(new Date());
-  console.log('Current week start on:', currentWeekStart);
-  const currentWeekEnd = endOfWeek(new Date());
-  console.log('Current week ends on:', currentWeekEnd);
-  //************** debugging purposes ******************/
+  //     } catch (error) {
+  //       console.error('error getting activity log info:', error);
+  //     }
+  //   };
+  //   getChartData();
+  // }, [currentWeek]);
+
 
 
   // Function to calc chart info
@@ -103,37 +99,35 @@ function WeeklyProgressChart() {
   };
 
 
-  // last week button
-  const handleLastWeek = () => {
-    const viewNewWeek = new Date(currentWeek);
-    viewNewWeek.setDate(currentWeek.getDate() - 7);
-    setCurrentWeek(startOfWeek(viewNewWeek)); // viewNewWeek is based on the currentWeek minus 7 days, and resets it to the start of the week
-    const updatedChartInfo = calculateOriginalChartDataInfo(originalApiData, viewNewWeek);// passing the api data into the button but this time its checking if the date matches
-    setNewChartDataInfo(updatedChartInfo);// setting the new chart based on the recieved data and current week
+  // // last week button
+  // const handleLastWeek = () => {
+  //   const viewNewWeek = new Date(currentWeek);
+  //   viewNewWeek.setDate(currentWeek.getDate() - 7);
+  //   setCurrentWeek(startOfWeek(viewNewWeek)); // viewNewWeek is based on the currentWeek minus 7 days, and resets it to the start of the week
+  //   const updatedChartInfo = calculateOriginalChartDataInfo(originalApiData, viewNewWeek);// passing the api data into the button but this time its checking if the date matches
+  //   setNewChartDataInfo(updatedChartInfo);// setting the new chart based on the recieved data and current week
 
-  };
-
-
-  // next week button
-  const handleNextWeek = () => {
-    const viewNewWeek = new Date(currentWeek);
-    viewNewWeek.setDate(currentWeek.getDate() + 7);
-    setCurrentWeek(startOfWeek(viewNewWeek)); // viewNewWeek is based on the currentWeek, plus 7 days, and resets it to the start of the week
-    const updatedChartInfo = calculateOriginalChartDataInfo(originalApiData, viewNewWeek); // passing the api data into the button but this time its checking if the date matches
-    setNewChartDataInfo(updatedChartInfo);// setting the new chart based on the recieved data and current week
+  // };
 
 
-  };
+  // // next week button
+  // const handleNextWeek = () => {
+  //   const viewNewWeek = new Date(currentWeek);
+  //   viewNewWeek.setDate(currentWeek.getDate() + 7);
+  //   setCurrentWeek(startOfWeek(viewNewWeek)); // viewNewWeek is based on the currentWeek, plus 7 days, and resets it to the start of the week
+  //   const updatedChartInfo = calculateOriginalChartDataInfo(originalApiData, viewNewWeek); // passing the api data into the button but this time its checking if the date matches
+  //   setNewChartDataInfo(updatedChartInfo);// setting the new chart based on the recieved data and current week
+  // };
 
 
 
   return (
     <div>
-      <div>
+      {/* <div>
         <button onClick={handleLastWeek}> Last Week </button>
         <span> {format(startOfWeek(currentWeek), 'MMM d')} - {format(endOfWeek(currentWeek), 'MMM d')} </span>
         <button onClick={handleNextWeek}> Next Week </button>
-      </div>
+      </div> */}
 
       <Chart
         chartType="ComboChart"
