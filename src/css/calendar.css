@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 
 .rdp {
+  margin-top: 18px;
   color: #ccc;
   --rdp-cell-size: 40px;
   --rdp-caption-font-size: 18px;
