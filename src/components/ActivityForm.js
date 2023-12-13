@@ -5,6 +5,7 @@ function ActivityForm({
   activityOptions,
   selectedActivity,
   onActivityTypeChange,
+  updateCalsBurned,
 }) {
   const handleInputChange = (e) => {
     e.preventDefault();
@@ -67,15 +68,8 @@ function ActivityForm({
           />
         </label>
 
-        <label>
-          Calories burned:
-          <input
-            type="number"
-            name="caloriesBurned"
-            value={activityInput.caloriesBurned}
-            onChange={handleInputChange}
-          />
-        </label>
+        <label>Calories burned: {selectedActivity.caloriesBurned}</label>
+
         <button className="submit-button" type="submit">
           Submit
         </button>

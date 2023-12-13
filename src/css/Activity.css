@@ -63,10 +63,19 @@ h2 {
 
 .modal-button {
   width: 10rem;
+  font-size: 1.5rem;
+  padding: 0.2rem;
 }
 
 .activity-log {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.date-filter {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  font-size: 2rem;
 }

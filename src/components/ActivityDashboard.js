@@ -5,6 +5,7 @@ import ActivityForm from './ActivityForm';
 import activityService from '../services/activityService';
 import { v4 as uuidv4 } from 'uuid';
 import ResubaleModalButton from './ReusableModalButton';
+import calcCaloriesBurned from '../utils/caloriesBurnedUtils';
 
 function ActivityDashboard() {
   // To initialize Activity Log
@@ -85,12 +86,12 @@ function ActivityDashboard() {
   const [selectedActivity, setSelectedActivity] = useState({
     activity: '',
     intensity: '',
+    MET: '',
   });
 
   // Handle change in activiactivity dropdown selection
   const handleActivityTypeChange = (selectedActivity) => {
     setSelectedActivity(selectedActivity);
-    console.log(selectedActivity);
   };
 
   // Handle activity submission
@@ -99,10 +100,10 @@ function ActivityDashboard() {
     console.log(activityInput);
     // Addiactivity & intensity to object based on selectedActivity
     const newActivity = {
-      ...activityInput,
       id: uuidv4(),
-      intensity: selectedActivity.intensity,
-      activity: selectedActivity.activity,
+      ...activityInput,
+      ...selectedActivity,
+      caloriesBurned: calcCaloriesBurned(selectedActivity, activityInput),
     };
     console.log(newActivity);
     activityService.postActivity(newActivity).then(() => {
@@ -165,6 +166,13 @@ function ActivityDashboard() {
           />
         </div>
       )}
+
+      <h2>Activity History</h2>
+      <ActivityLog
+        activities={activities}
+        onDeleteActivity={handleDeleteActivity}
+        showDateFilter={true}
+      />
     </div>
   );
 }
