@@ -27,6 +27,7 @@ input {
 }
 
 .contentForm {
+  font-family: 'Quicksand', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,14 +57,13 @@ input {
 
 .contentForm input {
   width: 280px;
-  height: 30px;
+  height: 34px;
 }
 
 .contentForm select {
   width: 260px;
   height: 36px;
   border: 0;
-    
 }
 
 .contentForm button {
@@ -73,4 +73,14 @@ input {
 
 .portion {
   width: 28px;
+}
+
+.submit {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800;
+  color: black;
+  background-color: #bcf6a3;
+  border: 0;
+  width: 100px !important;
+  border-radius: 20px;
 }

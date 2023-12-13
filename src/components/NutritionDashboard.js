@@ -32,7 +32,6 @@ function NutritionDashboard() {
       });
   }
 
-
 /* The function `addNutrition` sends a POST request to a specified URL with a new nutrition object,
   and then updates the nutrition state with the response data.
   @param newNutrition - The parameter `newNutrition` is the data that you want to add to the
@@ -66,12 +65,12 @@ function NutritionDashboard() {
   return (
     <div className='mainContent'>
       <h1>Nutrition Log</h1>
-      <LineChart width={1250} height={350} data={data}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+      <LineChart className='lineChart' width={1450} height={350} data={data}
+        margin={{ top: 2, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
+        <XAxis dataKey="name" stroke="#bbb"/>
+        <YAxis stroke="#bbb" />
+        <Tooltip contentStyle={{ backgroundColor: 'rgba(52, 51, 68, 0.9)', border: '0' }} />
         <Legend />
         <Line type="monotone" dataKey="totalGramsIngested" stroke="#8884d8" />
         <Line type="monotone" dataKey="totalCalories" stroke="#ff3c6e" />

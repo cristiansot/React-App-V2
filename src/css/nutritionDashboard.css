@@ -6,7 +6,6 @@
   justify-content: center;
   align-items: center;
   gap: 30px;
-  margin-top: 30px;
 }
 
 .dataContent {
@@ -22,6 +21,10 @@ h1 {
   margin-bottom: -10px;
 }
 
+.lineChart {
+  display: flex;
+}
+
 .recharts-legend-wrapper {
   padding: 10px;
   background-color: rgba(52, 51, 68, 0.299) !important;
@@ -33,4 +36,9 @@ h1 {
   flex-direction: row;
   gap: 50px;
   justify-content: center;
+  margin-top: -6px;
+}
+
+.recharts-yAxis yAxis  {
+  color: #FFF !important;
 }

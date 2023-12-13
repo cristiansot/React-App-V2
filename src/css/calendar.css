@@ -19,7 +19,7 @@
 }
 
 .rdp-day_selected {
-  color: #373737;
+  color: #FFF;
 }
 
 .foodContent {
@@ -62,6 +62,6 @@ p {
 }
 
 .picked {
-  ont-family: 'Quicksand', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   color: #78cdf8;
 }
