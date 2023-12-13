@@ -41,6 +41,7 @@ function ActivityDashboard() {
     setActivityInput((prevValue) => ({ ...prevValue, [name]: value }));
   };
 
+  // Activity options
   const activityOptions = [
     { activity: 'Rock Climbing', intensity: 'High', MET: 7 },
     { activity: 'Running', intensity: 'High', MET: 8 },
@@ -125,6 +126,7 @@ function ActivityDashboard() {
     });
   };
 
+  // Handle Today's activity section to only show today's activities
   const today = new Date().toISOString().split('T')[0];
   const todayActivities = activities.filter(
     (activitiy) => activitiy.date === today
@@ -139,6 +141,23 @@ function ActivityDashboard() {
       activityService.getActivities().then((data) => setActivities(data));
     });
   };
+
+  // Handle click outside the modal to close it
+  const handleClickOutsideModal = (e) => {
+    if (isModalOpen && e.target.classList.contains('overlay')) {
+      closeModal();
+    }
+  };
+
+  useEffect(() => {
+    // Attach event listener when the component is inserted
+    document.addEventListener('click', handleClickOutsideModal);
+
+    // Detach event listener when the component is remove
+    return () => {
+      document.removeEventListener('click', handleClickOutsideModal);
+    };
+  });
 
   return (
     <div className="activity-dashboard">
@@ -155,15 +174,17 @@ function ActivityDashboard() {
       />
 
       {isModalOpen && (
-        <div className="activity-form-modal">
-          <ActivityForm
-            activityInput={activityInput}
-            onFormChange={handleActivityFormChange}
-            onFormSubmit={handleActivitySubmit}
-            activityOptions={activityOptions}
-            selectedActivity={selectedActivity}
-            onActivityTypeChange={handleActivityTypeChange}
-          />
+        <div className="overlay">
+          <div className="activity-form-modal">
+            <ActivityForm
+              activityInput={activityInput}
+              onFormChange={handleActivityFormChange}
+              onFormSubmit={handleActivitySubmit}
+              activityOptions={activityOptions}
+              selectedActivity={selectedActivity}
+              onActivityTypeChange={handleActivityTypeChange}
+            />
+          </div>
         </div>
       )}
 

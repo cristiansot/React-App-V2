@@ -10,6 +10,7 @@ function ActivityItem({ activity, onDeleteActivity }) {
       >
         <FontAwesomeIcon icon={faTrash} />
       </button>
+      <p>Date: {activity && activity.date}</p>
       <p>Activity: {activity && activity.activity}</p>
       <p>Duration : {activity && activity.duration} </p>
       <p>Intensity: {activity && activity.intensity}</p>

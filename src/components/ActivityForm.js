@@ -68,7 +68,9 @@ function ActivityForm({
           />
         </label>
 
-        <label>Calories burned: {selectedActivity.caloriesBurned}</label>
+        <label className="calories-burned">
+          Calories burned will be automatically calculated once you submit.
+        </label>
 
         <button className="submit-button" type="submit">
           Submit
