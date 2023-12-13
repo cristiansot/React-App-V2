@@ -1,3 +1,5 @@
+Gradient background
+npm i three @types/three @react-three/fiber shadergradient framer-motion
 
 # Getting Started with Create React App
 
@@ -72,8 +74,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # Project #2: React-App-V2
 
-### Background
-This project is built for an assignment at Coding in Color - Full Stack Developer Program.
+Members Team: Marwa Abdullahi, Novita Hamilton, Fatima Farhat & Cristian Soto
 
 ### **Project Option #3:** **Health and Fitness Tracker**
 
@@ -108,24 +109,57 @@ Each domain comes with its own set of unique challenges and key features that ne
 -   Start with a simple design and basic functionality. Once the foundational aspects of your app are working well, progressively add more complexity and advanced features. Pay attention to the user interface and experience, ensuring that the design is intuitive and user-friendly.
 
 ### Expectations:
--   All code that is submitted is your own. Teammates are encouraged support one another's learning, but do  **not** code on someone else's behalf.
--   By the end of the project, your team should have a working application in your chosen domain.
--   Be prepared to explain the reasoning behind your component hierarchy and the structure of your application.
--   Use Git for version control throughout the project. Your code should be well-documented and pushed regularly to a shared GitHub repository.
--   Each team will present their application, showcasing the features and explaining the component architecture, state management, and any challenges encountered.
+
+All code that is submitted is your own. Teammates are encouraged support one another's learning, but do not code on someone else's behalf.
+By the end of the project, your team should have a working application in your chosen domain. 
+Be prepared to explain the reasoning behind your component hierarchy and the structure of your application.
+Use Git for version control throughout the project. Your code should be well-documented and pushed regularly to a shared GitHub repository.
+Each team will present their application, showcasing the features and explaining the component architecture, state management, and any challenges encountered.
+Notes:
+
+The application may seem daunting at first, with many moving parts! It's okay. Make use of Wireframing and User Stories to break down each feature into small achievable tasks. 
+Imagine you are building a real-life application! What would your target user want to be able to do in the application? (Feel free to ask friends and family for ideas! Market research is an important step in app development)
+The number of Key Features required for the web app depends on the number of team members in your group (3 or 4). 
+Since we haven't covered secure user login and user management in detail yet, the applications will be using minimal user management. As you gain further skills, you will be able to update your webpage to have user-specific accounts!
+Your team must utilize GitHub features for collaboration throughout the project.
+Remember, a simple app that works is much more valuable than a fancy-looking app with bugs! Start simple and weave in one small addition at a time, ensuring that it works before moving on to another. 
+
+Most importantly: have fun!
+Project Option #1: Travel Package Booking Platform
+Develop a travel-themed application for creating, browsing, rating and booking travel packages.
+
+### Key Features:
+Activity Log: Users can record various physical activities, including the date, duration, intensity, and calories burned. They can also see their past logged activities.
+
+Progress Visualizer: The user can set activity goals for the week (eg total calories burned or total time spent working out). Their progress towards their goal is displayed in a simple chart or visual and should update automatically when new activities are added.  
+
+Nutrition Log: Users can record their dietary intake for each day, along with nutrition and calories. They can also see their past logged meals.
+
+Nutrition Visualizer: The user's daily nutrition info is displayed in a simple chart or visual. The visuals should update automatically when new data is logged for the day.
 
 
-**Notes:**
+Meetups Sign-up: Users can filter through available events, and select an event they are interested in to view more details about the planned activities. If they want to attend, they can reserve a spot. 
+Scoring Rubric:
 
--   The application may seem daunting at first, with many moving parts! It's okay. Make use of Wireframing and User Stories to break down each feature into small achievable tasks.
--   Imagine you are building a real-life application! What would your target user want to be able to do in the application? (Feel free to ask friends and family for ideas! Market research is an important step in app development)
--   The number of Key Features required for the web app depends on the number of team members in your group (3 or 4).
--   Since we haven't covered secure user login and user management in detail yet, the applications will be using minimal user management. As you gain further skills, you will be able to update your webpage to have user-specific accounts!
--   Your team must utilize GitHub features for collaboration throughout the project.
--   Remember, a simple app that works is **much**  more valuable than a fancy-looking app with bugs! Start simple and weave in one small addition at a time, ensuring that it works before moving on to another.
--   Most importantly: have fun!
+Functionality and User Experience (55 points):
 
-**Scoring Rubric:**
+    Each feature functions correctly on its own (40 pts).
+    The overall application functions correctly, with the different features seamlessly updating one another (10 pts).
+    Unified design throughout the site and intuitive navigation (5 pts).
+    Code Quality and Documentation (20 points):
+
+    Good choice of React component hierarchy for each feature and effective use of state management (10 pts) 
+    Proper indentation, naming conventions, and organization, with limited redundancy (5 pts).
+    Well-commented code, README documentation (5 pts).
+    GitHub and Collaboration (15 points):
+
+    Clear, frequent, and informative commit messages (5 pts).
+    Use of branches and pull requests to manage code (3 pts).
+    Use of GitHub Issues to track tasks among team members (2 pts). 
+    History showing equal contribution and collaboration among team members (5 pts).
+    Final Presentation (10 points):
+        Clarity of presentation and understanding of the project (5 pts).
+        Ability to handle questions and feedback (5 pts).
 
 1.  **Functionality and User Experience (55 points):**
     

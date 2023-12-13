@@ -1,0 +1,9 @@
+.App {
+    display: flex;
+    flex-direction: column;
+}
+
+/*https://mycolor.space/gradient?ori=to+left+bottom&hex=%23953F37&hex2=%23181322&sub=1 */
+body {
+    background-image: linear-gradient(to left bottom, #953f37, #792f3f, #57253e, #341d34, #181322);
+}
