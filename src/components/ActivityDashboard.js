@@ -6,6 +6,7 @@ import activityService from '../services/activityService';
 import { v4 as uuidv4 } from 'uuid';
 import ResubaleModalButton from './ReusableModalButton';
 import calcCaloriesBurned from '../utils/caloriesBurnedUtils';
+import userInfoService from '../services/userInfoService';
 
 function ActivityDashboard() {
   // To initialize Activity Log
@@ -24,17 +25,6 @@ function ActivityDashboard() {
     intensity: '',
     caloriesBurned: '',
   });
-
-  // State to track modal visibility
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
 
   // Handle user input (excluding activity and intensity)
   const handleActivityFormChange = (name, value) => {
@@ -95,16 +85,36 @@ function ActivityDashboard() {
     setSelectedActivity(selectedActivity);
   };
 
+  //------------------------Get User Weight Info for Calories Burned Calculation----------------------//
+
+  const [userWeight, setUserWeight] = useState();
+
+  useEffect(() => {
+    // Make a request to the user info API to get the user's weight
+    userInfoService.getUserInfo().then((userInfo) => {
+      const currentUserInfo = userInfo[userInfo.length - 1];
+      console.log(userInfo);
+      if (currentUserInfo && currentUserInfo.weight) {
+        setUserWeight(currentUserInfo.weight);
+      }
+    });
+  }, []);
+
   // Handle activity submission
   const handleActivitySubmit = (e) => {
     e.preventDefault();
     console.log(activityInput);
+    console.log(userWeight);
     // Addiactivity & intensity to object based on selectedActivity
     const newActivity = {
       id: uuidv4(),
       ...activityInput,
       ...selectedActivity,
-      caloriesBurned: calcCaloriesBurned(selectedActivity, activityInput),
+      caloriesBurned: calcCaloriesBurned(
+        selectedActivity,
+        activityInput,
+        userWeight
+      ),
     };
     console.log(newActivity);
     activityService.postActivity(newActivity).then(() => {
@@ -126,12 +136,6 @@ function ActivityDashboard() {
     });
   };
 
-  // Handle Today's activity section to only show today's activities
-  const today = new Date().toISOString().split('T')[0];
-  const todayActivities = activities.filter(
-    (activitiy) => activitiy.date === today
-  );
-
   // Handle delete activity
   const handleDeleteActivity = (e, id) => {
     e.preventDefault();
@@ -140,6 +144,25 @@ function ActivityDashboard() {
     activityService.deleteActivity(id).then(() => {
       activityService.getActivities().then((data) => setActivities(data));
     });
+  };
+
+  // Filter activities to only show today's activities
+  const today = new Date().toISOString().split('T')[0];
+  const todayActivities = activities.filter(
+    (activitiy) => activitiy.date === today
+  );
+
+  //------------------------Modal Window------------------------//
+
+  // State to track modal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   // Handle click outside the modal to close it

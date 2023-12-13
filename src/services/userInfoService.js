@@ -15,9 +15,12 @@ const getUserInfo = async () => {
   }
 };
 
-const postUserInfo = async () => {
+const postUserInfo = async (newUser) => {
   try {
-    const request = axios.post(`https://${APIKey}.mockapi.io/userInfo`);
+    const request = axios.post(
+      `https://${APIKey}.mockapi.io/userInfo`,
+      newUser
+    );
     const response = await request;
     return response.data;
   } catch (error) {
@@ -25,5 +28,5 @@ const postUserInfo = async () => {
   }
 };
 
-const userAPIModule = { getUserInfo, postUserInfo };
-export default userAPIModule;
+const userInfoAPIModule = { getUserInfo, postUserInfo };
+export default userInfoAPIModule;

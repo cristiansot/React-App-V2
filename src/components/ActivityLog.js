@@ -35,6 +35,11 @@ function ActivityLog({ activities, onDeleteActivity, showDateFilter }) {
     }
   };
 
+  const clearDateFilters = () => {
+    setFilterStartDate('');
+    setFilterEndDate('');
+  };
+
   return (
     <div className="activity-log">
       {showDateFilter && (
@@ -55,6 +60,9 @@ function ActivityLog({ activities, onDeleteActivity, showDateFilter }) {
               onChange={(e) => setFilterEndDate(e.target.value)}
             />
           </label>
+          <button className="clear-filter-button" onClick={clearDateFilters}>
+            Clear Filters
+          </button>
         </div>
       )}
 
