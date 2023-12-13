@@ -13,10 +13,34 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.2",
     "mysql": "^2.18.1",
+    "@babel/runtime": "^7.23.6",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.0",
+    "@mui/system": "^5.15.0",
+    "@mui/x-date-pickers": "^6.18.4",
+    "@react-three/fiber": "^8.15.12",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/three": "^0.159.0",
+    "axios": "^1.6.2",
+    "date-fns": "^2.30.0",
+    "framer-motion": "^10.16.16",
+    "lightweight-charts": "^4.1.1",
     "react": "^18.2.0",
+    "react-calendar": "^4.7.0",
+    "react-day-picker": "^8.9.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.1",
+    "react-hook-form": "^7.48.2",
+    "react-modal": "^3.16.1",
     "react-scripts": "5.0.1",
+    "recharts": "^2.10.3",
+    "shadergradient": "^1.2.4",
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.159.0",
+    "uuid": "^9.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -45,5 +69,10 @@
   },
   "devDependencies": {
     "eslint-plugin-react-hooks": "^4.6.0"
+    "@babel/core": "^7.23.6",
+    "@babel/plugin-transform-runtime": "^7.23.6",
+    "@babel/preset-env": "^7.23.6",
+    "@babel/preset-react": "^7.23.3",
+    "source-map-loader": "^4.0.1"
   }
 }

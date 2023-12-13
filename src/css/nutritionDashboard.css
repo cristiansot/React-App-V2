@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.dataContent {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: 'Hedvig Letters Serif', serif;
+  font-weight: 400;
+  color: #FFF;
+  font-size: 50px;
+  margin-bottom: -10px;
+}
+
+.lineChart {
+  display: flex;
+}
+
+.recharts-legend-wrapper {
+  padding: 10px;
+  background-color: rgba(52, 51, 68, 0.299) !important;
+  border-radius: 20px;
+}
+
+.modules {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: center;
+  margin-top: -6px;
+}
+
+.recharts-yAxis yAxis  {
+  color: #FFF !important;
+}
