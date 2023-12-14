@@ -4,8 +4,9 @@
 }
 
 html {
-/*   font-size: 62.5%; 1 rem = 10px; */
+  /*   font-size: 62.5%; 1 rem = 10px; */
   padding: 2rem;
+  min-height: 100vh;
 }
 
 .App {
@@ -14,9 +15,24 @@ html {
   gap: 3rem;
 }
 
-
 /*https://mycolor.space/gradient?ori=to+left+bottom&hex=%23953F37&hex2=%23181322&sub=1 */
 body {
-    background-image: linear-gradient(to left bottom, #953f37, #792f3f, #57253e, #341d34, #181322);
+  background-image: linear-gradient(
+    to left bottom,
+    #953f37,
+    #792f3f,
+    #57253e,
+    #341d34,
+    #181322
+  );
 }
 
+.App {
+  display: flex;
+  flex-direction: row;
+}
+
+.Home {
+  display: flex;
+  flex-direction: column;
+}
