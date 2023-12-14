@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Chart } from 'react-google-charts';
 import { format, startOfWeek, endOfWeek, isSameDay } from 'date-fns';
-const MockApiUrl = 'https://654d199b77200d6ba859fcf7.mockapi.io/mockdata';
-
 //*****************************************************************************************************/
 
 

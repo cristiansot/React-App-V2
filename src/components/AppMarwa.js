@@ -34,7 +34,6 @@ const handleLastWeek = () => {
 
 };
 
-
 // next week button
 const handleNextWeek = () => {
   const viewNewWeek = new Date(currentWeek);
