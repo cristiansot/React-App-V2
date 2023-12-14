@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+form {
+  margin: 0;
+  padding: 0;
+  background: rgba(52, 51, 68, 0.299);
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  border: 1px solid #cccccc3b;
+}
+
+h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 200;
+  color: #bcf6a3;
+  margin-top: -1px;
+}
+
+label {
+  color: #FFF;
+}
+
+input {
+  border: 0;
+  background-color: transparent;
+  color: #ccc;
+  border: solid #aaaaaa92 1px;
+}
+
+.contentForm {
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+}
+
+#dateContent {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  margin-top: -10px;
+}
+
+#date {
+  width: 200px;
+}
+
+#cereal, #vegetable, #fruit, #dairy, #meat, #oil, #sugar {
+  display: flex;
+  column-gap: 10px;
+}
+
+#quantity {
+  width: 30px;
+}
+
+.contentForm input {
+  width: 280px;
+  height: 28px;
+}
+
+.contentForm select {
+  width: 260px;
+  height: 32px;
+  border: 0;
+  background-color: transparent;
+  color: #ccc;
+  border: solid #aaaaaa92 1px;
+}
+
+.contentForm button {
+  width: 308px;
+  height: 30px;
+}
+
+.portion {
+  width: 28px;
+}
+
+.submit {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800;
+  color: black;
+  background-color: #bcf6a3;
+  border: 0;
+  width: 100px !important;
+  border-radius: 20px;
+}
