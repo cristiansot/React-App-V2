@@ -8,16 +8,17 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #001f3f !important; 
+  background-color: #21003f !important; 
 }
 
 .tip-content {
   color: #ffffff; 
   padding: 15px; 
   border-radius: 8px; 
+  
 }
 
 .tip-content p {
   margin: 0;
-  background-color: #100f10; 
+  background-color: #570f57; 
 }
