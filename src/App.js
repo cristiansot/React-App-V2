@@ -1,5 +1,5 @@
 import './css/App.css';
-import AppMarwa from './components/AppMarwa'
+import ProgressVisualizerDashboard from './components/ProgressVisualizerDashboard'
 import ActivityDashboard from './components/ActivityDashboard';
 import UserInfoDashboard from './components/UserInfoDashboard';
 import NutritionDashboard from './components/NutritionDashboard';
@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      < AppMarwa/>
+      <ProgressVisualizerDashboard/>
       <UserInfoDashboard />
       <ActivityDashboard />
       <NutritionDashboard />
