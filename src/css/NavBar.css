@@ -1,0 +1,16 @@
+html {
+  font-size: 62.5%; /*1 rem = 10px;*/
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.nav-item {
+  font-size: 5rem;
+  background-color: transparent;
+  border: none;
+  color: rgb(248, 200, 141);
+}
