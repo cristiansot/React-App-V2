@@ -1,15 +1,12 @@
 import axios from 'axios';
+// Import API key from a secure location or environment variable
 import myAPIKey from './config';
 
-// Activity API Calls
-
-const APIKey = myAPIKey;
-const APIurl = `https://${APIKey}.mockapi.io/activities`;
+const APIurl = `https://${myAPIKey}.mockapi.io/activities`;
 
 const getActivities = async () => {
   try {
-    const request = axios.get(APIurl);
-    const response = await request;
+    const response = await axios.get(APIurl);
     return response.data;
   } catch (error) {
     throw error;
@@ -17,11 +14,8 @@ const getActivities = async () => {
 };
 
 const postActivity = async (newActivity) => {
-  console.log(newActivity);
   try {
-    const request = axios.post(APIurl, newActivity);
-    const response = await request;
-    console.log(response.data);
+    const response = await axios.post(APIurl, newActivity);
     return response.data;
   } catch (error) {
     throw error;
@@ -29,11 +23,8 @@ const postActivity = async (newActivity) => {
 };
 
 const deleteActivity = async (id) => {
-  console.log(id);
   try {
-    const request = axios.delete(`${APIurl}/${id}`);
-    const response = await request;
-    console.log(response.data);
+    const response = await axios.delete(`${APIurl}/${id}`);
     return response.data;
   } catch (error) {
     throw error;
