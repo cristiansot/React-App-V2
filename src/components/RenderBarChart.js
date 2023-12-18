@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 import NutritionTipsCarousel from './NutritionTipsCarousel';
 import MotivationalWordsCloud from './MotivationalWordsCloud'; 
-import './RenderBarChart.css';
+import '../css/RenderBarChart.css';
 
 // Custom component for a triangle-shaped bar in the BarChart
 const TriangleBar = ({ x, y, width, height, fill }) => (

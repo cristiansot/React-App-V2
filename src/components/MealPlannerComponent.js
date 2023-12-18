@@ -1,5 +1,6 @@
 // MealPlannerComponent.js
 import React, { useState, useEffect } from 'react';
+import myapikey from '../services/configfatima';
 import './MealPlannerComponent.css'; // Import your CSS file
 
 // Functional component for displaying a daily meal plan
@@ -9,12 +10,13 @@ const MealPlannerComponent = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
   // Effect hook to fetch meals data when the component mounts
   useEffect(() => {
     const fetchMeals = async () => {
       try {
         // Replace 'YOUR_SPOONACULAR_API_KEY' with your actual Spoonacular API key
-        const apiKey = '5df3a0a896fb46ca894be5680c235a0d';
+        const apiKey = myapikey;
         const response = await fetch(
           `https://api.spoonacular.com/mealplanner/generate?timeFrame=day&apiKey=${apiKey}`
         );

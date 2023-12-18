@@ -5,9 +5,6 @@ import NutritionDashboard from './components/NutritionDashboard';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
-
-
-
 import './App.css';
 
 const App = () => {
@@ -19,6 +16,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/activity-log" element={<ActivityDashboard />} />
           <Route path="/nutrition-log" element={<NutritionDashboard />} />
+          
         </Routes>
       </div>
     </div>
