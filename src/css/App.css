@@ -30,9 +30,13 @@ body {
 .App {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 .Home {
   display: flex;
   flex-direction: column;
+  width: 90%;
+  gap: 10rem;
+  padding: 3rem;
 }
