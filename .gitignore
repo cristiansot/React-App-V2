@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-
+.package-lock.json
 # testing
 /coverage
 
@@ -23,5 +23,9 @@ yarn-debug.log*
 yarn-error.log*
 
 config.js
+<<<<<<< HEAD
+configfatima.js
+=======
 .config
 
+>>>>>>> daf51e74070bc6563b638a1b3dc14f4c26b22414

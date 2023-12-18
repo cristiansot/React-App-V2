@@ -33,13 +33,15 @@
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.21.0",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
     "react-select": "^5.8.0",
     "recharts": "^2.10.3",
-    "shadergradient": "^1.2.4",
+    "slick-carousel": "^1.8.1",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.159.0",
     "uuid": "^9.0.1",
     "web-vitals": "^2.1.4"
+    
   },
   "scripts": {
     "start": "react-scripts start",
