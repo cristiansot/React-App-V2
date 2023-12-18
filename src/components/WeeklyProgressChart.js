@@ -38,17 +38,11 @@ function WeeklyProgressChart({ currentWeek, originalApiData }) {
   // Function to calc chart info
   const calculateOriginalChartDataInfo = (apiData, currentWeek) => {
     const weeklyTotals = {}; // total mins done per activity
-
     apiData.forEach(activity => {
 
-      //************** debugging purposes ******************/
-      const dateString = activity.date.toString();
-      const activityDate = new Date(`${dateString.slice(0, 4)}-${dateString.slice(4, 6)}-${dateString.slice(6)}`);
-      // const activityDate = new Date(activity.date); 
-      // when console.log activity.date, it was printing:
-      //"activityDate: Wed Dec 31 1969 21:37:11 GMT-0800 (Pacific Standard Time)". 
-      // This told me i had an issue with the date formatting:
-      //************** debugging purposes ******************/
+
+const activityDate = new Date (activity.date)
+
 
 
       const weekStart = startOfWeek(activityDate)

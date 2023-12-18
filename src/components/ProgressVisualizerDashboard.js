@@ -2,7 +2,8 @@ import WeeklyProgressChart from './WeeklyProgressChart';
 import WeeklyGoals from './WeeklyGoals';
 import { useState, useEffect } from 'react';
 import { format, startOfWeek, endOfWeek, isSameDay } from 'date-fns';
-const MockApiUrl = 'https://654d199b77200d6ba859fcf7.mockapi.io/mockdata';
+import myAPIKey from '../services/config';
+const MockApiUrl = `https://${myAPIKey}.mockapi.io/activities`;
 
 function App() {
 
@@ -45,7 +46,7 @@ const handleNextWeek = () => {
 
   return (
     <div className="App">
-      <h1>Progress Dash</h1>
+      <h1>Progress Dashboard</h1>
       <div>
         <button onClick={handleLastWeek}> Last Week </button>
         <span> {format(startOfWeek(currentWeek), 'MMM d')} - {format(endOfWeek(currentWeek), 'MMM d')} </span>

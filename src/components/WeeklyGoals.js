@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
 import { format, startOfWeek, endOfWeek, isSameDay } from "date-fns";
 import Select from "react-select";
-// const MockApiUrl = 'https://654d199b77200d6ba859fcf7.mockapi.io/mockdata';
-const GoalAPI = "https://655d2efa9f1e1093c5991797.mockapi.io/Marwa/weeklyGoals";
+import myAPIKey from '../services/config';
+const GoalAPI = `https://${myAPIKey}.mockapi.io/weeklygoal`;
 
 function WeeklyGoals({ currentWeek }) {
   const [durationGoal, setDurationGoal] = useState("");
@@ -27,12 +27,7 @@ function WeeklyGoals({ currentWeek }) {
 
       //date format
 
-      const dateString = activity.date.toString();
-      const activityDate = new Date(
-        `${dateString.slice(0, 4)}-${dateString.slice(4, 6)}-${dateString.slice(
-          6
-        )}`
-      );
+      const activityDate = new Date (activity.date)
 
       const weekStart = startOfWeek(activityDate);
       const doesWeekStartMatchCurrentWeek = isSameDay(weekStart, currentWeek);
@@ -95,7 +90,7 @@ function WeeklyGoals({ currentWeek }) {
     console.log("handleChange", selectedOption);
   };
 
-  
+
   //GET
   useEffect(() => {
     const fetchData = async () => {
@@ -112,7 +107,8 @@ function WeeklyGoals({ currentWeek }) {
       }
     };
     fetchData();
-  }, []);
+  }, [currentWeek]);
+
 
   //POST
   const handleWeeklyGoals = async (durationGoalWeek) => {
@@ -145,9 +141,11 @@ function WeeklyGoals({ currentWeek }) {
       </h2>
 
       <Select options={options} onChange={handleChange} />
-   
+
       <form className="WeeklyGoals" onSubmit={handleSubmit}>
-        <input type="text" value={durationGoal} onChange={handleInput} />
+      <label htmlFor="Duration" >Duration</label>
+        <input id="Duration" type="number" value={durationGoal} onChange={handleInput} />
+        <br/>
         <button type="submit">Save Your Goal</button>
       </form>
 
