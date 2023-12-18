@@ -1,3 +1,16 @@
+***********
+**Libraries being used:**
+
+Cristian:
+
+Novita:
+
+Marwa: "react-google-charts": "^4.0.1" , 
+
+Fatima:
+
+***********
+
 Gradient background
 npm i three @types/three @react-three/fiber shadergradient framer-motion
 
