@@ -184,11 +184,11 @@ function ActivityDashboard() {
 
   return (
     <div className="activity-dashboard">
-      <h2>Today's Activity</h2>
+      <h2>Activity History</h2>
       <ActivityLog
-        activities={todayActivities}
+        activities={activities}
         onDeleteActivity={handleDeleteActivity}
-        showDateFilter={false}
+        showDateFilter={true}
       />
 
       <ResubaleModalButton
@@ -210,13 +210,6 @@ function ActivityDashboard() {
           </div>
         </div>
       )}
-
-      <h2>Activity History</h2>
-      <ActivityLog
-        activities={activities}
-        onDeleteActivity={handleDeleteActivity}
-        showDateFilter={true}
-      />
     </div>
   );
 }
