@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+.rdp {
+  margin-top: 18px;
+  color: #ccc;
+  --rdp-cell-size: 40px;
+  --rdp-caption-font-size: 18px;
+  --rdp-accent-color: #ff3c6e;
+  --rdp-background-color: rgba(0, 0, 0, 0.217) !important;
+  --rdp-outline: 2px solid var(--rdp-accent-color);
+  --rdp-outline-selected: 3px solid var(--rdp-accent-color);
+  --rdp-selected-color: #fff;
+}
+
+.rdp-months {
+  background: rgba(52, 51, 68, 0.299);
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #cccccc3b;
+}
+
+.rdp-day_selected {
+  color: #FFF;
+}
+
+.foodContent {
+  position: relative;
+  color: #ccc;
+  background: rgba(52, 51, 68, 0.786);
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #cccccc3b;
+  width: 300px;
+  padding: 30px;
+}
+
+.ReactModal__Content  {
+  display: flex;
+  height: 370px;
+  width: 320px;
+  border: hidden !important;
+}
+
+.ReactModal__Content--after-open {
+  display: flex;
+  background-color: transparent !important;
+}
+
+.ReactModal__Overlay {
+  background-color: transparent !important;
+}
+
+p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  color: #FFF;
+  line-height: 15px;
+}
+
+.pick {
+  font-family: 'Quicksand', sans-serif;
+  color: #bcf6a3;
+}
+
+.picked {
+  font-family: 'Quicksand', sans-serif;
+  color: #78cdf8;
+}
