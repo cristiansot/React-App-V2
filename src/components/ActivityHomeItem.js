@@ -15,7 +15,7 @@ function ActivityHomeItem() {
       );
       setTodayActivities(todayActivities);
     });
-  }, [activityService]);
+  }, []);
 
   return (
     <div className="activity-home-item">

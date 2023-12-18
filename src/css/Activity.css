@@ -5,7 +5,6 @@ fieldset {
   font-size: 2rem;
   gap: 1rem;
   justify-content: center;
-  padding: 1rem;
 }
 
 legend {
@@ -49,6 +48,7 @@ label {
   flex-direction: column;
   margin: 0;
   background-color: transparent;
+  border: none;
 }
 
 .submit-button {
