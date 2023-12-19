@@ -73,6 +73,11 @@ function ActivityDashboard() {
     { activity: 'Walking (Brisk)', intensity: 'Moderate', MET: 4 },
   ];
 
+  // Sorting activity options alphabetically
+  const sortedActivityOptions = [...activityOptions].sort((a, b) =>
+    a.activity.localeCompare(b.activity)
+  );
+
   // State to track selected activity and intensity
   const [selectedActivity, setSelectedActivity] = useState({
     activity: '',
@@ -203,7 +208,7 @@ function ActivityDashboard() {
               activityInput={activityInput}
               onFormChange={handleActivityFormChange}
               onFormSubmit={handleActivitySubmit}
-              activityOptions={activityOptions}
+              activityOptions={sortedActivityOptions}
               selectedActivity={selectedActivity}
               onActivityTypeChange={handleActivityTypeChange}
             />

@@ -21,10 +21,11 @@ function ActivityLog({ activities, onDeleteActivity, showDateFilter }) {
         activities.filter((activity) => activity.date === today)
       );
     } else {
-      // If the start date is set, filter by start date
+      // If the start date is set, filter by start date only
       const startDateFiltered = filterStartDate
         ? activities.filter((activity) => activity.date >= filterStartDate)
         : activities;
+      console.log(filterStartDate);
 
       // If the end date is set, filter by end date
       const endDateFiltered = filterEndDate
