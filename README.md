@@ -87,8 +87,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # Project #2: React-App-V2
 
-Members Team: Marwa Abdullahi, Novita Hamilton, Fatima Farhat & Cristian Soto
-
 ### **Project Option #3:** **Health and Fitness Tracker**
 
 -   Create an application focused on personal health and fitness tracking. This app should allow users to log their daily activities, track nutritional intake, set fitness goals, and monitor progress over time.
@@ -141,38 +139,8 @@ Most importantly: have fun!
 Project Option #1: Travel Package Booking Platform
 Develop a travel-themed application for creating, browsing, rating and booking travel packages.
 
-### Key Features:
-Activity Log: Users can record various physical activities, including the date, duration, intensity, and calories burned. They can also see their past logged activities.
+### Scoring Rubric:
 
-Progress Visualizer: The user can set activity goals for the week (eg total calories burned or total time spent working out). Their progress towards their goal is displayed in a simple chart or visual and should update automatically when new activities are added.  
-
-Nutrition Log: Users can record their dietary intake for each day, along with nutrition and calories. They can also see their past logged meals.
-
-Nutrition Visualizer: The user's daily nutrition info is displayed in a simple chart or visual. The visuals should update automatically when new data is logged for the day.
-
-
-Meetups Sign-up: Users can filter through available events, and select an event they are interested in to view more details about the planned activities. If they want to attend, they can reserve a spot. 
-Scoring Rubric:
-
-Functionality and User Experience (55 points):
-
-    Each feature functions correctly on its own (40 pts).
-    The overall application functions correctly, with the different features seamlessly updating one another (10 pts).
-    Unified design throughout the site and intuitive navigation (5 pts).
-    Code Quality and Documentation (20 points):
-
-    Good choice of React component hierarchy for each feature and effective use of state management (10 pts) 
-    Proper indentation, naming conventions, and organization, with limited redundancy (5 pts).
-    Well-commented code, README documentation (5 pts).
-    GitHub and Collaboration (15 points):
-
-    Clear, frequent, and informative commit messages (5 pts).
-    Use of branches and pull requests to manage code (3 pts).
-    Use of GitHub Issues to track tasks among team members (2 pts). 
-    History showing equal contribution and collaboration among team members (5 pts).
-    Final Presentation (10 points):
-        Clarity of presentation and understanding of the project (5 pts).
-        Ability to handle questions and feedback (5 pts).
 
 1.  **Functionality and User Experience (55 points):**
     
