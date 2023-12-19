@@ -6,8 +6,8 @@ import ActivityHomeItem from './ActivityHomeItem';
 function Home() {
   return (
     <div className="Home">
-      <UserInfoDashboard />
-      <ActivityHomeItem />
+      {/* <ActivityHomeItem /> */}
+      <div></div>
     </div>
   );
 }

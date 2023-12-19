@@ -18,7 +18,7 @@ input {
 }
 
 .user-info-dashboard {
-  align-self: flex-end;
+  align-items: center;
 }
 
 .user-info-form {
@@ -37,10 +37,12 @@ input {
   gap: 0.5rem;
   border: 0.1rem solid black;
   padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.377);
+  margin-right: 3rem;
 }
 
 .user-info p {
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 3rem;
   margin-right: 5rem;
 }

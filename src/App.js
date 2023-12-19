@@ -6,8 +6,8 @@ import NutritionDashboard from './components/NutritionDashboard';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
-import './App.css';
 import MealPlannerComponent from './components/MealPlannerComponent';
+import UserInfoDashboard from './components/UserInfoDashboard';
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
           <Route path="/meal-plan" element={<MealPlannerComponent />} />
         </Routes>
       </div>
+      <UserInfoDashboard />
     </div>
   );
 }
