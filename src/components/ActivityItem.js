@@ -14,12 +14,20 @@ function ActivityItem({ activity, onDeleteActivity }) {
       >
         <FontAwesomeIcon icon={faTrash} />
       </button>
-      {imageSource && <img src={imageSource} alt={activity.activity} />}
-      <p>Date: {activity && activity.date}</p>
-      <p>Activity: {activity && activity.activity}</p>
-      <p>Duration : {activity && activity.duration} </p>
-      <p>Intensity: {activity && activity.intensity}</p>
-      <p>Calories Burned: {activity && activity.caloriesBurned}</p>
+      {imageSource && (
+        <img
+          className="activity-image"
+          src={imageSource}
+          alt={activity.activity}
+        />
+      )}
+      <div>
+        <p>Date: {activity && activity.date}</p>
+        <p>{activity && activity.activity}</p>
+        <p>{activity && activity.duration} minutes </p>
+        <p>Intensity: {activity && activity.intensity}</p>
+        <p>Calories Burned: {activity && activity.caloriesBurned}</p>
+      </div>
     </div>
   );
 }
