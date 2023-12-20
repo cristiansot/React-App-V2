@@ -1,3 +1,4 @@
+import '../css/Progress.css'
 import WeeklyProgressChart from './WeeklyProgressChart';
 import WeeklyGoals from './WeeklyGoals';
 import { useState, useEffect } from 'react';
@@ -27,35 +28,42 @@ function App() {
 
 
 
-// last week button
-const handleLastWeek = () => {
-  const viewNewWeek = new Date(currentWeek);
-  viewNewWeek.setDate(currentWeek.getDate() - 7);
-  setCurrentWeek(startOfWeek(viewNewWeek)); // viewNewWeek is based on the currentWeek minus 7 days, and resets it to the start of the week
+  // last week button
+  const handleLastWeek = () => {
+    const viewNewWeek = new Date(currentWeek);
+    viewNewWeek.setDate(currentWeek.getDate() - 7);
+    setCurrentWeek(startOfWeek(viewNewWeek)); // viewNewWeek is based on the currentWeek minus 7 days, and resets it to the start of the week
 
-};
+  };
 
-// next week button
-const handleNextWeek = () => {
-  const viewNewWeek = new Date(currentWeek);
-  viewNewWeek.setDate(currentWeek.getDate() + 7);
-  setCurrentWeek(startOfWeek(viewNewWeek)); // viewNewWeek is based on the currentWeek, plus 7 days, and resets it to the start of the week
-};
+  // next week button
+  const handleNextWeek = () => {
+    const viewNewWeek = new Date(currentWeek);
+    viewNewWeek.setDate(currentWeek.getDate() + 7);
+    setCurrentWeek(startOfWeek(viewNewWeek)); // viewNewWeek is based on the currentWeek, plus 7 days, and resets it to the start of the week
+  };
 
 
 
   return (
     <div className="App">
-      <h1>Progress Dashboard</h1>
-      <div>
-        <button onClick={handleLastWeek}> Last Week </button>
-        <span> {format(startOfWeek(currentWeek), 'MMM d')} - {format(endOfWeek(currentWeek), 'MMM d')} </span>
-        <button onClick={handleNextWeek}> Next Week </button>
+      <h1 style={{ color: 'darkblue' }}>Progress Dashboard</h1>
+
+      <div className="container-wrapper">
+        <div className="weekly-progress-container">
+
+          <div className="buttons-container">
+            <button className="button-text" onClick={handleLastWeek}> Last Week </button>
+            <span className="date-text" > {format(startOfWeek(currentWeek), 'MMM d')} - {format(endOfWeek(currentWeek), 'MMM d')} </span>
+            <button className="button-text" onClick={handleNextWeek}> Next Week </button>
+          </div>
+
+        </div>
+
+        <WeeklyProgressChart currentWeek={currentWeek} originalApiData={originalApiData} />
+        <WeeklyGoals className="WeeklyGoals" currentWeek={currentWeek} activityProgressApiData={originalApiData} />
+
       </div>
-      
-      <WeeklyProgressChart currentWeek={currentWeek} originalApiData={originalApiData} />
-      <WeeklyGoals className="WeeklyGoals" currentWeek={currentWeek} originalApiData={originalApiData}/>
-     
     </div>
   );
 }

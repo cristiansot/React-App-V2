@@ -5,18 +5,18 @@
 
 html {
   /*   font-size: 62.5%; 1 rem = 10px; */
-  padding: 2rem;
+  padding: 5rem;
   min-height: 100vh;
 }
 
 .App {
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
   gap: 3rem;
 }
 
 /*https://mycolor.space/gradient?ori=to+left+bottom&hex=%23953F37&hex2=%23181322&sub=1 */
-body {
+/* body {
   background-image: linear-gradient(
     to left bottom,
     #953f37,
@@ -25,14 +25,16 @@ body {
     #341d34,
     #181322
   );
-}
+} */
 
-.App {
+/* .App {
   display: flex;
   flex-direction: row;
-}
+} */
 
 .Home {
   display: flex;
   flex-direction: column;
 }
+
+

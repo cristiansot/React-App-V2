@@ -2,7 +2,7 @@ html {
   font-size: 62.5%; /*1 rem = 10px;*/
 }
 
-.navbar {
+/* .navbar {
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -13,4 +13,30 @@ html {
   background-color: transparent;
   border: none;
   color: rgb(248, 200, 141);
+} */
+
+
+
+/* marwa's temp change */
+body {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 62.5%;
 }
+
+.navbar {
+  position: fixed; 
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-left: 20px;
+}
+
+.nav-item {
+  font-size: 5rem;
+  background-color: transparent;
+  border: none;
+  color: rgb(248, 200, 141);
+}
+/* marwa's temp change */
