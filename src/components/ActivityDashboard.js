@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import ResubaleModalButton from './ReusableModalButton';
 import calcCaloriesBurned from '../utils/caloriesBurnedUtils';
 import userInfoService from '../services/userInfoService';
+import activityOptions from '../data/ActivityOptions';
 
 function ActivityDashboard() {
   // To initialize Activity Log
@@ -31,47 +32,10 @@ function ActivityDashboard() {
     setActivityInput((prevValue) => ({ ...prevValue, [name]: value }));
   };
 
-  // Activity options
-  const activityOptions = [
-    { activity: 'Rock Climbing', intensity: 'High', MET: 7 },
-    { activity: 'Running', intensity: 'High', MET: 8 },
-    { activity: 'Walking', intensity: 'Low', MET: 3.5 }, // Assuming casual walking
-    { activity: 'Gentle Yoga', intensity: 'Low', MET: 2 },
-    { activity: 'Biking', intensity: 'Moderate', MET: 6 },
-    { activity: 'Power Yoga', intensity: 'Moderate', MET: 4 },
-    { activity: 'Swimming', intensity: 'High', MET: 7 },
-    { activity: 'Hiking (Moderate)', intensity: 'Moderate', MET: 4.5 },
-    { activity: 'Hiking (Challenging)', intensity: 'High', MET: 6.5 },
-    { activity: 'Hiking (Difficult)', intensity: 'Very High', MET: 8 },
-    { activity: 'Hiking (Extreme)', intensity: 'Very High', MET: 10 },
-    { activity: 'Cycling (Leisure)', intensity: 'Low', MET: 4 },
-    { activity: 'Elliptical Trainer', intensity: 'Moderate', MET: 5 },
-    { activity: 'Strength Training', intensity: 'Moderate', MET: 3 },
-    { activity: 'Pilates', intensity: 'Low', MET: 3 },
-    { activity: 'Dancing (Aerobic)', intensity: 'Moderate', MET: 5 },
-    { activity: 'Rowing (Moderate)', intensity: 'Moderate', MET: 6 },
-    { activity: 'Tennis (Singles)', intensity: 'Moderate', MET: 7 },
-    { activity: 'Basketball', intensity: 'High', MET: 8 },
-    { activity: 'Soccer', intensity: 'High', MET: 10 },
-    { activity: 'CrossFit', intensity: 'High', MET: 12 },
-    { activity: 'Running (Sprinting)', intensity: 'Very High', MET: 12 },
-    { activity: 'Swimming (Competitive)', intensity: 'Very High', MET: 12 },
-    {
-      activity: 'High-Intensity Interval Training (HIIT)',
-      intensity: 'Very High',
-      MET: 12,
-    },
-    { activity: 'Cleaning (Light)', intensity: 'Low', MET: 2 },
-    { activity: 'Cleaning (Moderate)', intensity: 'Moderate', MET: 3 },
-    { activity: 'Cooking', intensity: 'Low', MET: 2 },
-    { activity: 'Dishwashing', intensity: 'Low', MET: 2 },
-    { activity: 'Gardening (Light)', intensity: 'Low', MET: 2.5 },
-    { activity: 'Gardening (Moderate)', intensity: 'Moderate', MET: 4 },
-    { activity: 'Ironing', intensity: 'Low', MET: 2 },
-    { activity: 'Mopping', intensity: 'Moderate', MET: 3 },
-    { activity: 'Vacuuming', intensity: 'Moderate', MET: 3.5 },
-    { activity: 'Walking (Brisk)', intensity: 'Moderate', MET: 4 },
-  ];
+  // Sorting activity options alphabetically
+  const sortedActivityOptions = [...activityOptions].sort((a, b) =>
+    a.activity.localeCompare(b.activity)
+  );
 
   // State to track selected activity and intensity
   const [selectedActivity, setSelectedActivity] = useState({
@@ -88,6 +52,7 @@ function ActivityDashboard() {
   //------------------------Get User Weight Info for Calories Burned Calculation----------------------//
 
   const [userWeight, setUserWeight] = useState();
+  console.log(userWeight);
 
   useEffect(() => {
     // Make a request to the user info API to get the user's weight
@@ -203,7 +168,7 @@ function ActivityDashboard() {
               activityInput={activityInput}
               onFormChange={handleActivityFormChange}
               onFormSubmit={handleActivitySubmit}
-              activityOptions={activityOptions}
+              activityOptions={sortedActivityOptions}
               selectedActivity={selectedActivity}
               onActivityTypeChange={handleActivityTypeChange}
             />

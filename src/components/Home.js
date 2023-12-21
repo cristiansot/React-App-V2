@@ -29,8 +29,6 @@ function Home() {
         </div>
 
       </div>
-      {/* <UserInfoDashboard />
-      <ActivityHomeItem /> */}
     </div>
   );
 }

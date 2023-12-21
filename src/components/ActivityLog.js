@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import ActivityItem from './ActivityItem';
+import getStandardizedDate from '../utils/getStandardizedDate';
 
 function ActivityLog({ activities, onDeleteActivity, showDateFilter }) {
   const [filterStartDate, setFilterStartDate] = useState();
@@ -12,19 +13,19 @@ function ActivityLog({ activities, onDeleteActivity, showDateFilter }) {
   }, [filterStartDate, filterEndDate, activities]);
 
   const filterActivities = () => {
-    // Today's date in ISO format 'YYYY-MM-DD'
-    const today = new Date().toISOString().split('T')[0];
-
+    // To get Today's date in ISO format 'YYYY-MM-DD'
+    const today = getStandardizedDate();
     // If no start and end date set, show today's activity
     if (!filterStartDate && !filterEndDate) {
       setFilteredActivities(
         activities.filter((activity) => activity.date === today)
       );
     } else {
-      // If the start date is set, filter by start date
+      // If the start date is set, filter by start date only
       const startDateFiltered = filterStartDate
         ? activities.filter((activity) => activity.date >= filterStartDate)
         : activities;
+      console.log(filterStartDate);
 
       // If the end date is set, filter by end date
       const endDateFiltered = filterEndDate
@@ -33,6 +34,8 @@ function ActivityLog({ activities, onDeleteActivity, showDateFilter }) {
 
       setFilteredActivities(endDateFiltered);
     }
+    console.log(today);
+    return today;
   };
 
   const clearDateFilters = () => {
