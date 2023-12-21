@@ -3,7 +3,9 @@ import bikingImage from '../images/biking.jpg';
 import chartingImage from '../images/charting.jpg';
 import nutritionImage from '../images/nutrition.jpg';
 
+import '../css/Activity.css';
 import UserInfoDashboard from './UserInfoDashboard';
+import ActivityHomeItem from './ActivityHomeItem';
 
 function Home() {
   return (
@@ -28,6 +30,8 @@ function Home() {
         </div>
 
       </div>
+      <UserInfoDashboard />
+      <ActivityHomeItem />
     </div>
   );
 }
