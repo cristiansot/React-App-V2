@@ -2,41 +2,72 @@
   padding: 0;
   margin: 0;
 }
-
 html {
   /*   font-size: 62.5%; 1 rem = 10px; */
-  padding: 2rem;
+  padding: 5rem;
   min-height: 100vh;
 }
-
-.App {
+.Home {
   display: flex;
   flex-direction: column;
   gap: 3rem;
 }
 
-/*https://mycolor.space/gradient?ori=to+left+bottom&hex=%23953F37&hex2=%23181322&sub=1 */
+
 body {
-  background-image: linear-gradient(
-    to left bottom,
-    #953f37,
-    #792f3f,
-    #57253e,
-    #341d34,
-    #181322
-  );
+  margin: 0;
+  padding:0;
 }
 
 .App {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh; 
   width: 100%;
 }
 
-.Home {
+.ImageContainer {
   display: flex;
+  justify-content: space-around;
+  max-width: 100%;
+  margin-top: 200px;
+}
+
+.ImageContainer {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 80%;
+}
+
+.ImageContainer img {
+  width: 80%;
+  margin: 10px; 
+}
+
+.ImageText {
+  width: 80%;
+  margin: 5px;
+  color: #8f56ea;
+  font-size: 2rem;
+}
+
+.ImageText + p {
+  margin-top: 5px;
+}
+
+.ImageText, .ImageText + p {
+  text-align: center;
   flex-direction: column;
   width: 90%;
   gap: 10rem;
   padding: 3rem;
 }
+
+
+
+
