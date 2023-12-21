@@ -4,9 +4,9 @@
   max-width: 300px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #f8f9fa; /* Lighter background color */
-  border-radius: 10px; /* Slightly increased border-radius for a softer look */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Slightly increased box shadow for depth */
+  background-color: #f8f9fa; 
+  border-radius: 10px; 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
 }
 
 .auth-form {
@@ -21,13 +21,13 @@
 
 label {
   font-weight: bold;
-  margin-bottom: 8px; /* Increased margin-bottom for better separation */
+  margin-bottom: 8px; 
 }
 
 input {
   padding: 10px;
   width: 100%;
-  border: 1px solid #ced4da; /* Lighter border color */
+  border: 1px solid #ced4da; 
   border-radius: 5px;
   box-sizing: border-box;
 }
@@ -41,7 +41,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   width: 100%;
-  transition: background-color 0.3s ease; /* Added smooth transition effect */
+  transition: background-color 0.3s ease; 
 }
 
 button:hover {
@@ -49,7 +49,7 @@ button:hover {
 }
 
 .error-message {
-  color: #dc3545; /* Red color for error messages */
+  color: #dc3545; 
   margin-top: 10px;
 }
 
@@ -58,7 +58,7 @@ p {
 }
 
 .welcome-message {
-  color: #3644d8; /* Green color for welcome messages */
+  color: #3644d8; 
   margin-top: 20px;
   font-size: x-large;
   text-align: center;

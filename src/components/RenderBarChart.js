@@ -1,82 +1,123 @@
-// RenderBarChart.js
-import React, { useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import React, { useState, useEffect } from 'react';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  CartesianGrid,
+  ResponsiveContainer,
+} from 'recharts';
 import NutritionTipsCarousel from './NutritionTipsCarousel';
-import MotivationalWordsCloud from './MotivationalWordsCloud'; 
-import '../css/RenderBarChart.css';
+import MotivationalWordsCloud from './MotivationalWordsCloud';
+import './RenderBarChart.css'; 
+import axios from 'axios';
 
-// Custom component for a triangle-shaped bar in the BarChart
-const TriangleBar = ({ x, y, width, height, fill }) => (
-  <path d={`M${x},${y + height} L${x + width / 3},${y} L${x + width},${y + height} Z`} fill={fill} />
-);
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    const data = payload[0].payload;
 
-// Sample data for daily calorie intake and burnt calories
-const calorieData = [
-  { day: 'Monday', intake: 2500, burnt: 2000 },
-  { day: 'Tuesday', intake: 2300, burnt: 1800 },
-  { day: 'Wednesday', intake: 2600, burnt: 2100 },
-  { day: 'Thursday', intake: 2400, burnt: 1900 },
-  { day: 'Friday', intake: 2800, burnt: 2200 },
-  { day: 'Saturday', intake: 2700, burnt: 2000 },
-  { day: 'Sunday', intake: 2200, burnt: 1800 },
-];
+    const tooltipStyle = {
+      background: '#f8f9fa',
+      border: '1px solid #ddd',
+      padding: '15px',
+      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+      borderRadius: '8px',
+      transition: 'opacity 0.3s ease-in-out',
+    };
 
-// Sample data for nutrition tips
-const tipsData = [
-  { id: 1, tip: 'Tip 1: Maintain a balance between calorie intake and expenditure.' },
-  { id: 2, tip: 'Tip 2: Stay active and engage in regular physical activities.' },
-  { id: 3, tip: 'Tip 3: Choose nutrient-dense foods for a healthier diet.' },
-  { id: 4, tip: 'Tip 4: Monitor your calorie intake to achieve your fitness goals.' },
-  { id: 5, tip: 'Tip 5: Stay hydrated to support your metabolism.' },
-];
+    return (
+      <div className="custom-tooltip" style={tooltipStyle}>
+        <p style={{ color: 'black' }}>{`Day: ${data.day}`}</p>
+        <p style={{ color: '#FFD700' }}>{`Total Sugar: ${data.totalSugar.toFixed(2)}`}</p>
+        <p style={{ color: '#32CD32' }}>{`Total Protein: ${data.totalProtein.toFixed(2)}`}</p>
+        <p style={{ color: '#FF6347' }}>{`Total Fat: ${data.totalFat.toFixed(2)}`}</p>
+        <p style={{ color: '#4169E1' }}>{`Total Carbohydrates: ${data.totalCarbohydrates.toFixed(2)}`}</p>
+      </div>
+    );
+  }
 
-// Functional component for rendering a bar chart and nutrition tips
+  return null;
+};
+
 const RenderBarChart = () => {
-  // State for controlling the visibility of nutrition tips
   const [showTips, setShowTips] = useState(false);
+  const [nutritionData, setNutritionData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Function to toggle the visibility of nutrition tips
   const toggleTips = () => {
     setShowTips((prevState) => !prevState);
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://654d199b77200d6ba859fcf7.mockapi.io/nutrition');
+        setNutritionData(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const extractChartData = () => {
+    const dateMap = {};
+
+    nutritionData.forEach((entry) => {
+      const date = entry.date;
+      if (!dateMap[date]) {
+        dateMap[date] = {
+          day: date,
+          totalSugar: 0,
+          totalProtein: 0,
+          totalFat: 0,
+          totalCarbohydrates: 0,
+        };
+      }
+
+      dateMap[date].totalSugar += parseFloat(entry.total.totalCarbohydrates);
+      dateMap[date].totalProtein += parseFloat(entry.total.totalProtein);
+      dateMap[date].totalFat += parseFloat(entry.total.totalFat);
+      dateMap[date].totalCarbohydrates += parseFloat(entry.total.totalCarbohydrates);
+    });
+
+    return Object.values(dateMap);
+  };
+
   return (
-    <div className="bar-chart-container">
-      <MotivationalWordsCloud /> {/* Display MotivationalWordsCloud at the top */}
-      
-      <h2 className="chart-title">Daily Calorie Chart</h2>
-      <BarChart width={900} height={400} data={calorieData} margin={{ top: 10, right: 30, left: 20, bottom: 5 }}>
-        <XAxis dataKey="day" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        {/* Bar for calorie intake with custom triangle shape */}
-        <Bar
-          dataKey="intake"
-          fill="#800080"
-          shape={<TriangleBar />}
-          name="Calorie Intake"
-          className="chart-bar"
-        />
-        {/* Bar for burnt calories with custom triangle shape */}
-        <Bar
-          dataKey="burnt"
-          fill="#4169E1"
-          shape={<TriangleBar />}
-          name="Calories Burnt"
-          className="chart-bar"
-        />
-      </BarChart>
+    <div className="line-chart-container">
+      <MotivationalWordsCloud />
+      <h2 className="chart-title">Daily Nutrition Log</h2>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <ResponsiveContainer width="90%" height={400}>
+          <LineChart data={extractChartData()}>
+            <XAxis dataKey="day" />
+            <YAxis />
+            <Tooltip content={<CustomTooltip />} />
+            <Legend />
+            <CartesianGrid strokeDasharray="3 3" />
+            <Line type="monotone" dataKey="totalSugar" stroke="#FFD700" name="Total Sugar" />
+            <Line type="monotone" dataKey="totalProtein" stroke="#32CD32" name="Total Protein" />
+            <Line type="monotone" dataKey="totalFat" stroke="#FF6347" name="Total Fat" />
+            <Line type="monotone" dataKey="totalCarbohydrates" stroke="#4169E1" name="Total Carbohydrates" />
+          </LineChart>
+        </ResponsiveContainer>
+      )}
 
       <div className="button-container">
-        {/* Button to toggle visibility of nutrition tips */}
         <button className="show-hide-button" onClick={toggleTips}>
           {showTips ? 'Hide Nutrition Tips' : 'Show Nutrition Tips'}
         </button>
       </div>
 
-      {/* Display NutritionTipsCarousel only if showTips is true */}
-      {showTips && <NutritionTipsCarousel data={tipsData} />}
+      {showTips && <NutritionTipsCarousel data={nutritionData} />}
     </div>
   );
 };

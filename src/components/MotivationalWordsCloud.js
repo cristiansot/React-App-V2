@@ -2,7 +2,7 @@
 import React from 'react';
 import "./MotivationalWordsCloud.css";
 
-// Sample data containing motivational words and their corresponding count
+// Sample data containing motivational words and their count
 const data = [
   { value: 'Persistence', count: 25 },
   { value: 'Determination', count: 18 },
