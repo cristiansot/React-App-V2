@@ -19,22 +19,19 @@ function UserInfoDashboard() {
   // State to control the visibility of the form
   const [userFormVisible, setuserFormVisible] = useState(true);
 
-  // State to manage loading state while fetching new data
-  const [loading, setLoading] = useState(false);
+  // // State to manage loading state while fetching new data
+  // const [loading, setLoading] = useState(false);
 
   const handleUserInfoSubmit = (e) => {
     e.preventDefault();
     const newUser = userInput;
     console.log(newUser);
     // Show loading state while fetching new data
-    setLoading(true);
-    userInfoService.postUserInfo(newUser).then(() => {
-      userInfoService.getUserInfo().then((data) => {
-        //Get the last item in the userInfo array
-        const recentUserInfo = data[data.length - 1];
-        setLoading(false);
-        setUserInfo(recentUserInfo);
-      });
+    // setLoading(true);
+    userInfoService.postUserInfo(newUser).then((updatedUserInfo) => {
+      // setLoading(false);
+      console.log('Updated User Info:', updatedUserInfo);
+      setUserInfo(updatedUserInfo);
     });
     setuserFormVisible(false);
   };
@@ -45,7 +42,7 @@ function UserInfoDashboard() {
 
   return (
     <div className="user-info-dashboard">
-      {!loading && !userFormVisible && <UserInfo userInfo={userInfo} />}
+      {!userFormVisible && <UserInfo userInfo={userInfo} />}
 
       {userFormVisible && (
         <UserInfoForm
