@@ -14,7 +14,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/activity-log" element={<ActivityDashboard />} />
+          <Route path="/activity-log" element={<ActivityDashboard />}/>
           <Route path="/nutrition-log" element={<NutritionDashboard />} />
           <Route path="/progress-tracker" element={<ProgressVisualizerDashboard />} />
         </Routes>

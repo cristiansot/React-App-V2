@@ -187,15 +187,21 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
                       title: pieChartData.chartTitle,
                       legend: "top",
                       chartArea: { width: "70%" },
-                      vAxis: { title: "Duration (minutes)" },
-                      hAxis: { title: "Week" },
-                      seriesType: "bars",
-                      series: { 5: { type: "line" } },
-                      pieHole: 0.4,
+                      pieHole: 0.5,
                       is3D: false,
-                    }}
+                      backgroundColor: '#8e44ad',
+                      slices: {
+                        0: { color: '#3498db' },
+                        1: { color: '#f1c40f' },
+                      },
+                      tooltip: {
+                        showColorCode: true,
+                      },
+                      fontSize: 10, // Set the font size for text in the chart
+                    }
+                    }
                     width="100%"
-                    height="100px"
+                    height="150px"
                   />
                 </div>
               )

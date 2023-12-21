@@ -1,49 +1,52 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container-wrapper {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .weekly-progress-container,
-  .weekly-goals-container,
-  .WeeklyGoals {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    background-color: lightgray;
-    width: 300px;
-    height: 200px;
-    margin: 1rem; /* Adjust margin as needed */
-  }
-  
-  .WeeklyGoals {
-    width:auto;
-    
-  }
-  
-  .buttons-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .date-text,
-  .button-text {
-    font-size: 15px; /* Adjust font size as needed */
-    color: darkblue;
-  }
-  
-  .chart-container {
-    width: 100%;
-  }
-  .weekly-goals-container > div {
-    width: 50%; /* Set the width of the pie charts to 100% */
-  }
+  margin: 0;
+  padding: 0;
+}
+
+.container-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.weekly-progress-container,
+.weekly-goals-container,
+.WeeklyGoals {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #f5f7fa;
+  width: 300px;
+  height: fit-content;
+  margin: 1rem; 
+}
+
+.WeeklyGoals {
+  width: auto;
+  height: 250px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.date-text,
+.button-text {
+  font-size: 15px;
+  color: darkblue;
+}
+
+.chart-container {
+  width: 100%;
+}
+
+.weekly-goals-container > div {
+  width: calc(50% - 25px);
+  margin: 10px; 
+}
