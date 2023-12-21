@@ -10,7 +10,6 @@ import ActivityHomeItem from './ActivityHomeItem';
 function Home() {
   return (
     <div className="Home">
-      {/* <UserInfoDashboard /> */}
 
       <div className="ImageContainer">
 
@@ -30,8 +29,8 @@ function Home() {
         </div>
 
       </div>
-      <UserInfoDashboard />
-      <ActivityHomeItem />
+      {/* <UserInfoDashboard />
+      <ActivityHomeItem /> */}
     </div>
   );
 }

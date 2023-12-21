@@ -35,6 +35,15 @@ body {
   margin-top: 200px;
 }
 
+.ImageContainer {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 80%;
+}
+
 .ImageContainer img {
   width: 80%;
   margin: 10px; 
