@@ -17,26 +17,30 @@ function NavBar() {
           <FontAwesomeIcon icon={faHouseCrack} />
         </Link>
       </div>
+      <br/>
       <div className="activity-log-nav nav-item">
         <Link to="/activity-log" className="nav-item">
           <FontAwesomeIcon icon={faHeartPulse} />
         </Link>
       </div>
-      <div className="progress-tracker-nav">
+      <br/>
+      {/* <div className="progress-tracker-nav">
         <Link to="/progress-tracker" className="nav-item">
           <FontAwesomeIcon icon={faChartLine} />
         </Link>
-      </div>
+      </div> */}
+      <br/>
       <div className="nutrition-log-nav">
         <Link to="/nutrition-log" className="nav-item">
           <FontAwesomeIcon icon={faCarrot} />
         </Link>
       </div>
-      <div className="meal-planner-nav">
+      <br/>
+      {/* <div className="meal-planner-nav">
         <Link to="/meal-plan" className="nav-item">
           <FontAwesomeIcon icon={faPlateWheat} />
         </Link>
-      </div>
+      </div> */}
     </nav>
   );
 }
