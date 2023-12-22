@@ -12,11 +12,14 @@ import UserInfoDashboard from './components/UserInfoDashboard';
 function App() {
   return (
     <div className="App">
-      <NavBar />
+      <header>
+        <UserInfoDashboard />
+        <NavBar />
+      </header>
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/activity-log" element={<ActivityDashboard />}/>
+          <Route path="/activity-log" element={<ActivityDashboard />} />
           <Route path="/nutrition-log" element={<NutritionDashboard />} />
           <Route
             path="/progress-tracker"
@@ -25,7 +28,6 @@ function App() {
           <Route path="/meal-plan" element={<MealPlannerComponent />} />
         </Routes>
       </div>
-      <UserInfoDashboard />
     </div>
   );
 }

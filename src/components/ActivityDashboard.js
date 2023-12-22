@@ -149,7 +149,7 @@ function ActivityDashboard() {
 
   return (
     <div className="activity-dashboard">
-      <h2>Activity History</h2>
+      <h2>Activity Log</h2>
       <ActivityLog
         activities={activities}
         onDeleteActivity={handleDeleteActivity}

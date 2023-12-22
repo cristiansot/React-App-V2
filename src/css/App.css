@@ -3,10 +3,11 @@
   margin: 0;
 }
 html {
-  /*   font-size: 62.5%; 1 rem = 10px; */
-  padding: 5rem;
+  font-size: 62.5%; /*1 rem = 10px; */
+  padding: 5rem 2rem 5rem 2rem;
   min-height: 100vh;
 }
+
 .Home {
   display: flex;
   flex-direction: column;
@@ -15,37 +16,50 @@ html {
 
 body {
   margin: 0;
-  padding:0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  top: 0;
+  margin: 0 auto 10rem;
+  position: sticky;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .App {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  justify-content: center; 
-  height: 100vh; 
+  align-items: center;
+  justify-content: center;
   width: 100%;
 }
 
 .ImageContainer {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
-  max-width: 100%;
-  margin-top: 200px;
+  text-align: center;
+  /* max-width: 100%; */
+  /* margin-top: 200px;
+  position: fixed; */
+  /* top: 0;
+  left: 50%;
+  transform: translateX(-50%); */
+  /* width: 80%; */
 }
 
-.ImageContainer {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  width: 80%;
+.home-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .ImageContainer img {
   width: 80%;
-  margin: 10px; 
 }
 
 .ImageText {
@@ -53,20 +67,5 @@ body {
   margin: 5px;
   color: #8f56ea;
   font-size: 2rem;
+  line-height: 2.5rem;
 }
-
-.ImageText + p {
-  margin-top: 5px;
-}
-
-.ImageText, .ImageText + p {
-  text-align: center;
-  flex-direction: column;
-  width: 90%;
-  gap: 10rem;
-  padding: 3rem;
-}
-
-
-
-
