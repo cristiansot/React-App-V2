@@ -64,7 +64,7 @@ function ActivityLog({ activities, onDeleteActivity, showDateFilter }) {
             />
           </label>
           <button className="clear-filter-button" onClick={clearDateFilters}>
-            Clear Filters
+            Reset
           </button>
         </div>
       )}

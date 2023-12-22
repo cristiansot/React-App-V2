@@ -1,13 +1,11 @@
 import React from 'react';
 import './css/App.css';
-import ProgressVisualizerDashboard from './components/ProgressVisualizerDashboard';
-import ActivityDashboard from './components/ActivityDashboard';
-import NutritionDashboard from './components/NutritionDashboard';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
-import MealPlannerComponent from './components/MealPlannerComponent';
 import UserInfoDashboard from './components/UserInfoDashboard';
+import ActivityPage from './components/ActivityPage';
+import NutritionPage from './components/NutritionPage';
 
 function App() {
   return (
@@ -19,13 +17,8 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/activity-log" element={<ActivityDashboard />} />
-          <Route path="/nutrition-log" element={<NutritionDashboard />} />
-          <Route
-            path="/progress-tracker"
-            element={<ProgressVisualizerDashboard />}
-          />
-          <Route path="/meal-plan" element={<MealPlannerComponent />} />
+          <Route path="/activity-log" element={<ActivityPage />} />
+          <Route path="/nutrition-log" element={<NutritionPage />} />
         </Routes>
       </div>
     </div>
