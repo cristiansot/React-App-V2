@@ -4,7 +4,6 @@
 }
 html {
   font-size: 62.5%; /*1 rem = 10px; */
-  padding: 5rem 2rem 5rem 2rem;
   min-height: 100vh;
 }
 
@@ -27,6 +26,9 @@ header {
   position: sticky;
   flex-direction: row;
   align-items: flex-start;
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+  background-color: white;
 }
 
 .App {
@@ -43,13 +45,6 @@ header {
   flex-direction: row;
   justify-content: space-around;
   text-align: center;
-  /* max-width: 100%; */
-  /* margin-top: 200px;
-  position: fixed; */
-  /* top: 0;
-  left: 50%;
-  transform: translateX(-50%); */
-  /* width: 80%; */
 }
 
 .home-item {

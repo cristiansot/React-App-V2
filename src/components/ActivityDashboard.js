@@ -114,7 +114,7 @@ function ActivityDashboard() {
   // Filter activities to only show today's activities
   const today = new Date().toISOString().split('T')[0];
   const todayActivities = activities.filter(
-    (activitiy) => activitiy.date === today
+    (activity) => activity.date === today
   );
 
   //------------------------Modal Window------------------------//
@@ -149,12 +149,16 @@ function ActivityDashboard() {
 
   return (
     <div className="activity-dashboard">
-      <h2>Activity Log</h2>
-      <ActivityLog
-        activities={activities}
-        onDeleteActivity={handleDeleteActivity}
-        showDateFilter={true}
-      />
+      <div className="activity-log-container">
+        <h2>Activity Log</h2>
+        <div className="activity-scroll">
+          <ActivityLog
+            activities={activities}
+            onDeleteActivity={handleDeleteActivity}
+            showDateFilter={true}
+          />
+        </div>
+      </div>
 
       <ResubaleModalButton
         buttonText="Add Activity"
