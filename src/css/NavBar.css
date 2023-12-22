@@ -5,10 +5,7 @@ body {
 }
 
 .navbar {
-  position: fixed;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0 auto;
   display: flex;
   gap: 3rem;
   align-items: center;
@@ -18,5 +15,5 @@ body {
   font-size: 6rem;
   background-color: transparent;
   border: none;
-  color: #F68A3C;
+  color: #f68a3c;
 }

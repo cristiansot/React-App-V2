@@ -34,9 +34,10 @@ select {
   padding: 0.2rem;
 }
 
-h2 {
+.activity-dashboard h2 {
   font-size: 3rem;
   font-weight: bold;
+  color: #d59ce8;
 }
 
 label {
@@ -60,16 +61,18 @@ label {
   display: flex;
   align-items: center;
   flex-direction: row;
-  border: 0.1rem solid;
-  width: 80%;
-  padding: 2rem;
+  border: 0.1rem solid #d8dee7;
+  width: 30rem;
+  height: 10rem;
   position: relative;
-  gap: 3rem;
+  gap: 1rem;
 }
 
 .activity-item p {
-  font-size: 2rem;
-  line-height: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  color: rgb(117, 114, 114);
+  font-weight: bold;
 }
 
 .activity-image {
@@ -101,13 +104,21 @@ label {
 .date-filter {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 1rem;
-  font-size: 2.5rem;
+}
+
+.date-filter label {
+  color: rgb(120, 119, 119);
+  font-size: 1.5rem;
 }
 
 .date-filter input {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   padding: 0.5rem;
+  color: rgb(120, 119, 119);
+  width: 12rem;
+  border: 0.1rem solid #d8dee7;
 }
 
 .calories-burned {
@@ -115,10 +126,13 @@ label {
 }
 
 .modal-button {
-  background-color: rgba(98, 95, 95, 0.734);
+  background-color: #fa8597;
   color: #fff;
-  padding: 10px 20px;
+  padding: 1rem 0;
   cursor: pointer;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.5rem;
 }
 
 .overlay {
@@ -144,8 +158,12 @@ label {
 }
 
 .clear-filter-button {
+  font-size: 1rem;
+  height: 50%;
   padding: 0.5rem;
-  font-size: 2rem;
+  color: rgb(120, 119, 119);
+  background: none;
+  border: solid 0.1rem;
 }
 
 .activity-history {
