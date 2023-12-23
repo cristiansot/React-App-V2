@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import ResubaleModalButton from './ReusableModalButton';
 import calcCaloriesBurned from '../utils/caloriesBurnedUtils';
 import userInfoService from '../services/userInfoService';
-import activityOptions from '../data/ActivityOptions';
+import activityOptions from './ActivityOptions';
 
 function ActivityDashboard() {
   // To initialize Activity Log
