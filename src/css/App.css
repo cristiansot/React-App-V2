@@ -22,13 +22,13 @@ header {
   display: flex;
   width: 100%;
   top: 0;
-  margin: 0 auto 10rem;
+  margin: 0 auto 5rem;
   position: sticky;
   flex-direction: row;
   align-items: flex-start;
-  padding: 3rem 0;
-  margin-bottom: 3rem;
+  padding: 6rem 0;
   background-color: white;
+  z-index: 2;
 }
 
 .App {

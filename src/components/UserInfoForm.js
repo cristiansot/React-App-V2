@@ -23,6 +23,7 @@ function UserInfoForm({ userInput, onFormChange, onFormSubmit }) {
       <label>
         Height (cm):
         <input
+          className="userInfo-input"
           type="number"
           name="height"
           value={userInput.height}
@@ -33,6 +34,7 @@ function UserInfoForm({ userInput, onFormChange, onFormSubmit }) {
       <label>
         Weight (kg):
         <input
+          className="userInfo-input"
           type="number"
           name="weight"
           value={userInput.weight}
