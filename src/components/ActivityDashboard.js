@@ -3,13 +3,12 @@ import { useState, useEffect } from 'react';
 import ActivityLog from './ActivityLog';
 import ActivityForm from './ActivityForm';
 import activityService from '../services/activityService';
-import { v4 as uuidv4 } from 'uuid';
 import ResubaleModalButton from './ReusableModalButton';
 import calcCaloriesBurned from '../utils/caloriesBurnedUtils';
 import userInfoService from '../services/userInfoService';
 import activityOptions from '../data/ActivityOptions';
 
-function ActivityDashboard() {
+function ActivityDashboard({ userInfo }) {
   // To initialize Activity Log
   useEffect(() => {
     activityService.getActivities().then((data) => setActivities(data || []));
@@ -63,7 +62,7 @@ function ActivityDashboard() {
         setUserWeight(currentUserInfo.weight);
       }
     });
-  }, []);
+  }, [userInfo]);
 
   // Handle activity submission
   const handleActivitySubmit = (e) => {
@@ -72,7 +71,7 @@ function ActivityDashboard() {
     console.log(userWeight);
     // Addiactivity & intensity to object based on selectedActivity
     const newActivity = {
-      id: uuidv4(),
+      // id: uuidv4(),
       ...activityInput,
       ...selectedActivity,
       caloriesBurned: calcCaloriesBurned(

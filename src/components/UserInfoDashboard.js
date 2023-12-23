@@ -1,13 +1,12 @@
 import '../css/UserInfo.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import UserInfo from './UserInfo';
 import UserInfoForm from './UserInfoForm';
 import userInfoService from '../services/userInfoService';
-import { v4 as uuidv4 } from 'uuid';
 
-function UserInfoDashboard() {
+function UserInfoDashboard({ userInfo, updateUserInfo }) {
   // State to track User Info
-  const [userInfo, setUserInfo] = useState();
+  // const [userInfo, setUserInfo] = useState();
 
   // State to track User Info Form Input
   const [userInput, setUserInput] = useState({
@@ -31,7 +30,7 @@ function UserInfoDashboard() {
     userInfoService.postUserInfo(newUser).then((updatedUserInfo) => {
       // setLoading(false);
       console.log('Updated User Info:', updatedUserInfo);
-      setUserInfo(updatedUserInfo);
+      updateUserInfo(updatedUserInfo);
     });
     setuserFormVisible(false);
   };
