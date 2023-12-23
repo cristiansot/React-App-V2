@@ -3,13 +3,12 @@ import { useState, useEffect } from 'react';
 import ActivityLog from './ActivityLog';
 import ActivityForm from './ActivityForm';
 import activityService from '../services/activityService';
-import { v4 as uuidv4 } from 'uuid';
 import ResubaleModalButton from './ReusableModalButton';
 import calcCaloriesBurned from '../utils/caloriesBurnedUtils';
 import userInfoService from '../services/userInfoService';
 import activityOptions from './ActivityOptions';
 
-function ActivityDashboard() {
+function ActivityDashboard({ userInfo }) {
   // To initialize Activity Log
   useEffect(() => {
     activityService.getActivities().then((data) => setActivities(data || []));
@@ -63,7 +62,7 @@ function ActivityDashboard() {
         setUserWeight(currentUserInfo.weight);
       }
     });
-  }, []);
+  }, [userInfo]);
 
   // Handle activity submission
   const handleActivitySubmit = (e) => {
@@ -72,7 +71,7 @@ function ActivityDashboard() {
     console.log(userWeight);
     // Addiactivity & intensity to object based on selectedActivity
     const newActivity = {
-      id: uuidv4(),
+      // id: uuidv4(),
       ...activityInput,
       ...selectedActivity,
       caloriesBurned: calcCaloriesBurned(
@@ -111,12 +110,6 @@ function ActivityDashboard() {
     });
   };
 
-  // Filter activities to only show today's activities
-  const today = new Date().toISOString().split('T')[0];
-  const todayActivities = activities.filter(
-    (activitiy) => activitiy.date === today
-  );
-
   //------------------------Modal Window------------------------//
 
   // State to track modal visibility
@@ -149,12 +142,13 @@ function ActivityDashboard() {
 
   return (
     <div className="activity-dashboard">
-      <h2>Activity Log</h2>
-      <ActivityLog
-        activities={activities}
-        onDeleteActivity={handleDeleteActivity}
-        showDateFilter={true}
-      />
+      <div className="activity-log-container">
+        <h2>Activity Log</h2>
+        <ActivityLog
+          activities={activities}
+          onDeleteActivity={handleDeleteActivity}
+        />
+      </div>
 
       <ResubaleModalButton
         buttonText="Add Activity"

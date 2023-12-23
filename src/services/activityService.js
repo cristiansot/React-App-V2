@@ -9,7 +9,7 @@ const getActivities = async () => {
     const response = await axios.get(APIurl);
     return response.data;
   } catch (error) {
-    throw error;
+    alert(error);
   }
 };
 
@@ -18,7 +18,7 @@ const postActivity = async (newActivity) => {
     const response = await axios.post(APIurl, newActivity);
     return response.data;
   } catch (error) {
-    throw error;
+    alert(error);
   }
 };
 
@@ -27,7 +27,7 @@ const deleteActivity = async (id) => {
     const response = await axios.delete(`${APIurl}/${id}`);
     return response.data;
   } catch (error) {
-    throw error;
+    alert(error);
   }
 };
 

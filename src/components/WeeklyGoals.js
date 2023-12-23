@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
 import { format, startOfWeek, endOfWeek, isSameDay } from "date-fns";
 import Select from "react-select";
+import activityOptions from '../data/ActivityOptions';
 import myAPIKey from '../services/config';
 const GoalAPI = `https://${myAPIKey}.mockapi.io/weeklygoal`;
 const MockApiUrl = `https://${myAPIKey}.mockapi.io/activities`;
@@ -13,13 +14,11 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
   const [weeklyGoals, setWeeklyGoals] = useState([]);
   const [weeklyGoalsChartData, setWeeklyGoalsChartData] = useState([]);
 
-  const options = [
-    { value: "Running", label: "Running" },
-    { value: "Biking", label: "Biking" },
-    { value: "Climbing", label: "Climbing" },
-    { value: "Hiking", label: "Hiking" },
-    { value: "Swimming", label: "Swimming" },
-  ];
+  // updated the options to pull the data from Novita's activityOptions component so its dynamic
+  const options = activityOptions.map((option) => ({
+    value: option.activity,
+    label: option.activity,
+  }));
 
   const calculateWeeklyPieChart = () => {
 
@@ -29,32 +28,44 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
       progress: {}
     };
 
+
+    // Loop through each entry in the weekly goals api array
     weeklyGoals.forEach((weeklyGoal) => {
       const activityDate = new Date(weeklyGoal.date)
-
       const weekStart = startOfWeek(activityDate);
       const doesWeekStartMatchCurrentWeek = isSameDay(weekStart, currentWeek);
 
       if (doesWeekStartMatchCurrentWeek) {
-        if (weeklyTotals.weeklyGoal[weeklyGoal.activity] === undefined) {
-          weeklyTotals.weeklyGoal[weeklyGoal.activity] = 0;
+
+        const matchingWeeklyGoalsActivity = activityOptions.find(option => option.activity === weeklyGoal.activity); // added this line to so we can find the corresponding activity object
+        if (matchingWeeklyGoalsActivity) {  // Update the weekly goal total for the matched activity
+          if (weeklyTotals.weeklyGoal[weeklyGoal.activity] === undefined) {
+            weeklyTotals.weeklyGoal[weeklyGoal.activity] = 0;
+          }
+          weeklyTotals.weeklyGoal[matchingWeeklyGoalsActivity.activity] += weeklyGoal.duration;
+          // weeklyTotals.weeklyGoal[weeklyGoal.activity] += weeklyGoal.duration;
         }
-        weeklyTotals.weeklyGoal[weeklyGoal.activity] += weeklyGoal.duration;
       }
     });
 
-    activityProgressApiData.forEach((activity) => {
-      const activityDate = new Date(activity.date)
 
+
+    // Loop through each entry in the activity log api array
+    activityProgressApiData.forEach((activity) => {
+      const activityDate = new Date(activity.date);
       const weekStart = startOfWeek(activityDate);
       const doesWeekStartMatchCurrentWeek = isSameDay(weekStart, currentWeek);
 
       if (doesWeekStartMatchCurrentWeek) {
-        if (weeklyTotals.progress[activity.activity] === undefined) {
-          weeklyTotals.progress[activity.activity] = 0;
-        }
 
-        weeklyTotals.progress[activity.activity] += activity.duration;
+        const matchingActivityProgressFromApiData = activityOptions.find(option => option.activity === activity.activity);  // same concept as line 40
+        if (matchingActivityProgressFromApiData) {  // Update the progress total for the matched activity
+          if (weeklyTotals.progress[matchingActivityProgressFromApiData.activity] === undefined) {
+            weeklyTotals.progress[matchingActivityProgressFromApiData.activity] = 0;
+          }
+          weeklyTotals.progress[matchingActivityProgressFromApiData.activity] += activity.duration;
+          // weeklyTotals.progress[activity.activity] += activity.duration;
+        }
       }
     });
 
@@ -147,7 +158,6 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
       }
 
       const data = await response.json();
-      ///setdurationGoal([...goal, data]);
     } catch (error) {
       console.error("Error adding goal:", error);
     }
@@ -197,7 +207,7 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
                       tooltip: {
                         showColorCode: true,
                       },
-                      fontSize: 10, // Set the font size for text in the chart
+                      fontSize: 10,
                     }
                     }
                     width="100%"
