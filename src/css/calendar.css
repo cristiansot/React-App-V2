@@ -3,7 +3,7 @@
 .rdp {
   margin-top: 18px;
   color: #ccc;
-  --rdp-cell-size: 40px;
+  --rdp-cell-size: 22px;
   --rdp-caption-font-size: 18px;
   --rdp-accent-color: #ff3c6e;
   --rdp-background-color: rgba(0, 0, 0, 0.217) !important;
@@ -13,14 +13,14 @@
 }
 
 .rdp-months {
-  background: rgba(52, 51, 68, 0.299);
+  background: #8271e5;
   padding: 20px;
   border-radius: 20px;
   border: 1px solid #cccccc3b;
 }
 
 .rdp-day_selected {
-  color: #FFF;
+  color: #fff;
 }
 
 .foodContent {
@@ -34,7 +34,7 @@
   padding: 30px;
 }
 
-.ReactModal__Content  {
+.ReactModal__Content {
   display: flex;
   height: 370px;
   width: 320px;
@@ -53,13 +53,16 @@
 p {
   font-family: 'Quicksand', sans-serif;
   font-size: 18px;
-  color: #FFF;
+  color: #fff;
   line-height: 15px;
 }
 
 .pick {
   font-family: 'Quicksand', sans-serif;
   color: #bcf6a3;
+  font-size: 1rem;
+  margin-top: 1rem;
+  font-weight: bold;
 }
 
 .picked {
