@@ -2,6 +2,7 @@ import '../css/Progress.css'
 import React, { useEffect, useState } from 'react';
 import { Chart } from 'react-google-charts';
 import { format, startOfWeek, endOfWeek, isSameDay } from 'date-fns';
+import activityOptions from '../data/ActivityOptions';
 //*****************************************************************************************************/
 
 
@@ -40,17 +41,17 @@ function WeeklyProgressChart({ currentWeek, originalApiData }) {
     //************** debugging purposes ******************/
     console.log("week Totals:", weeklyTotals);
 
-    //updated chart info which will show up when button is clicked
-    const updatedChartInfo = Object.entries(weeklyTotals).map(([weekRange, activities]) => (
-      [weekRange, activities.Running,
-        activities.Biking,
-        activities.Climbing,
-        activities.Hiking,
-        activities.Swimming]
-    ));
-    return [['Week Range', 'Running', 'Biking', 'Climbing', 'Hiking', 'Swimming'], ...updatedChartInfo];
-  };
+  const updatedChartInfo = Object.entries(weeklyTotals).map(([weekRange, activities]) => {
+    const chartData = [weekRange];
+    activityOptions.forEach(option => { // added this code to dynamically map activities based on Novita's activityOptions object. I was manually entering it in before.
+      const { activity } = option;
+      chartData.push(activities[activity] || 0); // Push the duration for the current activity from the weeklyTotals object to chartData
+    });
+    return chartData;
+  });
 
+  return [['Week Range', ...activityOptions.map(option => option.activity)], ...updatedChartInfo];
+};
 
 
 
