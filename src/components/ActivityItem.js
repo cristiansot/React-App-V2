@@ -22,7 +22,7 @@ function ActivityItem({ activity, onDeleteActivity }) {
         />
       )}
       <div>
-        <p>Date: {activity && activity.date}</p>
+        {/* <p>Date: {activity && activity.date}</p> */}
         <p className="activity-name">{activity && activity.activity}</p>
         <p>{activity && activity.duration} minutes </p>
         <p>Intensity: {activity && activity.intensity}</p>
