@@ -16,7 +16,7 @@ const MealPlannerComponent = () => {
     const fetchMeals = async () => {
       try {
         // Replace 'YOUR_SPOONACULAR_API_KEY' with your actual Spoonacular API key
-        const apiKey = myapikey.api;
+        const apiKey = myapikey;
         const response = await fetch(
           `https://api.spoonacular.com/mealplanner/generate?timeFrame=day&apiKey=${apiKey}`
         );
