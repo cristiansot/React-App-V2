@@ -2,19 +2,25 @@ legend {
   text-align: center;
   font-size: 1.75rem;
   font-weight: bold;
+  color: #483f3f;
 }
 
-input {
+.userInfo-input {
   font-size: 1.25rem;
   margin-left: 0.5rem;
-  border: 0.1rem solid rgba(255, 255, 255, 0.725);
+  border: solid #f7ecec 0.1rem;
   color: #fff;
   padding: 0.25rem;
   width: 6.5rem;
 }
 
 .name-input {
-  width: 10rem;
+  width: 12rem;
+  font-size: 1.25rem;
+  margin-left: 0.5rem;
+  border: solid #f7ecec 0.1rem;
+  color: #fff;
+  padding: 0.25rem;
 }
 
 .user-info-dashboard {

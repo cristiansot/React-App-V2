@@ -26,7 +26,7 @@ const activityOptions = [
   { activity: 'Hiking (Challenging)', intensity: 'High', MET: 6.5 },
   { activity: 'Hiking (Difficult)', intensity: 'Very High', MET: 8 },
   { activity: 'Hiking (Extreme)', intensity: 'Very High', MET: 10 },
-  { activity: 'Elliptical Trainer', intensity: 'Moderate', MET: 5 },
+  { activity: 'Elliptical Training', intensity: 'Moderate', MET: 5 },
   { activity: 'Strength Training', intensity: 'Moderate', MET: 3 },
   {
     activity: 'Pilates',
