@@ -9,6 +9,7 @@ function ActivityLog({ activities, onDeleteActivity }) {
 
   useEffect(() => {
     handleDayClick();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activities]);
 
   const handleDayClick = (selectedDate) => {

@@ -6,19 +6,36 @@ import Home from './components/Home';
 import UserInfoDashboard from './components/UserInfoDashboard';
 import ActivityPage from './components/ActivityPage';
 import NutritionPage from './components/NutritionPage';
+import { useState } from 'react';
 
 function App() {
+  // State to track User Info
+  const [userInfo, setUserInfo] = useState();
+
+  const updateUserInfo = (newUserInfo) => {
+    setUserInfo(newUserInfo);
+  };
+
   return (
     <div className="App">
       <header>
-        <UserInfoDashboard />
+        <UserInfoDashboard
+          userInfo={userInfo}
+          updateUserInfo={updateUserInfo}
+        />
         <NavBar />
       </header>
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/activity-log" element={<ActivityPage />} />
-          <Route path="/nutrition-log" element={<NutritionPage />} />
+          <Route
+            path="/activity-log"
+            element={<ActivityPage userInfo={userInfo} />}
+          />
+          <Route
+            path="/nutrition-log"
+            element={<NutritionPage userInfo={userInfo} />}
+          />
         </Routes>
       </div>
     </div>
