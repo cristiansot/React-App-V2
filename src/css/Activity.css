@@ -36,13 +36,14 @@ html {
 
 .activity-form legend {
   text-align: center;
-  color: #bcf6a3;
+  color: #f68a3c;
   font-size: 2rem;
+  font-weight: 500;
 }
 
 .activity-form select,
 .activity-form input {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-left: 1rem;
   color: #3c3b3ba0;
   padding: 0.2rem;
@@ -53,13 +54,12 @@ html {
 
 .activity-form label {
   color: #3c3b3ba0;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 .calories-burned {
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: #3c3b3ba0;
-  font-weight: bold;
 }
 
 .submit-button {
@@ -82,7 +82,7 @@ html {
 
 .activity-log-container h2 {
   font-size: 3rem;
-  font-weight: bold;
+  font-weight: 500;
   color: #f68a3c;
 }
 
@@ -126,7 +126,6 @@ html {
   font-size: 1.25rem;
   line-height: 1.75rem;
   color: rgb(75, 69, 69);
-  font-weight: bold;
 }
 
 .activity-image {

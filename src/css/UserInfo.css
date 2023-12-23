@@ -1,8 +1,8 @@
 legend {
   text-align: center;
   font-size: 1.75rem;
-  font-weight: bold;
   color: #bcf6a3;
+  font-weight: 600;
 }
 
 .userInfo-input {
@@ -60,13 +60,12 @@ legend {
 
 .user-info h2 {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .user-info p {
   font-size: 1.5rem;
   line-height: 1.25rem;
-  font-weight: bold;
 }
 
 .weight-height {
