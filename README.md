@@ -1,7 +1,7 @@
 ***********
 **Libraries being used:**
 
-Cristian:
+Cristian: "react-calendar": "^4.7.0",  "react-day-picker": "^8.9.1", "react-hook-form": "^7.48.2", "react-modal": "^3.16.1", "recharts": "^2.10.3"
 
 Novita:
 
