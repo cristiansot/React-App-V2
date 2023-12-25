@@ -4,7 +4,7 @@
   text-align: center;
   margin: 20px;
   padding: 20px;
-  background-color: black; 
+  background-color: rgb(63, 3, 74); 
   color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -25,28 +25,8 @@
   animation: fadeInUp 1s ease-in-out;
 }
 
-.button-container {
-  margin-top: 20px;
-}
 
-.show-hide-button {
-  padding: 14px 24px;
-  font-size: 18px;
-  cursor: pointer;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  transition: background-color 0.3s ease, transform 0.3s ease-in-out;
-}
 
-.show-hide-button:hover {
-  background-color: #82e1e2;
-  transform: scale(1.05);
-}
 
-.nutrition-tips-container {
-  margin-top: 20px;
-}
 
 
