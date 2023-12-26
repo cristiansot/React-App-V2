@@ -7,7 +7,7 @@ Novita:
 
 Marwa: "react-google-charts": "^4.0.1" , 
 
-Fatima:
+Fatima:  "recharts": "^2.10.3",
 
 ***********
 
@@ -94,7 +94,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     -   **Activity Log**: Users can record various physical activities, including the date, duration, intensity, and calories burned. They can also see their past logged activities.
     -   **Progress Visualizer:** The user can set activity goals for the week (eg total calories burned or total time spent working out). Their progress towards their goal is displayed in a simple chart or visual and should update automatically when new activities are added.
     -   **Nutrition Log**: Users can record their dietary intake for each day, along with nutrition and calories. They can also see their past logged meals.
-    -   **Nutrition Visualizer:** The user's daily nutrition info is displayed in a simple chart or visual. The visuals should update automatically when new data is logged for the day
+    -   **Nutrition Visualizer:** The user's daily nutrition info is displayed in a simple chart or visual. The visuals should update automatically when new data is logged for the day.
 
 ### Team members: 
  1. Marwa Abdullahi
