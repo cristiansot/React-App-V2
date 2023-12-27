@@ -47,22 +47,21 @@ function App() {
 
   return (
     <div className="App">
-      <h1 style={{ color: 'darkblue' }}>Progress Dashboard</h1>
+
+      <div className="buttons-container">
+        <button className="button-text" onClick={handleLastWeek}> Last Week </button>
+        <span className="date-text" > {format(startOfWeek(currentWeek), 'MMM d')} - {format(endOfWeek(currentWeek), 'MMM d')} </span>
+        <button className="button-text" onClick={handleNextWeek}> Next Week </button>
+      </div>
 
       <div className="container-wrapper">
         <div className="weekly-progress-container">
+          <h1 style={{ color: 'darkblue' }}>Progress Dashboard</h1>
+          
+          <WeeklyProgressChart currentWeek={currentWeek} originalApiData={originalApiData} />
 
-          <div className="buttons-container">
-            <button className="button-text" onClick={handleLastWeek}> Last Week </button>
-            <span className="date-text" > {format(startOfWeek(currentWeek), 'MMM d')} - {format(endOfWeek(currentWeek), 'MMM d')} </span>
-            <button className="button-text" onClick={handleNextWeek}> Next Week </button>
-          </div>
-
-        </div>
-
-        <WeeklyProgressChart currentWeek={currentWeek} originalApiData={originalApiData} />
         <WeeklyGoals className="WeeklyGoals" currentWeek={currentWeek} activityProgressApiData={originalApiData} />
-
+        </div>
       </div>
     </div>
   );
