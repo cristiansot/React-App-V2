@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
-
 .rdp {
   margin-top: 18px;
   color: #ccc;
-  --rdp-cell-size: 40px;
+  --rdp-cell-size: 22px;
   --rdp-caption-font-size: 18px;
   --rdp-accent-color: #ff3c6e;
   --rdp-background-color: rgba(0, 0, 0, 0.217) !important;
@@ -13,16 +11,21 @@
 }
 
 .rdp-months {
-  background: rgba(52, 51, 68, 0.299);
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  background: #8271e5;
   border-radius: 20px;
-  border: 1px solid #cccccc3b;
+  width: 300px;
+  height: 430px;
 }
 
 .rdp-day_selected {
-  color: #FFF;
+  color: #fff;
 }
 
+/* Modal */
 .foodContent {
   position: relative;
   color: #ccc;
@@ -34,8 +37,9 @@
   padding: 30px;
 }
 
-.ReactModal__Content  {
+.ReactModal__Content {
   display: flex;
+  margin-top: 128px;
   height: 370px;
   width: 320px;
   border: hidden !important;
@@ -51,18 +55,27 @@
 }
 
 p {
-  font-family: 'Quicksand', sans-serif;
   font-size: 18px;
-  color: #FFF;
+  color: #fff;
   line-height: 15px;
 }
 
 .pick {
-  font-family: 'Quicksand', sans-serif;
+  font-size: 18px !important;
   color: #bcf6a3;
+  font-size: 1rem;
+  margin-top: 1rem;
+  font-weight: bold;
 }
 
 .picked {
-  font-family: 'Quicksand', sans-serif;
   color: #78cdf8;
+}
+
+p {
+  line-height: 30px;
+}
+
+.rdp-cell {
+  padding: 5px;
 }

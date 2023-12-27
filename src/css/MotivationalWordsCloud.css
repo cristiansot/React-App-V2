@@ -1,0 +1,46 @@
+/* MotivationalWordsCloud.css */
+
+.tag-cloud-container {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.motivational-word-container {
+  display: inline-block;
+  margin: 5px;
+  font-weight: bold;
+  padding: 8px;
+  border: 2px solid transparent; 
+  background-color: #3498db; 
+  border-radius: 5px;
+  cursor: pointer;
+  animation: flicker 1s infinite alternate;
+}
+
+.motivational-word-container:nth-child(2) {
+  background-color: #e74c3c; 
+}
+
+.motivational-word-container:nth-child(3) {
+  background-color: #2ecc71; 
+}
+
+.motivational-word-container:nth-child(4) {
+  background-color: #f39c12; 
+}
+
+.motivational-word-container:nth-child(5) {
+  background-color: #9b59b6; 
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}

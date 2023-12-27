@@ -1,32 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
-
 form {
   margin: 0;
   padding: 0;
-  background: rgba(52, 51, 68, 0.299);
+  background: #f78a51;
   padding: 20px;
   border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 100px;
-  border: 1px solid #cccccc3b;
 }
 
 h2 {
-  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
   font-weight: 200;
   color: #bcf6a3;
   margin-top: -1px;
 }
 
 label {
+  font-size: 15px;
   color: #FFF;
 }
 
 input {
   border: 0;
   background-color: transparent;
-  color: #ccc;
-  border: solid #aaaaaa92 1px;
+  color: #FFF;
 }
 
 .contentForm {
@@ -46,6 +44,8 @@ input {
 }
 
 #date {
+  color: #FFF;
+  border: solid #ea666a 1px;
   width: 200px;
 }
 
@@ -68,8 +68,8 @@ input {
   height: 32px;
   border: 0;
   background-color: transparent;
-  color: #ccc;
-  border: solid #aaaaaa92 1px;
+  color: #FFF;
+  border: solid #ea666a 1px;
 }
 
 .contentForm button {

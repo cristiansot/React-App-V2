@@ -1,0 +1,25 @@
+/* NutritionTipsCarousel.css */
+.nutrition-tips-carousel {
+  margin: 20px;
+  margin-bottom:auto;
+}
+
+.tip-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #21003f !important; 
+}
+
+.tip-content {
+  color: #ffffff; 
+  padding: 15px; 
+  border-radius: 8px; 
+  
+}
+
+.tip-content p {
+  margin: 0;
+  background-color: #570f57; 
+}
