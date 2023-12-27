@@ -56,10 +56,9 @@ function App() {
 
       <div className="container-wrapper">
         <div className="weekly-progress-container">
-          <h1 style={{ color: 'darkblue' }}>Progress Dashboard</h1>
-          
+          <h1 style={{ color: '#f68a3c', fontSize: '3rem' }}>Progress Dashboard</h1>
           <WeeklyProgressChart currentWeek={currentWeek} originalApiData={originalApiData} />
-
+          <h1 style={{ color: '#f68a3c', fontSize: '3rem' }}>Weekly Fitness Goal</h1>
         <WeeklyGoals className="WeeklyGoals" currentWeek={currentWeek} activityProgressApiData={originalApiData} />
         </div>
       </div>

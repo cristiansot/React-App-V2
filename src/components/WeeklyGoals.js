@@ -169,7 +169,6 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
   return (
     <div className="container-wrapper">
       <div className="WeeklyGoals">
-        <h1 style={{ color: 'darkblue' }}>Weekly Fitness Goal</h1>
         <div className="weekly-goals-container">
           <Select options={options} onChange={handleChange} />
           <form onSubmit={handleSubmit}>
@@ -182,6 +181,7 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
       </div>
 
       <div className="weekly-goals-container">
+
         {weeklyGoalsChartData.map((pieChartData) => (
           <div key={pieChartData.chartTitle}>
             <Chart
@@ -190,21 +190,22 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
               options={{
                 title: pieChartData.chartTitle,
                 legend: 'top',
-                chartArea: { width: '100%' },
-                pieHole: 0.5,
+                chartArea: { width: '65%' },
+                pieHole: 0.3,
                 is3D: false,
-                // backgroundColor: '#8e44ad',
+                backgroundColor: '#f5f7fa',
                 slices: {
-                  0: { color: '#3498db' },
-                  1: { color: '#f1c40f' },
+                  0: { color: '#3498db', textStyle: { color: '#333', fontSize: 15, bold: true } },
+                  1: { color: '#f1c40f', textStyle: { color: '#333', fontSize: 15, bold: true } },
                 },
                 tooltip: {
                   showColorCode: true,
                 },
-                fontSize: 17,
+                titleTextStyle: { color: '#f68a3c', fontSize: 20, bold: false },
               }}
             />
           </div>
+
         ))}
       </div>
     </div>
