@@ -1,6 +1,7 @@
 // MotivationalWordsCloud.js
+// Reference https://www.youtube.com/watch?v=1rTaNzjGOek
 import React from 'react';
-import "./MotivationalWordsCloud.css";
+import "../css/MotivationalWordsCloud.css";
 
 // Sample data containing motivational words and their count
 const data = [

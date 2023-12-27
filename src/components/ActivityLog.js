@@ -1,81 +1,52 @@
-import { useEffect, useState } from 'react';
 import ActivityItem from './ActivityItem';
+import ActivityDateFilter from './ActivityDateFilter';
+import { useEffect, useState } from 'react';
 import getStandardizedDate from '../utils/getStandardizedDate';
 
-function ActivityLog({ activities, onDeleteActivity, showDateFilter }) {
-  const [filterStartDate, setFilterStartDate] = useState();
-  const [filterEndDate, setFilterEndDate] = useState();
+function ActivityLog({ activities, onDeleteActivity }) {
+  // Date Filter //
   const [filteredActivities, setFilteredActivities] = useState([]);
 
   useEffect(() => {
-    // Update filter activities when filter dates change
-    filterActivities();
-  }, [filterStartDate, filterEndDate, activities]);
+    handleDayClick();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activities]);
 
-  const filterActivities = () => {
+  const handleDayClick = (selectedDate) => {
+    console.log('Selected Date:', selectedDate);
+    // e.preventDefault();
     // To get Today's date in ISO format 'YYYY-MM-DD'
     const today = getStandardizedDate();
-    // If no start and end date set, show today's activity
-    if (!filterStartDate && !filterEndDate) {
+    // If no selected date show today's activity
+    if (!selectedDate) {
       setFilteredActivities(
         activities.filter((activity) => activity.date === today)
       );
     } else {
-      // If the start date is set, filter by start date only
-      const startDateFiltered = filterStartDate
-        ? activities.filter((activity) => activity.date >= filterStartDate)
-        : activities;
-      console.log(filterStartDate);
-
-      // If the end date is set, filter by end date
-      const endDateFiltered = filterEndDate
-        ? startDateFiltered.filter((activity) => activity.date <= filterEndDate)
-        : startDateFiltered;
-
-      setFilteredActivities(endDateFiltered);
+      // If there's a selected date, filter by date
+      setFilteredActivities(
+        activities.filter(
+          (activity) => activity.date === getStandardizedDate(selectedDate)
+        )
+      );
+      console.log(getStandardizedDate(selectedDate));
     }
-    console.log(today);
+    console.log(filteredActivities);
     return today;
-  };
-
-  const clearDateFilters = () => {
-    setFilterStartDate('');
-    setFilterEndDate('');
   };
 
   return (
     <div className="activity-log">
-      {showDateFilter && (
-        <div className="date-filter">
-          <label>
-            Start Date:
-            <input
-              type="date"
-              value={filterStartDate || ''}
-              onChange={(e) => setFilterStartDate(e.target.value)}
-            />
-          </label>
-          <label>
-            End Date:
-            <input
-              type="date"
-              value={filterEndDate || ''}
-              onChange={(e) => setFilterEndDate(e.target.value)}
-            />
-          </label>
-          <button className="clear-filter-button" onClick={clearDateFilters}>
-            Reset
-          </button>
-        </div>
-      )}
-
-      {filteredActivities.map((activity) => (
-        <ActivityItem
-          key={activity.id}
-          activity={activity}
-          onDeleteActivity={onDeleteActivity}
-        />
-      ))}
+      <ActivityDateFilter onDayClick={handleDayClick} />
+      <div className="activity-scroll">
+        {filteredActivities.map((activity) => (
+          <ActivityItem
+            key={activity.id}
+            activity={activity}
+            onDeleteActivity={onDeleteActivity}
+          />
+        ))}
+      </div>
     </div>
   );
 }

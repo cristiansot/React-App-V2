@@ -1,6 +1,7 @@
 /* NutritionTipsCarousel.css */
 .nutrition-tips-carousel {
   margin: 20px;
+  margin-bottom:auto;
 }
 
 .tip-card {

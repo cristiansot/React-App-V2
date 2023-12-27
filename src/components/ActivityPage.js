@@ -2,10 +2,10 @@ import ActivityDashboard from './ActivityDashboard';
 import ProgressVisualizerDashboard from './ProgressVisualizerDashboard';
 import '../css/Activity.css';
 
-function ActivityPage() {
+function ActivityPage({ userInfo }) {
   return (
     <div className="ActivityPage">
-      <ActivityDashboard />
+      <ActivityDashboard userInfo={userInfo} />
       <ProgressVisualizerDashboard />
     </div>
   );
