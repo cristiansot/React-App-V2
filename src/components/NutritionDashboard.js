@@ -10,14 +10,13 @@ const url = 'https://654d199b77200d6ba859fcf7.mockapi.io/nutrition';
 /* The code is defining a functional component called `NutritionDashboard`. */
 function NutritionDashboard() {
   const [nutrition, setNutrition] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(new Date()); 
+  useState(new Date()); 
 
 /* The `useEffect` hook is used to perform side effects in functional components. In this case, it is
  used to fetch the nutrition data from the API when the component mounts. */
   useEffect(() => {
     getNutrition();
   }, []);
-
  
  /* The function uses Axios to make an HTTP GET request to a specified URL and then sets the response
 data to a variable called "nutrition". */
@@ -39,7 +38,6 @@ function addNutrition(newNutrition) {
   Axios.post(url, newNutrition)
     .then((response) => {
       const isNewDate = !nutrition.some(item => item.date === response.data.date);
-
       if (isNewDate) {
         setNutrition([...nutrition, response.data]);
         // alert('Your meals have been entered successfully');
