@@ -11,9 +11,23 @@ body {
   align-items: center;
 }
 
+ul {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+}
+
+li {
+  list-style-type: none;
+}
+
 .nav-item {
-  font-size: 5rem;
+  font-size: 6rem;
   background-color: transparent;
   border: none;
   color: #f68a3c;
+}
+
+li:hover {
+  transform: scale(1.5);
 }
