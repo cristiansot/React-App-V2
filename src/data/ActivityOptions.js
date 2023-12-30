@@ -22,12 +22,36 @@ const activityOptions = [
     image: 'yoga-pilates.png',
   },
   { activity: 'Swimming', intensity: 'High', MET: 7, image: 'swimming.png' },
-  { activity: 'Hiking (Moderate)', intensity: 'Moderate', MET: 4.5 },
-  { activity: 'Hiking (Challenging)', intensity: 'High', MET: 6.5 },
-  { activity: 'Hiking (Difficult)', intensity: 'Very High', MET: 8 },
-  { activity: 'Hiking (Extreme)', intensity: 'Very High', MET: 10 },
-  { activity: 'Elliptical Training', intensity: 'Moderate', MET: 5 },
-  { activity: 'Strength Training', intensity: 'Moderate', MET: 3 },
+  {
+    activity: 'Hiking (Moderate)',
+    intensity: 'Moderate',
+    MET: 4.5,
+    image: 'hiking.png',
+  },
+  {
+    activity: 'Hiking (Challenging)',
+    intensity: 'High',
+    MET: 6.5,
+    image: 'hiking.png',
+  },
+  {
+    activity: 'Hiking (Difficult)',
+    intensity: 'Very High',
+    MET: 8,
+    image: 'hiking.png',
+  },
+  {
+    activity: 'Hiking (Extreme)',
+    intensity: 'Very High',
+    MET: 10,
+    image: 'hiking.png',
+  },
+  {
+    activity: 'Strength Training',
+    intensity: 'Moderate',
+    MET: 3,
+    image: 'crossfit.png',
+  },
   {
     activity: 'Pilates',
     intensity: 'Low',
@@ -71,6 +95,7 @@ const activityOptions = [
     activity: 'High-Intensity Interval Training (HIIT)',
     intensity: 'Very High',
     MET: 12,
+    image: 'crossfit.png',
   },
   {
     activity: 'Cleaning (Light)',
@@ -85,12 +110,31 @@ const activityOptions = [
     image: 'cleaning.png',
   },
   { activity: 'Cooking', intensity: 'Low', MET: 2, image: 'cooking.png' },
-  { activity: 'Dishwashing', intensity: 'Low', MET: 2 },
+  {
+    activity: 'Dishwashing',
+    intensity: 'Low',
+    MET: 2,
+    image: 'dishwashing.png',
+  },
   { activity: 'Gardening (Light)', intensity: 'Low', MET: 2.5 },
-  { activity: 'Gardening (Moderate)', intensity: 'Moderate', MET: 4 },
-  { activity: 'Mopping', intensity: 'Moderate', MET: 3 },
-  { activity: 'Vacuuming', intensity: 'Moderate', MET: 3.5 },
-  { activity: 'Walking (Brisk)', intensity: 'Moderate', MET: 4 },
+  {
+    activity: 'Gardening (Moderate)',
+    intensity: 'Moderate',
+    MET: 4,
+    image: 'gardening.png',
+  },
+  {
+    activity: 'Vacuuming',
+    intensity: 'Moderate',
+    MET: 3.5,
+    image: 'vacuuming.png',
+  },
+  {
+    activity: 'Walking (Brisk)',
+    intensity: 'Moderate',
+    MET: 4,
+    image: 'walking.png',
+  },
 ];
 
 export default activityOptions;
