@@ -11,13 +11,24 @@ body {
   align-items: center;
 }
 
-ul {
+.hamburger-menu {
+  display: none;
+  font-size: 3rem;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1.75rem;
+  color: #f68a3c;
+}
+
+.navbar ul {
   display: flex;
   flex-direction: row;
   gap: 5rem;
 }
 
-li {
+.navbar ul li {
   list-style-type: none;
 }
 
@@ -30,4 +41,39 @@ li {
 
 li:hover {
   transform: scale(1.5);
+}
+
+/*---------Media Queries----------*/
+
+@media (max-width: 414px) {
+  header {
+    padding: 2rem 0 0 0;
+  }
+
+  .navbar {
+    margin-bottom: 12rem;
+  }
+  .hamburger-menu {
+    display: block;
+    align-self: right;
+  }
+
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: transparent;
+    position: absolute;
+    top: 4rem;
+    right: 0;
+    padding: 1.75rem;
+  }
+
+  .navbar ul.show {
+    display: flex;
+  }
+
+  .nav-item {
+    font-size: 3rem;
+  }
 }
