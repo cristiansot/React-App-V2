@@ -36,8 +36,8 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
 .ImageContainer {
@@ -58,9 +58,59 @@ header {
 }
 
 .ImageText {
-  width: 80%;
-  margin: 5px;
+  width: 85%;
+  margin: 0.5rem;
   color: #8f56ea;
   font-size: 2rem;
   line-height: 2.5rem;
+}
+
+.NutritionPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+/*-------------------------Media Queries------------------------*/
+
+@media (max-width: 768px) {
+  header {
+    margin-bottom: 4rem;
+    padding: 3rem;
+  }
+
+  .home-item {
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rem;
+  }
+}
+
+@media (max-width: 414px) {
+  .home-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ImageContainer {
+    flex-direction: column;
+  }
+  .ImageContainer img {
+    width: 47%;
+  }
+
+  .ImageText {
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    width: 30%;
+  }
+
+  .Home {
+    padding-bottom: 3rem;
+    justify-content: center;
+  }
 }
