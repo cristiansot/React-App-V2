@@ -6,7 +6,7 @@ import activityService from '../services/activityService';
 import ReusableModalButton from './ReusableModalButton';
 import calcCaloriesBurned from '../utils/caloriesBurnedUtils';
 import userInfoService from '../services/userInfoService';
-import activityOptions from './ActivityOptions';
+import activityOptions from '../data/ActivityOptions';
 import ActivityDateFilter from './ActivityDateFilter';
 import getStandardizedDate from '../utils/getStandardizedDate';
 
@@ -33,10 +33,12 @@ function ActivityDashboard({ userInfo }) {
     setActivityInput((prevValue) => ({ ...prevValue, [name]: value }));
   };
 
+  console.log(activityOptions);
   // Sorting activity options alphabetically
   const sortedActivityOptions = [...activityOptions].sort((a, b) =>
     a.activity.localeCompare(b.activity)
   );
+  console.log(sortedActivityOptions);
 
   // State to track selected activity and intensity
   const [selectedActivity, setSelectedActivity] = useState({
