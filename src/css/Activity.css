@@ -91,6 +91,7 @@ html {
   flex-direction: row;
   gap: 2rem;
   padding: 2rem;
+  width: 100%;
 }
 
 .activity-log {
