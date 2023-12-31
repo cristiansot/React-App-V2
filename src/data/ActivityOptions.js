@@ -7,7 +7,7 @@ const activityOptions = [
     image: 'climbing.png',
   },
   { activity: 'Running', intensity: 'High', MET: 8, image: 'running.png' },
-  { activity: 'Walking', intensity: 'Low', MET: 3.5 }, // Assuming casual walking
+  { activity: 'Walking', intensity: 'Low', MET: 3.5, image: 'walking.png' },
   {
     activity: 'Gentle Yoga',
     intensity: 'Low',
@@ -128,12 +128,6 @@ const activityOptions = [
     intensity: 'Moderate',
     MET: 3.5,
     image: 'vacuuming.png',
-  },
-  {
-    activity: 'Walking (Brisk)',
-    intensity: 'Moderate',
-    MET: 4,
-    image: 'walking.png',
   },
 ];
 
