@@ -79,12 +79,50 @@ p{
   margin-top: 2em;
 
 }
-/* Media query for smartphones */
-@media only screen and (max-width: 600px) {
-  body {
-    font-size: 14px; 
+/* Media query  */
+
+@media (max-width: 768px) {
+  .meal-planner {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .meal-list {
+    font-size: 13px;
+  }
+
+  .meal-item h3 {
+    padding: 10px;
   }
 }
 
+@media (max-width: 600px) {
+  .meal-planner {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .meal-list {
+    font-size: 13px;
+  }
+
+  .meal-item h3 {
+    padding: 10px;
+  }
+}
 
 
