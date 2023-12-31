@@ -1,5 +1,4 @@
-// RenderBarChart.js
-
+// Import necessary modules from React and recharts library
 import React, { useState, useEffect } from 'react';
 import {
   LineChart,
@@ -11,8 +10,12 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from 'recharts';
+
+// Import the MotivationalWordsCloud component and the CSS file for styling
 import MotivationalWordsCloud from './MotivationalWordsCloud';
-import '../css/RenderBarChart.css';  // Import the CSS file for styling
+import '../css/RenderBarChart.css';
+
+// Import the axios library for making HTTP requests
 import axios from 'axios';
 
 // Custom tooltip component for displaying information on hover
