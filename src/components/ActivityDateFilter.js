@@ -13,12 +13,9 @@ function ActivityDateFilter({ selectedDate, onDayClick }) {
   if (selectedDate) {
     date = format(selectedDate, 'PPPP');
     footer = <p></p>;
-    console.log(date);
   } else {
     date = format(new Date(), 'PPPP');
   }
-
-  console.log(date);
 
   return (
     <div className="DateFilter">
@@ -28,7 +25,7 @@ function ActivityDateFilter({ selectedDate, onDayClick }) {
         fixedWeeks
         className="activity-calendar"
         mode="single"
-        selectedDate={selectedDate}
+        selected={selectedDate}
         onSelect={(date) => {
           onDayClick(date);
         }}

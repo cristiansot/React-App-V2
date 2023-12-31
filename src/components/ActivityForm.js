@@ -9,7 +9,6 @@ function ActivityForm({
   const handleInputChange = (e) => {
     e.preventDefault();
     const { name, value, type } = e.target;
-    console.log(e.target);
     let processedValue = value;
     if (type === 'number') {
       // Round the duration to the nearest integer, so user can't input decimal number

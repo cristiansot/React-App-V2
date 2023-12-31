@@ -5,8 +5,6 @@ function ActivityLog({ filteredActivities, setActivities }) {
   // Handle delete activity
   const handleDeleteActivity = (e, id) => {
     e.preventDefault();
-    console.log(id);
-
     activityService.deleteActivity(id).then(() => {
       activityService.getActivities().then((data) => setActivities(data));
     });
@@ -15,13 +13,19 @@ function ActivityLog({ filteredActivities, setActivities }) {
   return (
     <div className="activity-log">
       <div className="activity-scroll">
-        {filteredActivities.map((activity) => (
-          <ActivityItem
-            key={activity.id}
-            activity={activity}
-            onDeleteActivity={handleDeleteActivity}
-          />
-        ))}
+        {filteredActivities.length > 0 ? (
+          filteredActivities.map((activity) => (
+            <ActivityItem
+              key={activity.id}
+              activity={activity}
+              onDeleteActivity={handleDeleteActivity}
+            />
+          ))
+        ) : (
+          <div className="no-activity-message">
+            <p>No activity logged for this day.</p>
+          </div>
+        )}
       </div>
     </div>
   );
