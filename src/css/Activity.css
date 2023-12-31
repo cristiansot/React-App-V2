@@ -80,8 +80,8 @@ html {
   background-color: #f5f7fa;
 }
 
-.activity-log-container h2 {
-  font-size: 3rem;
+.activity-dashboard h2 {
+  font-size: 5rem;
   font-weight: 500;
   color: #f68a3c;
 }
@@ -161,8 +161,8 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(5, 5, 5, 0.605);
   display: flex;
   justify-content: center;
@@ -187,4 +187,71 @@ html {
   font-size: 1.75rem;
   color: #8271e5;
   text-align: center;
+}
+
+/*-------------------------Media Queries------------------------*/
+
+@media (max-width: 768px) {
+  body {
+    font-size: 30%;
+  }
+
+  .activity-log-container {
+    width: 85%;
+    height: 50rem;
+  }
+
+  .activity-scroll {
+    height: 72%;
+  }
+}
+
+@media (max-width: 414px) {
+  .activity-dashboard h2 {
+    font-size: 3rem;
+  }
+  .activity-log-container {
+    width: 90%;
+    padding: 2rem 0;
+    height: fit-content;
+  }
+
+  .activity-content {
+    flex-direction: column;
+    padding: 0;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .activity-scroll {
+    min-height: 0;
+    max-height: 40rem;
+    margin-top: 0;
+    overflow-y: auto;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .DateFilter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .activity-form-modal {
+    width: 75%;
+  }
+
+  .calories-burned {
+    line-height: normal;
+  }
+
+  .activity-form select,
+  .activity-form input {
+    font-size: 1.25rem;
+  }
 }

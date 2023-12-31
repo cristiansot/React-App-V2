@@ -1,6 +1,5 @@
 .mainContent {
   display: flex;
-  margin-top: -120px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -14,7 +13,7 @@
 
 h1 {
   font-weight: 400;
-  color: #FFF;
+  color: #f68a3c;
   font-size: 50px;
   margin-bottom: -10px;
 }
@@ -37,6 +36,25 @@ h1 {
   margin-top: -6px;
 }
 
-.recharts-yAxis yAxis  {
-  color: #FFF !important;
+.recharts-yAxis yAxis {
+  color: #fff !important;
+}
+
+/*-----------Media Queries------------*/
+
+@media (max-width: 414px) {
+  .mainContent h1 {
+    font-size: 30px;
+  }
+
+  .modules {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 30px;
+  }
+
+  .contentForm {
+    margin-bottom: 0;
+  }
 }

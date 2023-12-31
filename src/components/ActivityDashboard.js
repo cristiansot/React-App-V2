@@ -149,8 +149,8 @@ function ActivityDashboard({ userInfo }) {
 
   return (
     <div className="activity-dashboard">
+      <h2>Activity Log</h2>
       <div className="activity-log-container">
-        <h2>Activity Log</h2>
         <div className="activity-content">
           <ActivityDateFilter
             selectedDate={selectedDate}
