@@ -127,10 +127,10 @@ const RenderBarChart = () => {
             {/* Grid lines for better readability */}
             <CartesianGrid strokeDasharray="3 3" />
             {/* Lines representing nutrient values over days */}
-            <Line type="monotone" dataKey="totalSugar" stroke="#FFD700" name="Total Sugar" />
-            <Line type="monotone" dataKey="totalProtein" stroke="#32CD32" name="Total Protein" />
-            <Line type="monotone" dataKey="totalFat" stroke="#FF6347" name="Total Fat" />
-            <Line type="monotone" dataKey="totalCarbohydrates" stroke="#4169E1" name="Total Carbohydrates" />
+            <Line type="monotone" dataKey="totalSugar" stroke="#FFD700" name="Sugars" />
+            <Line type="monotone" dataKey="totalProtein" stroke="#32CD32" name="Proteins" />
+            <Line type="monotone" dataKey="totalFat" stroke="#FF6347" name="Fats" />
+            <Line type="monotone" dataKey="totalCarbohydrates" stroke="#4169E1" name="Carbohydrates" />
           </LineChart>
         </ResponsiveContainer>
       )}
