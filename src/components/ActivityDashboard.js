@@ -11,9 +11,15 @@ import ActivityDateFilter from './ActivityDateFilter';
 import getStandardizedDate from '../utils/getStandardizedDate';
 
 function ActivityDashboard({ userInfo }) {
-  // To initialize Activity Log
+  // To initialize Activity Log to display today's activity
   useEffect(() => {
-    activityService.getActivities().then((data) => setActivities(data || []));
+    activityService.getActivities().then((data) => {
+      const today = getStandardizedDate(new Date());
+      const todayActivities = data.filter(
+        (activity) => activity.date === today
+      );
+      setActivities(todayActivities || []);
+    });
   }, []);
 
   // State to track activities logged

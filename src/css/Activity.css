@@ -75,7 +75,7 @@ html {
   gap: 2rem;
   border: 0.2rem solid #d59ce8;
   padding: 2rem;
-  width: 75%;
+  max-width: 75%;
   border-radius: 1.5rem;
   background-color: #f5f7fa;
 }
