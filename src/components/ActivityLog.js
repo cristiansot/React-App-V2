@@ -15,13 +15,19 @@ function ActivityLog({ filteredActivities, setActivities }) {
   return (
     <div className="activity-log">
       <div className="activity-scroll">
-        {filteredActivities.map((activity) => (
-          <ActivityItem
-            key={activity.id}
-            activity={activity}
-            onDeleteActivity={handleDeleteActivity}
-          />
-        ))}
+        {filteredActivities.length > 0 ? (
+          filteredActivities.map((activity) => (
+            <ActivityItem
+              key={activity.id}
+              activity={activity}
+              onDeleteActivity={handleDeleteActivity}
+            />
+          ))
+        ) : (
+          <div className="no-activity-message">
+            <p>No activity logged for this day.</p>
+          </div>
+        )}
       </div>
     </div>
   );

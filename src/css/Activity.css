@@ -135,6 +135,17 @@ html {
   border-radius: 1rem;
 }
 
+.no-activity-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-activity-message p {
+  font-size: 2rem;
+  color: #f68a3c;
+}
+
 .delete-button {
   position: absolute;
   right: 1rem;
