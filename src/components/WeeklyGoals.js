@@ -111,22 +111,23 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
   };
 
 
+  const fetchData = async () => {
+    try {
+      const response = await fetch(GoalAPI);
+      const data = await response.json();
+      setWeeklyGoals(data);
+      // const updatedChartInfo = calculateWeeklyGoalsChartData(data, currentWeek);
+      // console.log("updated chart info", updatedChartInfo)
+      // setWeeklyGoalsChartData(updatedChartInfo);
+      console.log("Goal api Data Collectd:", data);
+    } catch (error) {
+      console.error("Error fetching API data:", error);
+    }
+  };
+
   //GET
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(GoalAPI);
-        const data = await response.json();
-        setWeeklyGoals(data);
-        // const updatedChartInfo = calculateWeeklyGoalsChartData(data, currentWeek);
-        // console.log("updated chart info", updatedChartInfo)
-        // setWeeklyGoalsChartData(updatedChartInfo);
-        console.log("Goal api Data Collectd:", data);
-      } catch (error) {
-        console.error("Error fetching API data:", error);
-      }
-    };
-    fetchData();
+    fetchData();//moved the const fetchData outside of this useEffect so that i can call the fetchData in the "post", that way when the use saves their goal, the charts automatically populate
     // removed dependency array to only fetch data once
   }, []);
 
@@ -158,88 +159,56 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
       }
 
       const data = await response.json();
+      fetchData();
     } catch (error) {
       console.error("Error adding goal:", error);
     }
+
   };
 
   return (
-    <div>
-      <div className="WeeklyGoals" >
-        <h1 style={{ color: 'darkblue' }}>Weekly Fitness Goal </h1>
-        <h2 style={{ color: 'darkblue' }}>
-          {format(startOfWeek(currentWeek), "MMM d")} -{" "}
-          {format(endOfWeek(currentWeek), "MMM d")}
-        </h2>
-        <Select options={options} onChange={handleChange} />
-
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="Duration" >Duration</label>
-          <input id="Duration" type="number" value={durationGoal} onChange={handleInput} />
-          <br />
-          <button type="submit">Save Your Goal</button>
-        </form>
-      </div>
-
-
-      <div className="container-wrapper">
-
+    <div className="container-wrapper">
+      <div className="WeeklyGoals">
         <div className="weekly-goals-container">
-
-          {
-            weeklyGoalsChartData.map((pieChartData) => {
-              return (
-                <div key={pieChartData.chartTitle}>
-                  <Chart
-                    chartType="PieChart"
-                    data={pieChartData.data}
-                    options={{
-                      title: pieChartData.chartTitle,
-                      legend: "top",
-                      chartArea: { width: "70%" },
-                      pieHole: 0.5,
-                      is3D: false,
-                      backgroundColor: '#8e44ad',
-                      slices: {
-                        0: { color: '#3498db' },
-                        1: { color: '#f1c40f' },
-                      },
-                      tooltip: {
-                        showColorCode: true,
-                      },
-                      fontSize: 10,
-                    }
-                    }
-                    width="100%"
-                    height="150px"
-                  />
-                </div>
-              )
-
-            })
-          }
-
-          {/* <Chart
-            chartType="PieChart"
-            data={weeklyGoalsChartData}
-            options={{
-              title: "Weekly Progress Chart",
-              legend: "top",
-              chartArea: { width: "70%" },
-              vAxis: { title: "Duration (minutes)" },
-              hAxis: { title: "Week" },
-              seriesType: "bars",
-              series: { 5: { type: "line" } },
-              pieHole: 0.4,
-              is3D: false,
-            }}
-            width="100%"
-            height="400px"
-          /> */}
+          <Select options={options} onChange={handleChange} />
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="Duration">Duration</label>
+            <input id="Duration" type="number" value={durationGoal} onChange={handleInput} />
+            <br />
+            <button type="submit">Save Your Goal</button>
+          </form>
         </div>
       </div>
-    </div>
 
+      <div className="weekly-goals-container">
+
+        {weeklyGoalsChartData.map((pieChartData) => (
+          <div key={pieChartData.chartTitle}>
+            <Chart
+              chartType="PieChart"
+              data={pieChartData.data}
+              options={{
+                title: pieChartData.chartTitle,
+                legend: 'top',
+                chartArea: { width: '65%' },
+                pieHole: 0.3,
+                is3D: false,
+                backgroundColor: '#f5f7fa',
+                slices: {
+                  0: { color: '#3498db', textStyle: { color: '#333', fontSize: 15, bold: true } },
+                  1: { color: '#f1c40f', textStyle: { color: '#333', fontSize: 15, bold: true } },
+                },
+                tooltip: {
+                  showColorCode: true,
+                },
+                titleTextStyle: { color: '#f68a3c', fontSize: 20, bold: false },
+              }}
+            />
+          </div>
+
+        ))}
+      </div>
+    </div>
   );
 }
 

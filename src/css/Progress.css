@@ -6,35 +6,25 @@
 .container-wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
+
 
 .weekly-progress-container,
-.weekly-goals-container,
-.WeeklyGoals {
-  display: flex;
-  flex-wrap: wrap; 
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+.WeeklyGoals {  
+  padding: 9px;
   background-color: #f5f7fa;
-  width: 300px;
   height: fit-content;
-  margin: 1rem; 
-}
-
-.WeeklyGoals {
-  width: auto;
-  height: 250px;
-}
-
-.buttons-container {
+  margin: 2rem; 
   display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  flex-direction: column;
+  gap: 2rem;
+  border: 0.2rem solid #d59ce8;
+  padding: 2rem;
+  width: 100%;
+  border-radius: 1.5rem;
 }
+
 
 .date-text,
 .button-text {
@@ -42,11 +32,44 @@
   color: darkblue;
 }
 
-.chart-container {
+
+.Select {
   width: 100%;
+  margin-bottom: 20px;
 }
 
-.weekly-goals-container > div {
-  width: calc(50% - 25px);
-  margin: 10px; 
+.WeeklyGoals form {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f7fa;
+}
+
+.WeeklyGoals label {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #001f3f;
+}
+
+.WeeklyGoals input {
+  color: #f68a3c;
+  font-weight: bolder;
+  width: 55%;
+  padding: 10px;
+  margin-bottom: 4px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  box-sizing:content-box;
+}
+
+.WeeklyGoals button {
+  background-color: #FA8597;
+  color: white;
+  padding: 5px;
+  font-size: 15px;
+  border:#f68a3c;
+  border-radius: 4px;
+  border-radius: 20px;
+  cursor: pointer;
 }
