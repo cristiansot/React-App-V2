@@ -208,7 +208,7 @@ html {
   }
 
   .activity-log-container {
-    width: 85%;
+    max-width: 85%;
     height: 50rem;
   }
 
@@ -222,7 +222,7 @@ html {
     font-size: 3rem;
   }
   .activity-log-container {
-    width: 90%;
+    max-width: 100%;
     padding: 2rem 0;
     height: fit-content;
   }

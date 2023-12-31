@@ -5,8 +5,6 @@ function ActivityLog({ filteredActivities, setActivities }) {
   // Handle delete activity
   const handleDeleteActivity = (e, id) => {
     e.preventDefault();
-    console.log(id);
-
     activityService.deleteActivity(id).then(() => {
       activityService.getActivities().then((data) => setActivities(data));
     });

@@ -11,14 +11,13 @@ import ActivityDateFilter from './ActivityDateFilter';
 import getStandardizedDate from '../utils/getStandardizedDate';
 
 function ActivityDashboard({ userInfo }) {
+  // State to track Selected Date
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
   // To initialize Activity Log to display today's activity
   useEffect(() => {
     activityService.getActivities().then((data) => {
-      const today = getStandardizedDate(new Date());
-      const todayActivities = data.filter(
-        (activity) => activity.date === today
-      );
-      setActivities(todayActivities || []);
+      setActivities(data);
     });
   }, []);
 
@@ -39,12 +38,10 @@ function ActivityDashboard({ userInfo }) {
     setActivityInput((prevValue) => ({ ...prevValue, [name]: value }));
   };
 
-  console.log(activityOptions);
   // Sorting activity options alphabetically
   const sortedActivityOptions = [...activityOptions].sort((a, b) =>
     a.activity.localeCompare(b.activity)
   );
-  console.log(sortedActivityOptions);
 
   // State to track selected activity and intensity
   const [selectedActivity, setSelectedActivity] = useState({
@@ -61,13 +58,11 @@ function ActivityDashboard({ userInfo }) {
   //------------------------Get User Weight Info for Calories Burned Calculation----------------------//
 
   const [userWeight, setUserWeight] = useState();
-  console.log(userWeight);
 
   useEffect(() => {
     // Make a request to the user info API to get the user's weight
     userInfoService.getUserInfo().then((userInfo) => {
       const currentUserInfo = userInfo[userInfo.length - 1];
-      console.log(userInfo);
       if (currentUserInfo && currentUserInfo.weight) {
         setUserWeight(currentUserInfo.weight);
       }
@@ -77,8 +72,6 @@ function ActivityDashboard({ userInfo }) {
   // Handle activity submission
   const handleActivitySubmit = (e) => {
     e.preventDefault();
-    console.log(activityInput);
-    console.log(userWeight);
     // Addiactivity & intensity to object based on selectedActivity
     const newActivity = {
       // id: uuidv4(),
@@ -90,10 +83,8 @@ function ActivityDashboard({ userInfo }) {
         userWeight
       ),
     };
-    console.log(newActivity);
     activityService.postActivity(newActivity).then(() => {
       activityService.getActivities().then((data) => setActivities(data));
-      console.log(newActivity);
       // Clear activityInput and selectedActivities
       setActivityInput({
         date: '',
@@ -139,9 +130,6 @@ function ActivityDashboard({ userInfo }) {
       document.removeEventListener('click', handleClickOutsideModal);
     };
   });
-
-  // State to track Selected Date
-  const [selectedDate, setSelectedDate] = useState();
 
   // To filter activities
   const filteredActivities = activities.filter(

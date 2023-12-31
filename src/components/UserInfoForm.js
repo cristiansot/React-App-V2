@@ -2,7 +2,6 @@ function UserInfoForm({ userInput, onFormChange, onFormSubmit }) {
   const handleInputChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    console.log(name, value);
     onFormChange(name, value);
   };
 
