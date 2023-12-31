@@ -75,7 +75,7 @@ header {
 
 /*-------------------------Media Queries------------------------*/
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   header {
     margin-bottom: 4rem;
     padding: 3rem;

@@ -9,7 +9,7 @@ html {
   align-items: center;
   gap: 10rem;
   margin-top: 5rem;
-  max-width: 100vw;
+  width: 100vw;
 }
 
 .activity-dashboard {
@@ -109,6 +109,7 @@ html {
   flex-wrap: wrap;
   overflow: auto;
   gap: 1.5rem;
+  max-width: fit-content;
 }
 
 .activity-item {
@@ -204,16 +205,22 @@ html {
 
 @media (max-width: 768px) {
   body {
-    font-size: 30%;
+    min-width: 100vw;
   }
 
   .activity-log-container {
-    max-width: 85%;
-    height: 50rem;
+    max-width: 90%;
+    height: fit-content;
+    padding: 0;
   }
 
   .activity-scroll {
-    height: 72%;
+    height: 90%;
+    gap: 0.5rem;
+  }
+
+  .activity-content {
+    gap: 0.75rem;
   }
 }
 
@@ -223,7 +230,7 @@ html {
   }
   .activity-log-container {
     max-width: 100%;
-    padding: 2rem 0;
+    padding: 3.25rem;
     height: fit-content;
   }
 
