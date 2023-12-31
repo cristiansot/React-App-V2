@@ -3,8 +3,7 @@
 /* Line Chart Container */
 .line-chart-container {
   text-align: center;
-  margin: 20px;
-  padding: 20px;
+  padding: 5%; /* Use percentage for padding */
   background-color: rgb(63, 3, 74);
   color: #fff;
   border-radius: 10px;
@@ -21,8 +20,8 @@
 /* Chart Title */
 .chart-title {
   color: #f0ebeb;
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 2.5em; /* Use em for font size */
+  margin-bottom: 2%; /* Use percentage for margin */
   animation: fadeInUp 1s ease-in-out;
 }
 
@@ -35,5 +34,17 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+  .line-chart-container {
+    padding: 10px;
+  }
+
+  .chart-title {
+    font-size: 1.5em;
+    margin-bottom: 5px;
   }
 }

@@ -1,6 +1,5 @@
 /* MealPlannerComponent.css */
 
-/* Meal List */
 .meal-list {
   list-style: none;
   padding: 0;
@@ -8,6 +7,7 @@
   flex-wrap: wrap;
   gap: 20px;
   font-size: 18px;
+  color:#f68a3c;
 }
 
 /* Meal Item */
@@ -19,8 +19,8 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-top: 2em; /* Adjusted margin-top */
-  margin-bottom: 2em; /* Adjusted margin-bottom */
+  margin-top: 2em; 
+  margin-bottom: 2em; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -31,7 +31,7 @@
 /* Meal Image */
 .meal-image {
   width: 100%;
-  max-height: 400px;
+  max-height: 40em;
   object-fit: cover;
   border-radius: 12px 12px 0 0;
 }
@@ -42,14 +42,16 @@
   flex-grow: 1;
   box-sizing: border-box;
 }
+p{
+  color:#d69ff4;
+}
 
-/* View Recipe Link */
 .view-recipe-link {
   display: block;
   text-align: center;
   padding: 15px 30px;
-  background-color: #cb9bd6;
-  color: #fff;
+  background-color: #cfaad7;
+  color: #0f0404;
   text-decoration: none;
   border-radius: 8px;
   transition: background-color 0.3s ease-in-out;
@@ -60,9 +62,8 @@
   background-color: #c0392b;
 }
 
-/* Title */
 .title {
-  color: #250733;
+  color: #f68a3c;
   text-align: center;
   font-size: 56px;
   font-weight: 700;
@@ -76,21 +77,14 @@
   font-size: 18px;
   color: #d9534f;
   margin-top: 2em;
+
+}
+/* Media query for smartphones */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px; 
+  }
 }
 
-/* Responsive Styles */
-@media only screen and (max-width: 768px) {
-  /* Adjust styles for smaller screens */
-  .meal-item {
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
 
-  .meal-image {
-    max-height: 300px;
-  }
 
-  .title {
-    font-size: 36px;
-  }
-}

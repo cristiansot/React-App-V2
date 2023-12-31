@@ -108,7 +108,7 @@ const RenderBarChart = () => {
     <div className="line-chart-container">
       {/* Component to display motivational words */}
       <MotivationalWordsCloud />
-      <h2 className="chart-title">Daily Nutrition Log</h2>
+      <h2 className="chart-title">Nutrition Tracker</h2>
       {/* Display loading message while fetching data */}
       {loading ? (
         <p>Loading...</p>
