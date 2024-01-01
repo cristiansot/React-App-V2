@@ -1,7 +1,8 @@
 
-import MealPlannerComponent from "./MealPlannerComponent";
+
 import NutritionDashboard from './NutritionDashboard';
 import RenderBarChart from './RenderBarChart';
+import MealPlannerComponent from "./MealPlannerComponent";
 
 function NutritionPage() {
   return (
@@ -9,6 +10,7 @@ function NutritionPage() {
       <NutritionDashboard />
       <RenderBarChart />
       <MealPlannerComponent />
+     
     
     </div>
   );

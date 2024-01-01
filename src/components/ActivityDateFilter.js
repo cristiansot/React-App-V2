@@ -1,12 +1,9 @@
-import { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import { format } from 'date-fns';
 import 'react-day-picker/dist/style.css';
 import '../css/Activity.css';
 
-function ActivityDateFilter({ onDayClick }) {
-  const [selectedDate, setSelectedDate] = useState();
-
+function ActivityDateFilter({ selectedDate, onDayClick }) {
   let footer = (
     <p className="pick">
       Click on a date to see activities logged for that day.
@@ -16,12 +13,9 @@ function ActivityDateFilter({ onDayClick }) {
   if (selectedDate) {
     date = format(selectedDate, 'PPPP');
     footer = <p></p>;
-    console.log(date);
   } else {
     date = format(new Date(), 'PPPP');
   }
-
-  console.log(date);
 
   return (
     <div className="DateFilter">
@@ -31,9 +25,8 @@ function ActivityDateFilter({ onDayClick }) {
         fixedWeeks
         className="activity-calendar"
         mode="single"
-        selectedDate={selectedDate}
+        selected={selectedDate}
         onSelect={(date) => {
-          setSelectedDate(date);
           onDayClick(date);
         }}
         footer={footer}

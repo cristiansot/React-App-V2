@@ -2,14 +2,13 @@ function UserInfoForm({ userInput, onFormChange, onFormSubmit }) {
   const handleInputChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    console.log(name, value);
     onFormChange(name, value);
   };
 
   return (
     <form className="user-info-form" onSubmit={onFormSubmit}>
       <legend>Personal Info</legend>
-      <label>
+      <label className="user-info-label">
         Name:
         <input
           className="name-input"
@@ -20,7 +19,7 @@ function UserInfoForm({ userInput, onFormChange, onFormSubmit }) {
         />
       </label>
 
-      <label>
+      <label className="user-info-label">
         Height (cm):
         <input
           className="userInfo-input"
@@ -31,7 +30,7 @@ function UserInfoForm({ userInput, onFormChange, onFormSubmit }) {
         />
       </label>
 
-      <label>
+      <label className="user-info-label">
         Weight (kg):
         <input
           className="userInfo-input"

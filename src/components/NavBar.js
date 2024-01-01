@@ -4,29 +4,40 @@ import {
   faCarrot,
   faHeartPulse,
   faHouseCrack,
+  faBars,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 function NavBar() {
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
+
   return (
     <nav className="navbar">
-      <div className="home-nav">
-        <Link to="/" className="nav-item">
-          <FontAwesomeIcon icon={faHouseCrack} />
-        </Link>
-      </div>
+      <FontAwesomeIcon
+        icon={faBars}
+        className="hamburger-menu"
+        onClick={() => setIsNavExpanded(!isNavExpanded)}
+      />
+      <ul className={isNavExpanded ? 'show' : ''}>
+        <li className="home-nav" title="Homepage">
+          <Link to="/" className="nav-item">
+            <FontAwesomeIcon icon={faHouseCrack} />
+          </Link>
+        </li>
 
-      <div className="activity-log-nav nav-item">
-        <Link to="/activity-log" className="nav-item">
-          <FontAwesomeIcon icon={faHeartPulse} />
-        </Link>
-      </div>
+        <li className="activity-log-nav" title="Activity Log">
+          <Link to="/activity-log" className="nav-item">
+            <FontAwesomeIcon icon={faHeartPulse} />
+          </Link>
+        </li>
 
-      <div className="nutrition-log-nav">
-        <Link to="/nutrition-log" className="nav-item">
-          <FontAwesomeIcon icon={faCarrot} />
-        </Link>
-      </div>
+        <li className="nutrition-log-nav" title="Nutrition Log">
+          <Link to="/nutrition-log" className="nav-item">
+            <FontAwesomeIcon icon={faCarrot} />
+          </Link>
+        </li>
+      </ul>
     </nav>
   );
 }

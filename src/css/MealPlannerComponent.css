@@ -3,7 +3,7 @@
 /* Meal List */
 .meal-list {
   list-style: none;
-  padding: 0;
+  padding-top: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -22,6 +22,7 @@
   margin-top: 2em; /* Adjusted margin-top */
   margin-bottom: 2em; /* Adjusted margin-bottom */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-top: 15px;
 }
 
 .meal-item:hover {
@@ -62,11 +63,11 @@
 
 /* Title */
 .title {
-  color: #250733;
+  color: #d39eec;
   text-align: center;
   font-size: 56px;
-  font-weight: 500;
-  margin-top: 2em; /* Adjusted margin-top */
+  font-weight: 700;
+  margin-top: 2em;
 }
 
 /* Loading and Error Messages */
@@ -75,5 +76,61 @@
   text-align: center;
   font-size: 18px;
   color: #d9534f;
-  margin-top: 2em; /* Adjusted margin-top */
+  margin-top: 2em;
+}
+
+
+p {
+  font-size: 1.1em;
+  color:#f68a3c;
+}
+
+h3{
+  font-size: 1.6em;
+  color:#f68a3c;
+}
+/*-------------------------Media Queries------------------------*/
+
+@media (max-width: 768px) {
+  .meal-planner {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .meal-list {
+    font-size: 13px;
+  }
+
+  .meal-item h3 {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 414px) {
+.meal-planner {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.meal-list {
+  font-size: 10px;
+}
+
+.meal-item h3 {
+  padding: 10px;
+}
 }

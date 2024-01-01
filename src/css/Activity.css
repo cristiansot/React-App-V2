@@ -9,7 +9,7 @@ html {
   align-items: center;
   gap: 10rem;
   margin-top: 5rem;
-  max-width: 100vw;
+  width: 100vw;
 }
 
 .activity-dashboard {
@@ -75,13 +75,13 @@ html {
   gap: 2rem;
   border: 0.2rem solid #d59ce8;
   padding: 2rem;
-  width: 70%;
+  max-width: 75%;
   border-radius: 1.5rem;
   background-color: #f5f7fa;
 }
 
-.activity-log-container h2 {
-  font-size: 3rem;
+.activity-dashboard h2 {
+  font-size: 5rem;
   font-weight: 500;
   color: #f68a3c;
 }
@@ -91,6 +91,7 @@ html {
   flex-direction: row;
   gap: 2rem;
   padding: 2rem;
+  width: 100%;
 }
 
 .activity-log {
@@ -108,6 +109,7 @@ html {
   flex-wrap: wrap;
   overflow: auto;
   gap: 1.5rem;
+  max-width: fit-content;
 }
 
 .activity-item {
@@ -132,6 +134,17 @@ html {
   width: 10rem;
   height: 10rem;
   border-radius: 1rem;
+}
+
+.no-activity-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-activity-message p {
+  font-size: 2rem;
+  color: #f68a3c;
 }
 
 .delete-button {
@@ -160,8 +173,8 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(5, 5, 5, 0.605);
   display: flex;
   justify-content: center;
@@ -186,4 +199,77 @@ html {
   font-size: 1.75rem;
   color: #8271e5;
   text-align: center;
+}
+
+/*-------------------------Media Queries------------------------*/
+
+@media (max-width: 768px) {
+  body {
+    min-width: 100vw;
+  }
+
+  .activity-log-container {
+    max-width: 90%;
+    height: fit-content;
+    padding: 0;
+  }
+
+  .activity-scroll {
+    height: 90%;
+    gap: 0.5rem;
+  }
+
+  .activity-content {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 414px) {
+  .activity-dashboard h2 {
+    font-size: 3rem;
+  }
+  .activity-log-container {
+    max-width: 100%;
+    padding: 3.25rem;
+    height: fit-content;
+  }
+
+  .activity-content {
+    flex-direction: column;
+    padding: 0;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .activity-scroll {
+    min-height: 0;
+    max-height: 40rem;
+    margin-top: 0;
+    overflow-y: auto;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .DateFilter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .activity-form-modal {
+    width: 75%;
+  }
+
+  .calories-burned {
+    line-height: normal;
+  }
+
+  .activity-form select,
+  .activity-form input {
+    font-size: 1.25rem;
+  }
 }

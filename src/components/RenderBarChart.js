@@ -1,5 +1,4 @@
-// RenderBarChart.js
-
+// Import necessary modules from React and recharts library
 import React, { useState, useEffect } from 'react';
 import {
   LineChart,
@@ -11,8 +10,12 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from 'recharts';
+
+// Import the MotivationalWordsCloud component and the CSS file for styling
 import MotivationalWordsCloud from './MotivationalWordsCloud';
-import '../css/RenderBarChart.css';  // Import the CSS file for styling
+import '../css/RenderBarChart.css';
+
+// Import the axios library for making HTTP requests
 import axios from 'axios';
 
 // Custom tooltip component for displaying information on hover
@@ -105,7 +108,7 @@ const RenderBarChart = () => {
     <div className="line-chart-container">
       {/* Component to display motivational words */}
       <MotivationalWordsCloud />
-      <h2 className="chart-title">Daily Nutrition Log</h2>
+      <h2 className="chart-title">Nutrition Tracker</h2>
       {/* Display loading message while fetching data */}
       {loading ? (
         <p>Loading...</p>
@@ -124,10 +127,10 @@ const RenderBarChart = () => {
             {/* Grid lines for better readability */}
             <CartesianGrid strokeDasharray="3 3" />
             {/* Lines representing nutrient values over days */}
-            <Line type="monotone" dataKey="totalSugar" stroke="#FFD700" name="Total Sugar" />
-            <Line type="monotone" dataKey="totalProtein" stroke="#32CD32" name="Total Protein" />
-            <Line type="monotone" dataKey="totalFat" stroke="#FF6347" name="Total Fat" />
-            <Line type="monotone" dataKey="totalCarbohydrates" stroke="#4169E1" name="Total Carbohydrates" />
+            <Line type="monotone" dataKey="totalSugar" stroke="#FFD700" name="Sugars" />
+            <Line type="monotone" dataKey="totalProtein" stroke="#32CD32" name="Proteins" />
+            <Line type="monotone" dataKey="totalFat" stroke="#FF6347" name="Fats" />
+            <Line type="monotone" dataKey="totalCarbohydrates" stroke="#4169E1" name="Carbohydrates" />
           </LineChart>
         </ResponsiveContainer>
       )}

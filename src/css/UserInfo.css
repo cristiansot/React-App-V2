@@ -61,6 +61,7 @@ legend {
 .user-info h2 {
   font-size: 2rem;
   font-weight: 600;
+  margin: 0;
 }
 
 .user-info p {
@@ -84,4 +85,33 @@ legend {
   border: 0.2rem transparent;
   border-radius: 0.5rem;
   color: #fff;
+}
+
+/*-------------------------Media Queries------------------------*/
+
+@media (max-width: 768px) {
+  legend {
+    font-size: 1.5rem;
+  }
+
+  .user-info-form {
+    width: 19rem;
+    height: 10rem;
+  }
+
+  .user-info-input,
+  .name-input,
+  .userInfo-input,
+  .user-info-label {
+    font-size: 1rem;
+  }
+
+  .user-info-form {
+    padding: 1rem 0 1rem 2rem;
+  }
+
+  .submit-button {
+    font-size: 1rem;
+    margin: 0 1.5rem 0 0;
+  }
 }

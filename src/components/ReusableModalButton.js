@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ResubaleModalButton({ buttonText, onModalButtonClick }) {
+function ReusableModalButton({ buttonText, onModalButtonClick }) {
   return (
     <button className="modal-button" onClick={onModalButtonClick}>
       {buttonText}
@@ -8,4 +8,4 @@ function ResubaleModalButton({ buttonText, onModalButtonClick }) {
   );
 }
 
-export default ResubaleModalButton;
+export default ReusableModalButton;

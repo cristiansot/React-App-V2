@@ -18,18 +18,10 @@ function UserInfoDashboard({ userInfo, updateUserInfo }) {
   // State to control the visibility of the form
   const [userFormVisible, setuserFormVisible] = useState(true);
 
-  // // State to manage loading state while fetching new data
-  // const [loading, setLoading] = useState(false);
-
   const handleUserInfoSubmit = (e) => {
     e.preventDefault();
     const newUser = userInput;
-    console.log(newUser);
-    // Show loading state while fetching new data
-    // setLoading(true);
     userInfoService.postUserInfo(newUser).then((updatedUserInfo) => {
-      // setLoading(false);
-      console.log('Updated User Info:', updatedUserInfo);
       updateUserInfo(updatedUserInfo);
     });
     setuserFormVisible(false);

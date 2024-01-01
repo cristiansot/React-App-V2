@@ -3,15 +3,22 @@ import { useState, useEffect } from 'react';
 import ActivityLog from './ActivityLog';
 import ActivityForm from './ActivityForm';
 import activityService from '../services/activityService';
-import ResubaleModalButton from './ReusableModalButton';
+import ReusableModalButton from './ReusableModalButton';
 import calcCaloriesBurned from '../utils/caloriesBurnedUtils';
 import userInfoService from '../services/userInfoService';
-import activityOptions from './ActivityOptions';
+import activityOptions from '../data/ActivityOptions';
+import ActivityDateFilter from './ActivityDateFilter';
+import getStandardizedDate from '../utils/getStandardizedDate';
 
 function ActivityDashboard({ userInfo }) {
-  // To initialize Activity Log
+  // State to track Selected Date
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  // To initialize Activity Log to display today's activity
   useEffect(() => {
-    activityService.getActivities().then((data) => setActivities(data || []));
+    activityService.getActivities().then((data) => {
+      setActivities(data);
+    });
   }, []);
 
   // State to track activities logged
@@ -51,13 +58,11 @@ function ActivityDashboard({ userInfo }) {
   //------------------------Get User Weight Info for Calories Burned Calculation----------------------//
 
   const [userWeight, setUserWeight] = useState();
-  console.log(userWeight);
 
   useEffect(() => {
     // Make a request to the user info API to get the user's weight
     userInfoService.getUserInfo().then((userInfo) => {
       const currentUserInfo = userInfo[userInfo.length - 1];
-      console.log(userInfo);
       if (currentUserInfo && currentUserInfo.weight) {
         setUserWeight(currentUserInfo.weight);
       }
@@ -67,8 +72,6 @@ function ActivityDashboard({ userInfo }) {
   // Handle activity submission
   const handleActivitySubmit = (e) => {
     e.preventDefault();
-    console.log(activityInput);
-    console.log(userWeight);
     // Addiactivity & intensity to object based on selectedActivity
     const newActivity = {
       // id: uuidv4(),
@@ -80,10 +83,8 @@ function ActivityDashboard({ userInfo }) {
         userWeight
       ),
     };
-    console.log(newActivity);
     activityService.postActivity(newActivity).then(() => {
       activityService.getActivities().then((data) => setActivities(data));
-      console.log(newActivity);
       // Clear activityInput and selectedActivities
       setActivityInput({
         date: '',
@@ -97,16 +98,6 @@ function ActivityDashboard({ userInfo }) {
         intensity: '',
       });
       closeModal(); // Close modal after submission
-    });
-  };
-
-  // Handle delete activity
-  const handleDeleteActivity = (e, id) => {
-    e.preventDefault();
-    console.log(id);
-
-    activityService.deleteActivity(id).then(() => {
-      activityService.getActivities().then((data) => setActivities(data));
     });
   };
 
@@ -140,17 +131,34 @@ function ActivityDashboard({ userInfo }) {
     };
   });
 
+  // To filter activities
+  const filteredActivities = activities.filter(
+    (activity) => activity.date === getStandardizedDate(selectedDate)
+  );
+
+  // To handle day click on the DayPicker
+  const handleDayClick = (date) => {
+    setSelectedDate(date);
+  };
+
   return (
     <div className="activity-dashboard">
+      <h2>Activity Log</h2>
       <div className="activity-log-container">
-        <h2>Activity Log</h2>
-        <ActivityLog
-          activities={activities}
-          onDeleteActivity={handleDeleteActivity}
-        />
+        <div className="activity-content">
+          <ActivityDateFilter
+            selectedDate={selectedDate}
+            onDayClick={handleDayClick}
+          />
+          <ActivityLog
+            filteredActivities={filteredActivities}
+            setActivities={setActivities}
+            selectedDate={selectedDate}
+          />
+        </div>
       </div>
 
-      <ResubaleModalButton
+      <ReusableModalButton
         buttonText="Add Activity"
         onModalButtonClick={openModal}
       />
