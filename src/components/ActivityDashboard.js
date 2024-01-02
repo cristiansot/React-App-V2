@@ -28,15 +28,9 @@ function ActivityDashboard({ userInfo }) {
 
   // To initialize Activity Log to display today's activity
   useEffect(() => {
-    activityService
-      .getActivities()
-      .then((data) => {
-        setActivities(Array.isArray(data) ? data : []);
-      })
-      .catch((error) => {
-        alert('Failed to fetch activities:', error);
-        setActivities([]);
-      });
+    activityService.getActivities().then((data) => {
+      setActivities(Array.isArray(data) ? data : []);
+    });
   }, []);
 
   // Handle user input (excluding activity and intensity)
