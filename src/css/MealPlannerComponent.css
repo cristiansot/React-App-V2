@@ -79,13 +79,13 @@
   margin-top: 2em;
 }
 
-
+/*Recipe details */
 p {
   font-size: 1.1em;
   color:#f68a3c;
 }
-
-h3{
+/* Recipe Title */
+h3 {
   font-size: 1.6em;
   color:#f68a3c;
 }

@@ -29,6 +29,7 @@ const CustomTooltip = ({ active, payload }) => {
       background: '#f8f9fa',
       border: '1px solid #ddd',
       padding: '15px',
+      fontSize: '16px',
       boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
       borderRadius: '8px',
       transition: 'opacity 0.3s ease-in-out',
@@ -99,7 +100,7 @@ const RenderBarChart = () => {
       dateMap[date].totalCarbohydrates += parseFloat(entry.total.totalCarbohydrates);
     });
 
-    // Convert the map values to an array
+    // Convert the map values to an array of objects
     return Object.values(dateMap);
   };
 
