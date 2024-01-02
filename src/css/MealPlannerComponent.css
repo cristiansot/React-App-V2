@@ -80,28 +80,19 @@
   margin-top: 2em;
 }
 
-<<<<<<< HEAD
 /*Recipe details */
-=======
->>>>>>> 84b4798e0eeda58d5072e59e027a9737d8ed6fac
 p {
   font-size: 1.1em;
   line-height: 1.1em;
   color: #f68a3c;
 }
-<<<<<<< HEAD
 /* Recipe Title */
-h3 {
-  font-size: 1.6em;
-  color:#f68a3c;
-=======
-
 h3 {
   font-size: 1.3em;
   color: #f68a3c;
   margin-bottom: 10px;
->>>>>>> 84b4798e0eeda58d5072e59e027a9737d8ed6fac
 }
+
 /*-------------------------Media Queries------------------------*/
 
 @media (max-width: 1024px) {
