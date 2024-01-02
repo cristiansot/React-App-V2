@@ -5,9 +5,7 @@ import UserInfoForm from './UserInfoForm';
 import userInfoService from '../services/userInfoService';
 
 function UserInfoDashboard({ userInfo, updateUserInfo }) {
-  // State to track User Info
-  // const [userInfo, setUserInfo] = useState();
-
+  //--------------------------ALL STATES--------------------------//
   // State to track User Info Form Input
   const [userInput, setUserInput] = useState({
     name: '',
@@ -27,7 +25,7 @@ function UserInfoDashboard({ userInfo, updateUserInfo }) {
     setuserFormVisible(false);
   };
 
-  const handleUserInfoChange = (name, value) => {
+  const updateUserInput = (name, value) => {
     setUserInput((prevValue) => ({ ...prevValue, [name]: value }));
   };
 
@@ -38,7 +36,7 @@ function UserInfoDashboard({ userInfo, updateUserInfo }) {
       {userFormVisible && (
         <UserInfoForm
           userInput={userInput}
-          onFormChange={handleUserInfoChange}
+          onFormChange={updateUserInput}
           onFormSubmit={handleUserInfoSubmit}
         />
       )}

@@ -6,15 +6,14 @@ function ActivityForm({
   selectedActivity,
   onActivityTypeChange,
 }) {
+  // Handle input on date and duration fields
   const handleInputChange = (e) => {
     e.preventDefault();
-    const { name, value, type } = e.target;
+    const { name, value, type } = e.target; //destructuring assignment
     let processedValue = value;
     if (type === 'number') {
-      // Round the duration to the nearest integer, so user can't input decimal number
-      processedValue = value !== '' ? Math.round(value) : null;
+      processedValue = value !== '' ? Math.round(value) : null; // Check if value not empty and round the duration to the nearest integer, so user can't input decimal number
     }
-
     onFormChange(name, processedValue);
   };
 

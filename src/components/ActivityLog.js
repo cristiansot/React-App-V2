@@ -13,6 +13,7 @@ function ActivityLog({ filteredActivities, setActivities }) {
   return (
     <div className="activity-log">
       <div className="activity-scroll">
+        {/* Conditional rendering */}
         {filteredActivities.length > 0 ? (
           filteredActivities.map((activity) => (
             <ActivityItem

@@ -45,6 +45,15 @@ li:hover {
 
 /*---------Media Queries----------*/
 
+@media (max-width: 768px) {
+  .nav-item {
+    font-size: 5rem;
+  }
+  .navbar ul {
+    gap: 2rem;
+  }
+}
+
 @media (max-width: 414px) {
   header {
     padding: 2rem 0 0 0;
