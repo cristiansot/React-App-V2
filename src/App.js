@@ -24,6 +24,10 @@ function App() {
           updateUserInfo={updateUserInfo}
         />
         <NavBar />
+        <div className="app-name">
+          <h1>FitFlow</h1>
+          <h2>Health and Fitness Tracker</h2>
+        </div>
       </header>
       <div>
         <Routes>
@@ -40,7 +44,6 @@ function App() {
       </div>
     </div>
   );
-};
-
+}
 
 export default App;
