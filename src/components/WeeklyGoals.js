@@ -154,7 +154,7 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
       console.log('Weekly Goals Data still loading');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [weeklyGoals, currentWeek]);
 
   //POST
   const handleWeeklyGoals = async (durationGoalWeek) => {

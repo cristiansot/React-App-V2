@@ -12,15 +12,11 @@ function App() {
 
   useEffect(() => {
     const getChartData = async () => {
-      console.log('getting activity log info for week:', currentWeek);
       try {
         const response = await fetch(MockApiUrl);
         const data = await response.json();
         setOriginalApiData(data); // put api data into new state
-        console.log('setOriginalApiData:', data);
-      } catch (error) {
-        console.error('error getting activity log info:', error);
-      }
+      } catch (error) {}
     };
     getChartData();
     // eslint-disable-next-line react-hooks/exhaustive-deps

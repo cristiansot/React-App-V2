@@ -24,16 +24,11 @@ function WeeklyProgressChart({ currentWeek, originalApiData }) {
       const weekStart = startOfWeek(activityDate);
       const doesWeekStartMatchCurrentWeek = isSameDay(weekStart, currentWeek);
       if (doesWeekStartMatchCurrentWeek) {
-        console.log(
-          'doesWeekStartMatchCurrentWeek:',
-          doesWeekStartMatchCurrentWeek
-        );
         const weekEnd = endOfWeek(activityDate);
         const weekRange = `${format(weekStart, 'MMM d')} - ${format(
           weekEnd,
           'MMM d'
         )}`;
-        console.log('weekRange:', weekRange);
         weeklyTotals[weekRange] =
           weeklyTotals[weekRange] ||
           Object.fromEntries(
@@ -42,7 +37,6 @@ function WeeklyProgressChart({ currentWeek, originalApiData }) {
         weeklyTotals[weekRange][activity.activity] += activity.duration;
       }
     });
-    console.log('week Totals:', weeklyTotals);
 
     const updatedChartInfo = Object.entries(weeklyTotals).map(
       ([weekRange, activities]) => {
