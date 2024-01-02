@@ -1,6 +1,6 @@
 // MealPlannerComponent.js
 import React, { useState, useEffect } from 'react';
-import myapikey from '../services/configfatima';
+import { myapikey } from '../services/config';
 import '../css/MealPlannerComponent.css';
 
 // Functional component for Meal Planner

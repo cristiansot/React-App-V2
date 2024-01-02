@@ -1,10 +1,10 @@
-import '../css/Progress.css'
-import React, { useState, useEffect } from "react";
-import { Chart } from "react-google-charts";
-import { format, startOfWeek, endOfWeek, isSameDay } from "date-fns";
-import Select from "react-select";
+import '../css/Progress.css';
+import React, { useState, useEffect } from 'react';
+import { Chart } from 'react-google-charts';
+import { format, startOfWeek, endOfWeek, isSameDay } from 'date-fns';
+import Select from 'react-select';
 import activityOptions from '../data/ActivityOptions';
-import myAPIKey from '../services/config';
+import { myAPIKey } from '../services/config';
 const GoalAPI = `https://${myAPIKey}.mockapi.io/weeklygoal`;
 const MockApiUrl = `https://${myAPIKey}.mockapi.io/activities`;
 
@@ -21,34 +21,32 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
   }));
 
   const calculateWeeklyPieChart = () => {
-
-
     let weeklyTotals = {
       weeklyGoal: {},
-      progress: {}
+      progress: {},
     };
-
 
     // Loop through each entry in the weekly goals api array
     weeklyGoals.forEach((weeklyGoal) => {
-      const activityDate = new Date(weeklyGoal.date)
+      const activityDate = new Date(weeklyGoal.date);
       const weekStart = startOfWeek(activityDate);
       const doesWeekStartMatchCurrentWeek = isSameDay(weekStart, currentWeek);
 
       if (doesWeekStartMatchCurrentWeek) {
-
-        const matchingWeeklyGoalsActivity = activityOptions.find(option => option.activity === weeklyGoal.activity); // added this line to so we can find the corresponding activity object
-        if (matchingWeeklyGoalsActivity) {  // Update the weekly goal total for the matched activity
+        const matchingWeeklyGoalsActivity = activityOptions.find(
+          (option) => option.activity === weeklyGoal.activity
+        ); // added this line to so we can find the corresponding activity object
+        if (matchingWeeklyGoalsActivity) {
+          // Update the weekly goal total for the matched activity
           if (weeklyTotals.weeklyGoal[weeklyGoal.activity] === undefined) {
             weeklyTotals.weeklyGoal[weeklyGoal.activity] = 0;
           }
-          weeklyTotals.weeklyGoal[matchingWeeklyGoalsActivity.activity] += weeklyGoal.duration;
+          weeklyTotals.weeklyGoal[matchingWeeklyGoalsActivity.activity] +=
+            weeklyGoal.duration;
           // weeklyTotals.weeklyGoal[weeklyGoal.activity] += weeklyGoal.duration;
         }
       }
     });
-
-
 
     // Loop through each entry in the activity log api array
     activityProgressApiData.forEach((activity) => {
@@ -57,13 +55,22 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
       const doesWeekStartMatchCurrentWeek = isSameDay(weekStart, currentWeek);
 
       if (doesWeekStartMatchCurrentWeek) {
-
-        const matchingActivityProgressFromApiData = activityOptions.find(option => option.activity === activity.activity);  // same concept as line 40
-        if (matchingActivityProgressFromApiData) {  // Update the progress total for the matched activity
-          if (weeklyTotals.progress[matchingActivityProgressFromApiData.activity] === undefined) {
-            weeklyTotals.progress[matchingActivityProgressFromApiData.activity] = 0;
+        const matchingActivityProgressFromApiData = activityOptions.find(
+          (option) => option.activity === activity.activity
+        ); // same concept as line 40
+        if (matchingActivityProgressFromApiData) {
+          // Update the progress total for the matched activity
+          if (
+            weeklyTotals.progress[
+              matchingActivityProgressFromApiData.activity
+            ] === undefined
+          ) {
+            weeklyTotals.progress[
+              matchingActivityProgressFromApiData.activity
+            ] = 0;
           }
-          weeklyTotals.progress[matchingActivityProgressFromApiData.activity] += activity.duration;
+          weeklyTotals.progress[matchingActivityProgressFromApiData.activity] +=
+            activity.duration;
           // weeklyTotals.progress[activity.activity] += activity.duration;
         }
       }
@@ -72,21 +79,29 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
     const multiplePieCharts = [];
 
     for (const activity in weeklyTotals.weeklyGoal) {
-      const pieChartTotals = [["Task", "Value"]];
-      pieChartTotals.push([`${activity} Goal`, weeklyTotals.weeklyGoal[activity]]);
-      if (weeklyTotals.progress != undefined && weeklyTotals.progress[activity] != undefined) {
-        pieChartTotals.push([`${activity} Progress`, weeklyTotals.progress[activity]]);
+      const pieChartTotals = [['Task', 'Value']];
+      pieChartTotals.push([
+        `${activity} Goal`,
+        weeklyTotals.weeklyGoal[activity],
+      ]);
+      if (
+        weeklyTotals.progress != undefined &&
+        weeklyTotals.progress[activity] != undefined
+      ) {
+        pieChartTotals.push([
+          `${activity} Progress`,
+          weeklyTotals.progress[activity],
+        ]);
       }
       const dataForPieCharts = {
         chartTitle: `${activity} Goals`,
-        data: pieChartTotals
+        data: pieChartTotals,
       };
-      multiplePieCharts.push(dataForPieCharts)
+      multiplePieCharts.push(dataForPieCharts);
       console.log(`${activity}: ${weeklyTotals.weeklyGoal[activity]}`);
     }
 
-
-    console.log(multiplePieCharts)
+    console.log(multiplePieCharts);
     return multiplePieCharts;
   };
 
@@ -104,18 +119,10 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
     handleWeeklyGoals(goal);
   };
 
-
-
-
-
-
   const handleChange = (selectedOption) => {
     setSelectedActivity(selectedOption);
-    console.log("handleChange", selectedOption);
+    console.log('handleChange', selectedOption);
   };
-
-
-
 
   const fetchData = async () => {
     try {
@@ -125,79 +132,79 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
       // const updatedChartInfo = calculateWeeklyGoalsChartData(data, currentWeek);
       // console.log("updated chart info", updatedChartInfo)
       // setWeeklyGoalsChartData(updatedChartInfo);
-      console.log("Goal api Data Collectd:", data);
+      console.log('Goal api Data Collectd:', data);
     } catch (error) {
-      console.error("Error fetching API data:", error);
+      console.error('Error fetching API data:', error);
     }
   };
 
-
-
   //GET
   useEffect(() => {
-    fetchData();//moved the const fetchData outside of this useEffect so that i can call the fetchData in the "post", that way when the use saves their goal, the charts automatically populate
+    fetchData(); //moved the const fetchData outside of this useEffect so that i can call the fetchData in the "post", that way when the use saves their goal, the charts automatically populate
     // removed dependency array to only fetch data once
   }, []);
 
   useEffect(() => {
-
-    if (weeklyGoals.length > 0) { // if array it empty, it wont update the chart
+    if (weeklyGoals.length > 0) {
+      // if array it empty, it wont update the chart
       const updatedChartInfo = calculateWeeklyPieChart();
-      console.log("updated chart info", JSON.stringify(updatedChartInfo))
+      console.log('updated chart info', JSON.stringify(updatedChartInfo));
       setWeeklyGoalsChartData(updatedChartInfo);
     } else {
-      console.log("Weekly Goals Data still loading")
+      console.log('Weekly Goals Data still loading');
     }
   }, [weeklyGoals, currentWeek]);
-
-
-
 
   //POST
   const handleWeeklyGoals = async (durationGoalWeek) => {
     try {
       const response = await fetch(GoalAPI, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(durationGoalWeek),
       });
 
       if (!response.ok) {
-        throw new Error("Failed to add goal");
+        throw new Error('Failed to add goal');
       }
 
       const data = await response.json();
       fetchData();
     } catch (error) {
-      console.error("Error adding goal:", error);
+      console.error('Error adding goal:', error);
     }
-
   };
-
-
 
   const customStyles = {
     menu: (provided) => ({
       ...provided,
-      backgroundColor: '#8271e5', 
+      backgroundColor: '#8271e5',
     }),
   };
- 
+
   return (
     <div className="container-wrapper">
       <div className="WeeklyGoals">
         <div className="weekly-goals-container">
-
-          <div className="custom-select"  >
+          <div className="custom-select">
             <p> Select An Activity</p>
-            <Select options={options} onChange={handleChange} styles={customStyles} />
+            <Select
+              options={options}
+              onChange={handleChange}
+              styles={customStyles}
+            />
           </div>
 
           <form onSubmit={handleSubmit}>
             <label htmlFor="Duration">Duration</label>
-            <input id="Duration" type="number" value={durationGoal} onChange={handleInput} />
+            <input
+              id="Duration"
+              type="number"
+              value={durationGoal}
+              onChange={handleInput}
+            />
             <br />
             <button type="submit">Save Your Goal</button>
           </form>
@@ -205,7 +212,6 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
       </div>
 
       <div className="weekly-goals-container">
-
         {weeklyGoalsChartData.map((pieChartData) => (
           <div key={pieChartData.chartTitle}>
             <Chart
@@ -219,8 +225,14 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
                 is3D: false,
                 backgroundColor: '#f5f7fa',
                 slices: {
-                  0: { color: '#3498db', textStyle: { color: '#333', fontSize: 15, bold: true } },
-                  1: { color: '#f1c40f', textStyle: { color: '#333', fontSize: 15, bold: true } },
+                  0: {
+                    color: '#3498db',
+                    textStyle: { color: '#333', fontSize: 15, bold: true },
+                  },
+                  1: {
+                    color: '#f1c40f',
+                    textStyle: { color: '#333', fontSize: 15, bold: true },
+                  },
                 },
                 tooltip: {
                   showColorCode: true,
@@ -229,7 +241,6 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
               }}
             />
           </div>
-
         ))}
       </div>
     </div>

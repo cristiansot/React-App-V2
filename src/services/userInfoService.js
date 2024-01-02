@@ -1,5 +1,5 @@
 import axios from 'axios';
-import myAPIKey from './config';
+import { myAPIKey } from './config';
 
 // User Info API calls
 

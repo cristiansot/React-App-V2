@@ -1,6 +1,6 @@
 import axios from 'axios';
 // Import API key from a secure location or environment variable
-import myAPIKey from './config';
+import { myAPIKey } from './config';
 
 const APIurl = `https://${myAPIKey}.mockapi.io/activities`;
 

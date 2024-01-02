@@ -3,7 +3,7 @@ import WeeklyProgressChart from './WeeklyProgressChart';
 import WeeklyGoals from './WeeklyGoals';
 import { useState, useEffect } from 'react';
 import { format, startOfWeek, endOfWeek, isSameDay } from 'date-fns';
-import myAPIKey from '../services/config';
+import { myAPIKey } from '../services/config';
 const MockApiUrl = `https://${myAPIKey}.mockapi.io/activities`;
 
 function App() {
