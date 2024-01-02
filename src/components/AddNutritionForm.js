@@ -9,12 +9,7 @@ import { foodDataMap } from '../food.js';
 `react-hook-form`) to handle form submission and validation. */
 function AddNutritionForm({ addNutrition }) {
   // eslint-disable-next-line no-unused-vars
-  const {
-    handleSubmit,
-    register,
-    reset,
-    formState: { errors },
-  } = useForm('');
+  const { handleSubmit, register, reset } = useForm('');
 
   const onSubmit = handleSubmit((data) => {
     let cerealPromise,
