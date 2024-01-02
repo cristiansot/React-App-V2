@@ -203,7 +203,7 @@ html {
 
 /*-------------------------Media Queries------------------------*/
 
-@media (max-width: 768px) {
+@media (max-width: 790px) {
   body {
     min-width: 100vw;
   }

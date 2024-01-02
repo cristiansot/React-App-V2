@@ -105,10 +105,16 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
   };
 
 
+
+
+
+
   const handleChange = (selectedOption) => {
     setSelectedActivity(selectedOption);
     console.log("handleChange", selectedOption);
   };
+
+
 
 
   const fetchData = async () => {
@@ -124,6 +130,8 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
       console.error("Error fetching API data:", error);
     }
   };
+
+
 
   //GET
   useEffect(() => {
@@ -141,6 +149,8 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
       console.log("Weekly Goals Data still loading")
     }
   }, [weeklyGoals, currentWeek]);
+
+
 
 
   //POST
@@ -166,11 +176,25 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
 
   };
 
+
+
+  const customStyles = {
+    menu: (provided) => ({
+      ...provided,
+      backgroundColor: '#8271e5', 
+    }),
+  };
+ 
   return (
     <div className="container-wrapper">
       <div className="WeeklyGoals">
         <div className="weekly-goals-container">
-          <Select options={options} onChange={handleChange} />
+
+          <div className="custom-select"  >
+            <p> Select An Activity</p>
+            <Select options={options} onChange={handleChange} styles={customStyles} />
+          </div>
+
           <form onSubmit={handleSubmit}>
             <label htmlFor="Duration">Duration</label>
             <input id="Duration" type="number" value={durationGoal} onChange={handleInput} />

@@ -39,9 +39,11 @@
   }
 }
 
-@media (max-width: 768px) {
+/*--------Media Queries-----------*/
+
+@media (max-width: 1024px) {
   .line-chart-container {
-    width: 45%;
+    width: 50%;
   }
 }
 

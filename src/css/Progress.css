@@ -12,6 +12,7 @@
   margin-bottom: 4rem;
 }
 
+
 .container-wrapper {
   display: flex;
   justify-content: center;
@@ -25,7 +26,7 @@
   flex-direction: column;
   gap: 4rem;
   align-items: center;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   padding: 2rem;
   background-color: #f5f7fa;
   border: 0.2rem solid #d59ce8;
@@ -34,16 +35,7 @@
 }
 
 .WeeklyGoals {
-  /* background-color: #f5f7fa;
-  height: fit-content;
-  margin: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  border: 0.2rem solid #d59ce8;
-  padding: 2rem; */
   width: 50%;
-  /* border-radius: 1.5rem; */
 }
 
 .date-text,
@@ -58,6 +50,19 @@
   margin-bottom: 20px;
 }
 
+.custom-select {
+  width:100%;
+  margin-top: 2vh; 
+  font-size: 1.5rem;
+}
+
+.custom-select p {
+  text-align: center;
+  color: #8271e5;
+  font-size: 2rem;
+  margin: 1vh;
+}
+
 .WeeklyGoals form {
   margin: 0;
   display: flex;
@@ -67,7 +72,7 @@
 }
 
 .WeeklyGoals label {
-  font-size: 20px;
+  font-size: 2rem;
   margin-bottom: 8px;
   color: #8271e5;
 }

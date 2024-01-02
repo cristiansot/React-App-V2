@@ -14,13 +14,6 @@ function ActivityDashboard({ userInfo }) {
   // State to track Selected Date
   const [selectedDate, setSelectedDate] = useState(new Date());
 
-  // To initialize Activity Log to display today's activity
-  useEffect(() => {
-    activityService.getActivities().then((data) => {
-      setActivities(data);
-    });
-  }, []);
-
   // State to track activities logged
   const [activities, setActivities] = useState([]);
 
@@ -32,6 +25,19 @@ function ActivityDashboard({ userInfo }) {
     intensity: '',
     caloriesBurned: '',
   });
+
+  // To initialize Activity Log to display today's activity
+  useEffect(() => {
+    activityService
+      .getActivities()
+      .then((data) => {
+        setActivities(Array.isArray(data) ? data : []);
+      })
+      .catch((error) => {
+        alert('Failed to fetch activities:', error);
+        setActivities([]);
+      });
+  }, []);
 
   // Handle user input (excluding activity and intensity)
   const handleActivityFormChange = (name, value) => {
