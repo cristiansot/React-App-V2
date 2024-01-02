@@ -98,10 +98,7 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
         data: pieChartTotals,
       };
       multiplePieCharts.push(dataForPieCharts);
-      console.log(`${activity}: ${weeklyTotals.weeklyGoal[activity]}`);
     }
-
-    console.log(multiplePieCharts);
     return multiplePieCharts;
   };
 
@@ -121,7 +118,6 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
 
   const handleChange = (selectedOption) => {
     setSelectedActivity(selectedOption);
-    console.log('handleChange', selectedOption);
   };
 
   const fetchData = async () => {
@@ -132,7 +128,6 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
       // const updatedChartInfo = calculateWeeklyGoalsChartData(data, currentWeek);
       // console.log("updated chart info", updatedChartInfo)
       // setWeeklyGoalsChartData(updatedChartInfo);
-      console.log('Goal api Data Collectd:', data);
     } catch (error) {
       console.error('Error fetching API data:', error);
     }
@@ -148,10 +143,8 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
     if (weeklyGoals.length > 0) {
       // if array it empty, it wont update the chart
       const updatedChartInfo = calculateWeeklyPieChart();
-      console.log('updated chart info', JSON.stringify(updatedChartInfo));
       setWeeklyGoalsChartData(updatedChartInfo);
     } else {
-      console.log('Weekly Goals Data still loading');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [weeklyGoals, currentWeek]);
