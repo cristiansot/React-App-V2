@@ -1,12 +1,12 @@
 import '../css/Progress.css';
 import React, { useState, useEffect } from 'react';
 import { Chart } from 'react-google-charts';
-import { format, startOfWeek, endOfWeek, isSameDay } from 'date-fns';
+import { startOfWeek, isSameDay } from 'date-fns';
 import Select from 'react-select';
 import activityOptions from '../data/ActivityOptions';
 import { myAPIKey } from '../services/config';
 const GoalAPI = `https://${myAPIKey}.mockapi.io/weeklygoal`;
-const MockApiUrl = `https://${myAPIKey}.mockapi.io/activities`;
+// const MockApiUrl = `https://${myAPIKey}.mockapi.io/activities`;
 
 function WeeklyGoals({ currentWeek, activityProgressApiData }) {
   const [durationGoal, setDurationGoal] = useState(0);
@@ -85,8 +85,8 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
         weeklyTotals.weeklyGoal[activity],
       ]);
       if (
-        weeklyTotals.progress != undefined &&
-        weeklyTotals.progress[activity] != undefined
+        weeklyTotals.progress !== undefined &&
+        weeklyTotals.progress[activity] !== undefined
       ) {
         pieChartTotals.push([
           `${activity} Progress`,
@@ -153,7 +153,8 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
     } else {
       console.log('Weekly Goals Data still loading');
     }
-  }, [weeklyGoals, currentWeek]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   //POST
   const handleWeeklyGoals = async (durationGoalWeek) => {
@@ -172,6 +173,7 @@ function WeeklyGoals({ currentWeek, activityProgressApiData }) {
 
       const data = await response.json();
       fetchData();
+      return data;
     } catch (error) {
       console.error('Error adding goal:', error);
     }

@@ -2,7 +2,7 @@ import '../css/Progress.css';
 import WeeklyProgressChart from './WeeklyProgressChart';
 import WeeklyGoals from './WeeklyGoals';
 import { useState, useEffect } from 'react';
-import { format, startOfWeek, endOfWeek, isSameDay } from 'date-fns';
+import { format, startOfWeek, endOfWeek } from 'date-fns';
 import { myAPIKey } from '../services/config';
 const MockApiUrl = `https://${myAPIKey}.mockapi.io/activities`;
 
@@ -23,7 +23,8 @@ function App() {
       }
     };
     getChartData();
-  }, [currentWeek]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // last week button
   const handleLastWeek = () => {

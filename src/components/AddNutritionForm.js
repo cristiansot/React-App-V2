@@ -4,15 +4,26 @@ import { v4 as uuidv4 } from 'uuid';
 import '../css/addNutritionForm.css';
 import { foodDataMap } from '../food.js';
 
-
 /* The above code is defining a functional component called `AddNutritionForm` that takes a prop called
 `addNutrition`. Inside the component, it is using the `useForm` hook from a library (possibly
 `react-hook-form`) to handle form submission and validation. */
 function AddNutritionForm({ addNutrition }) {
-  const { handleSubmit, register, reset, formState: {errors} } = useForm('');
+  // eslint-disable-next-line no-unused-vars
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { errors },
+  } = useForm('');
 
   const onSubmit = handleSubmit((data) => {
-    let cerealPromise, vegetablePromise, fruitPromise, dairyPromise, meatPromise, oilPromise, sugarPromise;
+    let cerealPromise,
+      vegetablePromise,
+      fruitPromise,
+      dairyPromise,
+      meatPromise,
+      oilPromise,
+      sugarPromise;
 
     const cereals = {
       oatmeal: foodDataMap.oatmeal,
@@ -24,8 +35,8 @@ function AddNutritionForm({ addNutrition }) {
       cookedCorn: foodDataMap.cookedCorn,
       cookedPotato: foodDataMap.cookedPotato,
       cornFlakes: foodDataMap.cornFlakes,
-    }
-    
+    };
+
     const vegetables = {
       beet: foodDataMap.beet,
       broccoli: foodDataMap.broccoli,
@@ -43,7 +54,7 @@ function AddNutritionForm({ addNutrition }) {
       redPaprika: foodDataMap.redPaprika,
       greenPaprika: foodDataMap.greenPaprika,
       cabbage: foodDataMap.cabbage,
-    }
+    };
 
     const fruits = {
       olives: foodDataMap.olives,
@@ -59,7 +70,7 @@ function AddNutritionForm({ addNutrition }) {
       pineapple: foodDataMap.pineapple,
       waterMelon: foodDataMap.waterMelon,
       grapes: foodDataMap.grapes,
-    }
+    };
 
     const dairys = {
       wholeMilk: foodDataMap.wholeMilk,
@@ -73,7 +84,7 @@ function AddNutritionForm({ addNutrition }) {
       curdCheese: foodDataMap.curdCheese,
       yogurtFruit: foodDataMap.yogurtFruit,
       custard: foodDataMap.custard,
-    }
+    };
 
     const meats = {
       beef: foodDataMap.beef,
@@ -97,7 +108,7 @@ function AddNutritionForm({ addNutrition }) {
       oysters: foodDataMap.oysters,
       clams: foodDataMap.clams,
       lentils: foodDataMap.lentils,
-    }
+    };
 
     const oils = {
       wonderOil: foodDataMap.wonderOil,
@@ -118,9 +129,9 @@ function AddNutritionForm({ addNutrition }) {
       nut: foodDataMap.nut,
       pistachio: foodDataMap.pistachio,
       avocado: foodDataMap.avocado,
-    }
-    
-    const sugars= {
+    };
+
+    const sugars = {
       sugar: foodDataMap.sugar,
       honeyBee: foodDataMap.honeyBee,
       jam: foodDataMap.jam,
@@ -134,7 +145,7 @@ function AddNutritionForm({ addNutrition }) {
       whiteWine: foodDataMap.whiteWine,
       blackWine: foodDataMap.blackWine,
       whisky: foodDataMap.whisky,
-    }
+    };
 
     const selectedCereal = cereals[data.cereal];
     const selectedVegetable = vegetables[data.vegetable];
@@ -144,95 +155,124 @@ function AddNutritionForm({ addNutrition }) {
     const selectedOil = oils[data.oil];
     const selectedSugar = sugars[data.sugar];
 
-    cerealPromise = selectedCereal ? fetchFoodData(selectedCereal) : Promise.resolve([]);
-    vegetablePromise = selectedVegetable ? fetchFoodData(selectedVegetable) : Promise.resolve([]);
-    fruitPromise = selectedFruit ? fetchFoodData(selectedFruit) : Promise.resolve([]);
-    dairyPromise = selectedDairy ? fetchFoodData(selectedDairy) : Promise.resolve([]);
-    meatPromise = selectedMeat ? fetchFoodData(selectedMeat) : Promise.resolve([]);
+    cerealPromise = selectedCereal
+      ? fetchFoodData(selectedCereal)
+      : Promise.resolve([]);
+    vegetablePromise = selectedVegetable
+      ? fetchFoodData(selectedVegetable)
+      : Promise.resolve([]);
+    fruitPromise = selectedFruit
+      ? fetchFoodData(selectedFruit)
+      : Promise.resolve([]);
+    dairyPromise = selectedDairy
+      ? fetchFoodData(selectedDairy)
+      : Promise.resolve([]);
+    meatPromise = selectedMeat
+      ? fetchFoodData(selectedMeat)
+      : Promise.resolve([]);
     oilPromise = selectedOil ? fetchFoodData(selectedOil) : Promise.resolve([]);
-    sugarPromise = selectedSugar ? fetchFoodData(selectedSugar) : Promise.resolve([]);
+    sugarPromise = selectedSugar
+      ? fetchFoodData(selectedSugar)
+      : Promise.resolve([]);
 
+    Promise.all([
+      cerealPromise,
+      vegetablePromise,
+      fruitPromise,
+      dairyPromise,
+      meatPromise,
+      oilPromise,
+      sugarPromise,
+    ])
+      .then(
+        ([
+          cerealResult,
+          vegetableResult,
+          fruitResult,
+          dairyResult,
+          meatResult,
+          oilResult,
+          sugarResult,
+        ]) => {
+          const portion1 = parseInt(data.portion1) || 1;
+          const portion2 = parseInt(data.portion2) || 1;
+          const portion3 = parseInt(data.portion3) || 1;
+          const portion4 = parseInt(data.portion4) || 1;
+          const portion5 = parseInt(data.portion5) || 1;
+          const portion6 = parseInt(data.portion6) || 1;
+          const portion7 = parseInt(data.portion7) || 1;
 
-    Promise.all([cerealPromise, vegetablePromise, fruitPromise, dairyPromise, meatPromise, oilPromise, sugarPromise])
-      .then(([cerealResult, vegetableResult, fruitResult, dairyResult, meatResult, oilResult, sugarResult]) => {
-        const portion1 = parseInt(data.portion1) || 1;
-        const portion2 = parseInt(data.portion2) || 1;
-        const portion3 = parseInt(data.portion3) || 1;
-        const portion4 = parseInt(data.portion4) || 1;
-        const portion5 = parseInt(data.portion5) || 1;
-        const portion6 = parseInt(data.portion6) || 1;
-        const portion7 = parseInt(data.portion7) || 1;
-
-        const sumArrays = (...arrays) => {
-          const maxLength = Math.max(...arrays.map((arr) => arr.length));
-          const result = new Array(maxLength).fill(0);
-          for (let i = 0; i < maxLength; i++) {
-            for (let j = 0; j < arrays.length; j++) {
-              result[i] += arrays[j][i] || 0;
+          const sumArrays = (...arrays) => {
+            const maxLength = Math.max(...arrays.map((arr) => arr.length));
+            const result = new Array(maxLength).fill(0);
+            for (let i = 0; i < maxLength; i++) {
+              for (let j = 0; j < arrays.length; j++) {
+                result[i] += arrays[j][i] || 0;
+              }
             }
-          }
-        
-          return {
-            totalPortion: result[0].toFixed(1),
-            totalCalories: result[1].toFixed(1),
-            totalProtein: result[2].toFixed(1),
-            totalFat: result[3].toFixed(1),
-            totalCarbohydrates: result[4].toFixed(1),
-          };
-        };
-        
-        const totalResults = sumArrays(
-          cerealResult.map((value) => value * portion1),
-          vegetableResult.map((value) => value * portion2),
-          fruitResult.map((value) => value * portion3),
-          dairyResult.map((value) => value * portion4),
-          meatResult.map((value) => value * portion5),
-          oilResult.map((value) => value * portion6),
-          sugarResult.map((value) => value * portion7)
-        );
-        
-        const newNutrition = {
-          id: uuidv4(),
-          date: data.date,
-          cerealName: data.cereal,
-          cerealArray: cerealResult.map((value) => value * portion1),
-          vegetableName: data.vegetable,
-          vegetableArray: vegetableResult.map((value) => value * portion2),
-          fruitName: data.fruit,
-          fruitArray: fruitResult.map((value) => value * portion3),
-          dairyName: data.dairy,
-          dairyArray: dairyResult.map((value) => value * portion4),
-          meatName: data.meat,
-          meatArray: meatResult.map((value) => value * portion5),
-          oilName: data.oil,
-          oilArray: oilResult.map((value) => value * portion6),
-          sugarName: data.sugar,
-          sugarArray: sugarResult.map((value) => value * portion7),
-          total: totalResults,
-        };
-        
-        console.log(newNutrition);
 
-        addNutrition(newNutrition);
-        reset(); // Reset all form fields
-      })
+            return {
+              totalPortion: result[0].toFixed(1),
+              totalCalories: result[1].toFixed(1),
+              totalProtein: result[2].toFixed(1),
+              totalFat: result[3].toFixed(1),
+              totalCarbohydrates: result[4].toFixed(1),
+            };
+          };
+
+          const totalResults = sumArrays(
+            cerealResult.map((value) => value * portion1),
+            vegetableResult.map((value) => value * portion2),
+            fruitResult.map((value) => value * portion3),
+            dairyResult.map((value) => value * portion4),
+            meatResult.map((value) => value * portion5),
+            oilResult.map((value) => value * portion6),
+            sugarResult.map((value) => value * portion7)
+          );
+
+          const newNutrition = {
+            id: uuidv4(),
+            date: data.date,
+            cerealName: data.cereal,
+            cerealArray: cerealResult.map((value) => value * portion1),
+            vegetableName: data.vegetable,
+            vegetableArray: vegetableResult.map((value) => value * portion2),
+            fruitName: data.fruit,
+            fruitArray: fruitResult.map((value) => value * portion3),
+            dairyName: data.dairy,
+            dairyArray: dairyResult.map((value) => value * portion4),
+            meatName: data.meat,
+            meatArray: meatResult.map((value) => value * portion5),
+            oilName: data.oil,
+            oilArray: oilResult.map((value) => value * portion6),
+            sugarName: data.sugar,
+            sugarArray: sugarResult.map((value) => value * portion7),
+            total: totalResults,
+          };
+
+          console.log(newNutrition);
+
+          addNutrition(newNutrition);
+          reset(); // Reset all form fields
+        }
+      )
       .catch((error) => {
         console.error(error);
       });
   });
 
-/* The above code is using the `useEffect` hook in React to add event listeners to all elements with
+  /* The above code is using the `useEffect` hook in React to add event listeners to all elements with
 the class "portion". It is specifically listening for the "change" event and calling the
 `handlePortionChange` function when the event occurs. */
   useEffect(() => {
-    const portionInputs = document.querySelectorAll(".portion");
+    const portionInputs = document.querySelectorAll('.portion');
     portionInputs.forEach((input) => {
-      input.addEventListener("change", handlePortionChange);
+      input.addEventListener('change', handlePortionChange);
     });
 
     return () => {
       portionInputs.forEach((input) => {
-        input.removeEventListener("change", handlePortionChange);
+        input.removeEventListener('change', handlePortionChange);
       });
     };
   }, []);
@@ -251,7 +291,7 @@ the class "portion". It is specifically listening for the "change" event and cal
     }
   };
 
-/* The fetchFoodData function returns a promise that resolves with the provided food parameter after a
+  /* The fetchFoodData function returns a promise that resolves with the provided food parameter after a
 delay of 300 milliseconds.
 @param food - The `food` parameter is a variable that represents the type of food you want to fetch
 data for. It can be any valid value that represents a type of food, such as "pizza", "burger",
@@ -267,15 +307,19 @@ data for. It can be any valid value that represents a type of food, such as "piz
   return (
     <form className="contentForm" onSubmit={onSubmit}>
       <h2>Enter your daily intake</h2>
-      <div id='dateContent'>
+      <div id="dateContent">
         <label>Select a date</label>
-        <input type="date" id='date' {...register('date', {required: true})} />
+        <input
+          type="date"
+          id="date"
+          {...register('date', { required: true })}
+        />
         {/* { 
           errors.date && <span>Date required</span>
         } */}
       </div>
-      
-      <div id='cereal'>
+
+      <div id="cereal">
         <select {...register('cereal')}>
           <option value="empty">Select a Cereal</option>
           <option value="oatmeal">Oatmeal</option>
@@ -288,10 +332,16 @@ data for. It can be any valid value that represents a type of food, such as "piz
           <option value="cookedPotato">Cooked Potato</option>
           <option value="cornFlakes">Corn Flakes</option>
         </select>
-        <input type="number" {...register('portion1')} defaultValue="1" className="portion" id='quantity' />
+        <input
+          type="number"
+          {...register('portion1')}
+          defaultValue="1"
+          className="portion"
+          id="quantity"
+        />
       </div>
-     
-      <div id='vegetable'>
+
+      <div id="vegetable">
         <select {...register('vegetable')}>
           <option value="empty">Select a Vegetable</option>
           <option value="beet">Beet</option>
@@ -311,10 +361,16 @@ data for. It can be any valid value that represents a type of food, such as "piz
           <option value="greenPaprika">Green Paprika</option>
           <option value="cabbage">Cabbage</option>
         </select>
-        <input type="number" {...register('portion2')} defaultValue="1" className="portion" id='quantity' />
+        <input
+          type="number"
+          {...register('portion2')}
+          defaultValue="1"
+          className="portion"
+          id="quantity"
+        />
       </div>
-      
-      <div id='fruit'>
+
+      <div id="fruit">
         <select {...register('fruit')}>
           <option value="empty">Select a Fruit</option>
           <option value="olives">Olives</option>
@@ -331,10 +387,16 @@ data for. It can be any valid value that represents a type of food, such as "piz
           <option value="waterMelon">Watermelon</option>
           <option value="grapes">Grapes</option>
         </select>
-        <input type="number" {...register('portion3')} defaultValue="1" className="portion" id='quantity' />
+        <input
+          type="number"
+          {...register('portion3')}
+          defaultValue="1"
+          className="portion"
+          id="quantity"
+        />
       </div>
 
-      <div id='dairy'>
+      <div id="dairy">
         <select {...register('dairy')}>
           <option value="empty">Select a Dairy</option>
           <option value="wholeMilk">Whole Milk</option>
@@ -349,10 +411,16 @@ data for. It can be any valid value that represents a type of food, such as "piz
           <option value="yogurtFruit">Yogurt Fruit</option>
           <option value="custard">Custard</option>
         </select>
-        <input type="number" {...register('portion4')} defaultValue="1" className="portion" id='quantity' />
+        <input
+          type="number"
+          {...register('portion4')}
+          defaultValue="1"
+          className="portion"
+          id="quantity"
+        />
       </div>
 
-      <div id='meat'>
+      <div id="meat">
         <select {...register('meat')}>
           <option value="empty">Select a Meat</option>
           <option value="beef">Beef</option>
@@ -377,10 +445,16 @@ data for. It can be any valid value that represents a type of food, such as "piz
           <option value="clams">Clams</option>
           <option value="lentils">Lentils</option>
         </select>
-        <input type="number" {...register('portion5')} defaultValue="1" className="portion" id='quantity' />
+        <input
+          type="number"
+          {...register('portion5')}
+          defaultValue="1"
+          className="portion"
+          id="quantity"
+        />
       </div>
 
-      <div id='oil'>
+      <div id="oil">
         <select {...register('oil')}>
           <option value="empty">Select an Oil</option>
           <option value="wonderOil">Wonder Oil</option>
@@ -401,10 +475,16 @@ data for. It can be any valid value that represents a type of food, such as "piz
           <option value="pistachio">Pistachio</option>
           <option value="avocado">Avocado</option>
         </select>
-        <input type="number" {...register('portion6')} defaultValue="1" className="portion" id='quantity' />
+        <input
+          type="number"
+          {...register('portion6')}
+          defaultValue="1"
+          className="portion"
+          id="quantity"
+        />
       </div>
 
-      <div id='sugar'>
+      <div id="sugar">
         <select {...register('sugar')}>
           <option value="empty">Select a Sugar</option>
           <option value="sugar">Sugar</option>
@@ -421,7 +501,13 @@ data for. It can be any valid value that represents a type of food, such as "piz
           <option value="blackWine">Black Wine</option>
           <option value="whisky">Whisky</option>
         </select>
-        <input type="number" {...register('portion7')} defaultValue="1" className="portion" id='quantity' />
+        <input
+          type="number"
+          {...register('portion7')}
+          defaultValue="1"
+          className="portion"
+          id="quantity"
+        />
       </div>
 
       <button className="submit" type="submit">
