@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.51a1a60a.css",
+    "main.js": "/static/js/main.63d86d7c.js",
+    "static/media/biking.jpg": "/static/media/biking.9fd16864355f6fe2d252.jpg",
+    "static/media/charting.jpg": "/static/media/charting.875c6b3e7db106c12168.jpg",
+    "static/media/nutrition.jpg": "/static/media/nutrition.cb8b2f5cff59556f47f9.jpg",
+    "static/media/dishwashing.png": "/static/media/dishwashing.865e9df400e1f7112f52.png",
+    "static/media/gardening.png": "/static/media/gardening.b2e095dc4637d7c338e1.png",
+    "static/media/biking.png": "/static/media/biking.805c2fd7a63813cdfc1c.png",
+    "static/media/crossfit.png": "/static/media/crossfit.9893404f6005bd1ec21d.png",
+    "static/media/climbing.png": "/static/media/climbing.a0682dbc71ecde21dddc.png",
+    "static/media/running.png": "/static/media/running.4aa301ef830f9be132be.png",
+    "static/media/cooking.png": "/static/media/cooking.8631068161a03f6cbaa3.png",
+    "static/media/basketball.png": "/static/media/basketball.7644b62d556bea0b89db.png",
+    "static/media/cleaning.png": "/static/media/cleaning.631897bb237c017598f2.png",
+    "static/media/tennis.png": "/static/media/tennis.e3829062b109c1c08dc5.png",
+    "static/media/walking.png": "/static/media/walking.8fec5c27509952079ca6.png",
+    "static/media/kayaking.png": "/static/media/kayaking.d31e81338c2df2f1e17b.png",
+    "static/media/soccer.png": "/static/media/soccer.d59ae999e5ed46c00db1.png",
+    "static/media/swimming.png": "/static/media/swimming.3ba129c415165ac449c1.png",
+    "static/media/yoga-pilates.png": "/static/media/yoga-pilates.447fbad09993fcd43891.png",
+    "static/media/vacuuming.png": "/static/media/vacuuming.31402f25dafcd4d8f891.png",
+    "static/media/dancing.png": "/static/media/dancing.b395088c839c02626942.png",
+    "static/media/hiking.png": "/static/media/hiking.afaa7b73871b347a2fd8.png",
+    "index.html": "/index.html",
+    "main.51a1a60a.css.map": "/static/css/main.51a1a60a.css.map",
+    "main.63d86d7c.js.map": "/static/js/main.63d86d7c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.51a1a60a.css",
+    "static/js/main.63d86d7c.js"
+  ]
+}
