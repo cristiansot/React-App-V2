@@ -19,7 +19,8 @@ Create an application focused on personal health and fitness tracking. This app 
     - **Nutrition Tracker Visualizer and Meal Planner:** https://drive.google.com/file/d/1X7E9WUhS25xLTly243YI_yeSew_bRuZJ/view?usp=sharing (Click "Open with diagrams.net" at the top of the page for a better view.)
 
 
--  **Team members and contributions:**
+-  **Team Members and Contributions:**
+
  1. Marwa Abdullahi:
     - Created Weekly Progress Visualizer and Weekly Goals Setting features
     - Sourced images for the homepage and built the initial page
@@ -45,7 +46,7 @@ Create an application focused on personal health and fitness tracking. This app 
     - Created mockup for Homepage
 
   
--- ** Libraries being used:**
+- **Libraries being used:**
 
 Cristian: "react-calendar": "^4.7.0",  "react-day-picker": "^8.9.1", "react-hook-form": "^7.48.2", "react-modal": "^3.16.1", "recharts": "^2.10.3"
 
