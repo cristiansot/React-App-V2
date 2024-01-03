@@ -1,106 +1,61 @@
-***********
-**Libraries being used:**
+
+# Project #2: React-App-V2
+
+### **Project Option #3:** **Health and Fitness Tracker**
+
+Create an application focused on personal health and fitness tracking. This app should allow users to log their daily activities, track nutritional intake, set fitness goals, and monitor progress over time.
+-   **Key Features**:
+    -   **User Info**: Users can add their personal information containing Name, Weight, and Height. This information will be used to personalize the data received in the app.
+    -   **Activity Log**: Users can record various physical activities, including the date, duration, intensity, and calories burned. They can also see their past logged activities.
+    -   **Weekly Progress Visualizer:** The user can see the activities they logged in a particular week in a simple chart.
+    -   **Weekly Goals Setting:** The user can set activity goals for the week by setting a set amount of time on one or multiple activities. Their progress towards their goal is displayed in a simple chart and should be updated automatically when new activities are added.
+    -   **Nutrition Intake and Calories Visualizer:** The user's total daily nutrition intake is displayed in a simple chart. This should update automatically when new data is logged for the day.
+    -   **Nutrition Log**: Users can record their dietary intake for each day, along with nutrition and calories. They can also see their past logged meals.
+    -   **Nutrition Tracker Visualizer:** The users's daily nutrition breakdown is displayed in a simple chart. This should update automatically when new data is logged for the day.
+    -   **Meal Planner:** The user will receive 3 meal plan recommendations each day.
+ 
+-  **React Component trees:**
+   - **User Info & Activity Log:** https://drive.google.com/file/d/1X6f-TFmENZZFt0wnhOR7hOqqtb4r-UAF/view?usp=sharing (Click "Open with diagrams.net" at the top of the page for a better view.)
+    - **Nutrition Tracker Visualizer and Meal Planner:** https://drive.google.com/file/d/1X7E9WUhS25xLTly243YI_yeSew_bRuZJ/view?usp=sharing (Click "Open with diagrams.net" at the top of the page for a better view.)
+
+
+-  **Team members and contributions:**
+ 1. Marwa Abdullahi:
+    - Created Weekly Progress Visualizer and Weekly Goals Setting features
+    - Sourced images for the homepage and built the initial page
+    - Researched on React Router
+    - Final wireframing and site theme/design
+    
+2. Novita Hamilton:
+    - Created initial wireframe for Homepage
+    - Created User Info and Activity Log Features
+    - Final wireframing and site theme/design
+    - Set up NavBar and React Router
+    - Set up site responsivity
+    - Deployed the site (from a forked repo - temporary solution)
+ 
+ 3. Fatima Farhat
+    - Created Nutrition Tracker Visualizer and Meal Planner features
+    - Started User Login and Sign Up features, however it's currently put on Pending
+    - Final wireframing and site theme/design
+  
+ 4. Cristian Soto
+    - Set up project repository on GitHub and Miro dashboard
+    - Created  Nutrition Intake and Calories Visualizer and Nutrition Log Features
+    - Created mockup for Homepage
+
+  
+-- ** Libraries being used:**
 
 Cristian: "react-calendar": "^4.7.0",  "react-day-picker": "^8.9.1", "react-hook-form": "^7.48.2", "react-modal": "^3.16.1", "recharts": "^2.10.3"
 
-Novita:
+Novita: "react-day-picker": "^8.9.1", "@fortawesome/free-solid-svg-icons": "^6.5.1", "@fortawesome/react-fontawesome": "^0.2.0",
 
 Marwa: "react-google-charts": "^4.0.1" , 
 
 Fatima:  "recharts": "^2.10.3",
 
 ***********
-
-Gradient background
-npm i three @types/three @react-three/fiber shadergradient framer-motion
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# Project #2: React-App-V2
-
-### **Project Option #3:** **Health and Fitness Tracker**
-
--   Create an application focused on personal health and fitness tracking. This app should allow users to log their daily activities, track nutritional intake, set fitness goals, and monitor progress over time.
--   **Key Features**:
-    -   **Activity Log**: Users can record various physical activities, including the date, duration, intensity, and calories burned. They can also see their past logged activities.
-    -   **Progress Visualizer:** The user can set activity goals for the week (eg total calories burned or total time spent working out). Their progress towards their goal is displayed in a simple chart or visual and should update automatically when new activities are added.
-    -   **Nutrition Log**: Users can record their dietary intake for each day, along with nutrition and calories. They can also see their past logged meals.
-    -   **Nutrition Visualizer:** The user's daily nutrition info is displayed in a simple chart or visual. The visuals should update automatically when new data is logged for the day.
-
-### Team members: 
- 1. Marwa Abdullahi
- 2. Novita Hamilton
- 3. Fatima Farhat
- 4. Cristian Soto
 
 ## Assignment Details
 
