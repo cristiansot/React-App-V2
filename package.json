@@ -1,6 +1,7 @@
 {
   "name": "react-app-v2",
   "version": "0.1.0",
+  "homepage": "https://cristiansot.github.io/React-App-V2",
   "private": true,
   "dependencies": {
     "@babel/runtime": "^7.23.6",
@@ -43,6 +44,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -75,6 +78,7 @@
     "@babel/preset-react": "^7.23.3",
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^6.1.1",
     "source-map-loader": "^4.0.1"
   }
 }
