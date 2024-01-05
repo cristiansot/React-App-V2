@@ -1,4 +1,6 @@
 // MealPlannerComponent.js
+// https://matthieubertrand5.medium.com/build-a-recipe-app-fetching-api-using-react-443658f38064
+
 import React, { useState, useEffect } from 'react';
 import myapikey from '../services/configfatima';
 import '../css/MealPlannerComponent.css';

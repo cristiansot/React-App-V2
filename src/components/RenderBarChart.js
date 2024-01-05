@@ -1,4 +1,8 @@
-// Import necessary modules from React and recharts library
+// Import modules from React and recharts library
+// https://mui.com/x/react-charts/tooltip/
+// https://mui.com/x/react-charts/legend/
+// https://byby.dev/react-chart-libs
+
 import React, { useState, useEffect } from 'react';
 import {
   LineChart,
@@ -22,31 +26,53 @@ import axios from 'axios';
 const CustomTooltip = ({ active, payload }) => {
   // Check if tooltip is active and data is available
   if (active && payload && payload.length) {
+    // Extract the data from the payload (assuming payload is an array of data points)
     const data = payload[0].payload;
 
     // Styling for the tooltip
     const tooltipStyle = {
-      background: '#f8f9fa',
-      border: '1px solid #ddd',
-      padding: '15px',
-      fontSize: '16px',
-      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-      borderRadius: '8px',
-      transition: 'opacity 0.3s ease-in-out',
+      background: '#f8f9fa', // Background color of the tooltip
+      border: '1px solid #ddd', // Border style of the tooltip
+      padding: '15px', // Padding inside the tooltip
+      fontSize: '16px', // Font size of the tooltip content
+      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)', // Box shadow for a subtle elevation effect
+      borderRadius: '8px', // Border radius for rounded corners
+      transition: 'opacity 0.3s ease-in-out', // Smooth transition for opacity changes
     };
 
     // Render tooltip content with data
+    
+    // Display information about the specific data properties within the tooltip
+    
+    // Day information with black color
+    const dayInfo = `Day: ${data.day}`;
+    
+    // Total Sugar information with gold color (#FFD700)
+    const totalSugarInfo = `Total Sugar: ${data.totalSugar.toFixed(2)}`;
+    
+    // Total Protein information with lime green color (#32CD32)
+    const totalProteinInfo = `Total Protein: ${data.totalProtein.toFixed(2)}`;
+    
+    // Total Fat information with tomato color (#FF6347)
+    const totalFatInfo = `Total Fat: ${data.totalFat.toFixed(2)}`;
+    
+    // Total Carbohydrates information with royal blue color (#4169E1)
+    const totalCarbInfo = `Total Carbohydrates: ${data.totalCarbohydrates.toFixed(2)}`;
+
+    // Return JSX with the styled tooltip containing data
     return (
       <div className="custom-tooltip" style={tooltipStyle}>
-        <p style={{ color: 'black' }}>{`Day: ${data.day}`}</p>
-        <p style={{ color: '#FFD700' }}>{`Total Sugar: ${data.totalSugar.toFixed(2)}`}</p>
-        <p style={{ color: '#32CD32' }}>{`Total Protein: ${data.totalProtein.toFixed(2)}`}</p>
-        <p style={{ color: '#FF6347' }}>{`Total Fat: ${data.totalFat.toFixed(2)}`}</p>
-        <p style={{ color: '#4169E1' }}>{`Total Carbohydrates: ${data.totalCarbohydrates.toFixed(2)}`}</p>
+        <p style={{ color: 'black' }}>{dayInfo}</p>
+        <p style={{ color: '#FFD700' }}>{totalSugarInfo}</p>
+        <p style={{ color: '#32CD32' }}>{totalProteinInfo}</p>
+        <p style={{ color: '#FF6347' }}>{totalFatInfo}</p>
+        <p style={{ color: '#4169E1' }}>{totalCarbInfo}</p>
       </div>
     );
   }
 
+  // If tooltip is not active or no data available, return null (no tooltip)
+  
   return null;
 };
 

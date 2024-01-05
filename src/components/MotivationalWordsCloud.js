@@ -1,5 +1,7 @@
 // MotivationalWordsCloud.js
 // Reference https://www.youtube.com/watch?v=1rTaNzjGOek
+// https://blog.seunadesina.com/flickering-words-custom-react-hook-41cca71c778d
+
 import React from 'react';
 import "../css/MotivationalWordsCloud.css";
 
