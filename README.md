@@ -9,9 +9,9 @@ Create an application focused on personal health and fitness tracking. This app 
     -   **Activity Log**: Users can record various physical activities, including the date, duration, intensity, and calories burned. They can also see their past logged activities.
     -   **Weekly Progress Visualizer:** The user can see the activities they logged in a particular week in a simple chart.
     -   **Weekly Goals Setting:** The user can set activity goals for the week by setting a set amount of time on one or multiple activities. Their progress towards their goal is displayed in a simple chart and should be updated automatically when new activities are added.
-    -   **Nutrition Intake and Calories Visualizer:** The user's total daily nutrition intake is displayed in a simple chart. This should update automatically when new data is logged for the day.
+    -   **Nutrition Intake and Calories Visualizer:** The user's total daily nutrition and calorie intake is displayed in a simple chart. This should update automatically when new data is logged for the day.
     -   **Nutrition Log**: Users can record their dietary intake for each day, along with nutrition and calories. They can also see their past logged meals.
-    -   **Nutrition Tracker Visualizer:** The users's daily nutrition breakdown is displayed in multiple charts. They update automatically when new data is logged for the day.
+    -   **Nutrition Tracker Visualizer:** The users's daily nutrition breakdown is displayed in a simple chart. They update automatically when new data is logged for the day.
     -   **Meal Planner:** The user will receive 3 meal plan recommendations each day.
  
 -  **React Component trees:**
@@ -37,6 +37,7 @@ Create an application focused on personal health and fitness tracking. This app 
  
  3. Fatima Farhat
     - Created Nutrition Tracker Visualizer and Meal Planner features
+    - Created Motivational words graphic
     - Started User Login and Sign Up features, however it's currently put on Pending
     - Final wireframing and site theme/design
   
