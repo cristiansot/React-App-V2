@@ -48,7 +48,9 @@ function MyCalendar({ getNutrition, nutrition }) {
 /* I used this component for the calendar --> https://www.npmjs.com/package/react-day-picker */
   return (
     <div>
+      <h2 id="historyFood">Food history</h2>
       <DayPicker
+        h2="Nutrition"
         id='backgroundDayPicker'
         mode="single"
         selected={selected}

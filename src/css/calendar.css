@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   background: #8271e5;
   border-radius: 20px;
   width: 300px;
@@ -28,13 +28,20 @@
 /* Modal */
 .foodContent {
   position: relative;
-  color: #ccc;
+  margin-top: 18px;
+  font-size: 15px;
   background: rgba(52, 51, 68, 0.786);
   padding: 20px;
   border-radius: 20px;
   border: 1px solid #cccccc3b;
   width: 300px;
   padding: 30px;
+}
+
+.foodContent p {
+  margin-top: 4px;
+  color: #ccc;
+  line-height: 24px;
 }
 
 .ReactModal__Content {
@@ -78,4 +85,10 @@ p {
 
 .rdp-cell {
   padding: 5px;
+}
+
+#historyFood {
+  position: absolute;
+  margin-top: 40px;
+  margin-left: 100px;
 }
