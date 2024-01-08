@@ -17,6 +17,7 @@ Create an application focused on personal health and fitness tracking. This app 
 -  **React Component trees:**
    - **User Info & Activity Log:** https://drive.google.com/file/d/1X6f-TFmENZZFt0wnhOR7hOqqtb4r-UAF/view?usp=sharing (Click "Open with diagrams.net" at the top of the page for a better view.)
     - **Nutrition Tracker Visualizer and Meal Planner:** https://drive.google.com/file/d/1X7E9WUhS25xLTly243YI_yeSew_bRuZJ/view?usp=sharing (Click "Open with diagrams.net" at the top of the page for a better view.)
+    - **Progress Visualizer and Weekly Goals:** https://www.figma.com/file/lrwOzu0zOt0TrT0uxfqMYG/Welcome-to-FigJam?type=whiteboard&node-id=0%3A1&t=fbsVmyREINoZy8Vn-1
 
 
 -  **Team Members and Contributions:**
